@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using static RSBot.Core.Extensions.NativeExtensions;
+using RSBot.Core;
+using System.Windows.Forms;
 
 namespace RSBot.Core.Components
 {
@@ -82,45 +84,61 @@ namespace RSBot.Core.Components
                 return false;
 
             var isVtcGame = Game.ClientType == GameClientType.VTC_Game;
-            if (Game.ClientType == GameClientType.Turkey || 
-                isVtcGame)
+            try
             {
-                var moduleMemory = new byte[process.MainModule.ModuleMemorySize];
-                ReadProcessMemory(process.Handle, process.MainModule.BaseAddress, moduleMemory, process.MainModule.ModuleMemorySize, out _);
-
-                var pattern = !isVtcGame ?
-                        "6A 00 6A 00 FF D6 6A 00 8D 85" :
-                        "6A 00 68 D8 15 26 01 68 E4";
-
-                var patchNop = new byte[] { 0x90, 0x90 }; 
-                var patchNop2 = new byte[] { 0x90, 0x90, 0x90, 0x90, 0x90 };
-                var patchJmp = new byte[] { 0xEB };
-
-                var address = FindPattern(pattern, moduleMemory);
-                if (address == IntPtr.Zero)
+                if (Game.ClientType == GameClientType.Turkey || isVtcGame)
                 {
-                    Log.Error($"XIGNCODE patching error! Maybe signatures are wrong?");
-                    return false;
-                }
+                    var moduleMemory = new byte[process.MainModule.ModuleMemorySize];
+                    ReadProcessMemory(process.Handle, process.MainModule.BaseAddress, moduleMemory, process.MainModule.ModuleMemorySize, out _);
 
-                if(!isVtcGame)
-                {
-                    WriteProcessMemory(pi.hProcess, address - 0x15, patchNop, 2, out _);
-                    WriteProcessMemory(pi.hProcess, address + 0x04, patchNop, 2, out _);
-                    WriteProcessMemory(pi.hProcess, address + 0x1D, patchJmp, 1, out _);
-                    WriteProcessMemory(pi.hProcess, address + 0x9A, patchJmp, 1, out _);
-                }
-                else
-                {
-                    WriteProcessMemory(pi.hProcess, address - 0x6A, patchJmp, 1, out _);
-                    WriteProcessMemory(pi.hProcess, address + 0xC, patchNop2, 5, out _);
-                    WriteProcessMemory(pi.hProcess, address + 0x13, patchJmp, 1, out _);
-                    WriteProcessMemory(pi.hProcess, address + 0x90, patchJmp, 1, out _);
-                }
+                    var pattern = !isVtcGame ?
+                            "6A 00 6A 00 FF D6 6A 00 8D 85" :
+                            "6A 00 68 D8 15 26 01 68 E4";
+
+                    var patchNop = new byte[] { 0x90, 0x90 };
+                    var patchNop2 = new byte[] { 0x90, 0x90, 0x90, 0x90, 0x90 };
+                    var patchJmp = new byte[] { 0xEB };
+
+                    var address = FindPattern(pattern, moduleMemory);
+                    if (address == IntPtr.Zero)
+                    {
+                        Log.Error($"XIGNCODE patching error! Maybe signatures are wrong?");
+                        return false;
+                    }
+
+                    if (!isVtcGame)
+                    {
+                        WriteProcessMemory(pi.hProcess, address - 0x15, patchNop, 2, out _);
+                        WriteProcessMemory(pi.hProcess, address + 0x04, patchNop, 2, out _);
+                        WriteProcessMemory(pi.hProcess, address + 0x1D, patchJmp, 1, out _);
+                        WriteProcessMemory(pi.hProcess, address + 0x9A, patchJmp, 1, out _);
+                    }
+                    else
+                    {
+                        WriteProcessMemory(pi.hProcess, address - 0x6A, patchJmp, 1, out _);
+                        Log.Notify("Address: 0x" + (address - 0x6A).ToString("X") + " will be written with 0xEB (JMP).");
+                        WriteProcessMemory(pi.hProcess, address + 0xC, patchNop2, 5, out _);
+                        for (int i = 0; i < patchNop2.Length; i++)
+                        {
+                            IntPtr currentAddress = address + 0xC + i;
+                            Log.Notify("Address: 0x" + currentAddress.ToString("X") + " will be written with 0x90 (NOP).");
+                        }
+                        WriteProcessMemory(pi.hProcess, address + 0x13, patchJmp, 1, out _);
+                        Log.Notify("Address: 0x" + (address - 0x13).ToString("X") + " will be written with 0xEB (JMP).");
+                        WriteProcessMemory(pi.hProcess, address + 0x90, patchJmp, 1, out _);
+                        Log.Notify("Address: 0x" + (address - 0x90).ToString("X") + " will be written with 0xEB (JMP).");
+                    }
 
 
-                moduleMemory = null;
-                GC.Collect();
+                    moduleMemory = null;
+                    GC.Collect();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(LanguageManager.GetLang("Client.StartGameFailedDesc"), "Client.StartGameFailedTittle", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
             }
 
             WaitForSingleObject(remoteThread, uint.MaxValue);

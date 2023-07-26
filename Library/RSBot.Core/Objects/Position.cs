@@ -281,7 +281,7 @@ namespace RSBot.Core.Objects
         /// </returns>
         public override string ToString()
         {
-            return $"X:{X:0.0} Y:{Y:0.0}";
+            return $"Region:{Region} X:{X:0.0} Y:{Y:0.0} Z:{YOffset:0.0}";
         }
     }
 }

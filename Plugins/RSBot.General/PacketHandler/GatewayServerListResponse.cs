@@ -85,15 +85,16 @@ namespace RSBot.General.PacketHandler
                     if (serverName.EndsWith("Thien_Kim"))
                         serverName = serverName.Remove(0, 3);
                 }
-
                 Serverlist.Servers.Add(new Server
                 {
                     Id = id,
                     Name = serverName,
                     CurrentCapacity = currentCapacity,
                     MaxCapacity = maxCapacity,
-                    Status = Game.ClientType >= GameClientType.Global ? status != 4 : status == 1
+                    Status = Game.ClientType >= GameClientType.Global ? status != 4 : status == 1,
+                    State = Game.ClientType >= GameClientType.Global ? $"{(ServerStatusModern)status}" : $"{currentCapacity}/{maxCapacity}"
                 });
+
 
                 if (Game.ClientType == GameClientType.Vietnam)
                     packet.ReadByte(); // FarmId

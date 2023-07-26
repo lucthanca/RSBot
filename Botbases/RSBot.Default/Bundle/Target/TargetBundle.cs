@@ -72,7 +72,8 @@ namespace RSBot.Default.Bundle.Target
             }
 
             var warlockModeEnabled = PlayerConfig.Get<bool>("RSBot.Skills.WarlockMode", false);
-            if (warlockModeEnabled && Game.SelectedEntity.State.HasTwoDots())
+            var hasSelectedEntity = Game.SelectedEntity != null && Game.SelectedEntity.State != null;
+            if (warlockModeEnabled && hasSelectedEntity && Game.SelectedEntity.State.HasTwoDots())
                 return;
 
             if (Game.SelectedEntity != null && Game.SelectedEntity is not SpawnedMonster)

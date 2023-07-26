@@ -119,6 +119,14 @@ namespace RSBot.Core.Components
                     RunningPlayerPickup = false;
                     return;
                 }
+                /*Log.Notify("Character Position: " + playerPosition.ToString() + "\n Items Count: " + entities.Count() +
+                    "\n applyPickOnlyChar: " + flag.ToString());*/
+
+
+                foreach (var item in entities) {
+                    Log.Notify("[Log] Dropped Item for Pickup: \nuid[" + item.UniqueId + "] \nrealName: " + item.Record.GetRealName() +" \nowner:[" + item.OwnerJID + "] \nposition:[" + item.Movement.Source.ToString() + "]" + 
+                        "\nhas owner: " + item.HasOwner.ToString());
+                };
 
                 foreach (var item in entities.OrderBy(item => item.Movement.Source.DistanceTo(playerPosition)/*.Take(5)*/))
                 {
@@ -193,6 +201,7 @@ namespace RSBot.Core.Components
         {
             var playerJid = Game.Player.JID;
 
+            /*Log.Notify("Chỉ nhặt của mình: e.OwnerJID:" + e.OwnerJID.ToString());*/
             if (JustPickMyItems && e.OwnerJID != playerJid)
                 return false;
 

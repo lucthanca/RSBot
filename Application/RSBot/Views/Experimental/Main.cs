@@ -385,6 +385,7 @@ namespace RSBot.Views.Experimental
                 return;
 
             Kernel.Language = dropdown.Tag.ToString();
+            Log.Notify("SELECTED LANGUAGE" + Kernel.Language);
 
             foreach (ToolStripMenuItem item in languageToolStripMenuItem.DropDownItems)
                 item.Checked = false;
