@@ -123,10 +123,10 @@ namespace RSBot.Core.Components
                     "\n applyPickOnlyChar: " + flag.ToString());*/
 
 
-                foreach (var item in entities) {
+                /*foreach (var item in entities) {
                     Log.Notify("[Log] Dropped Item for Pickup: \nuid[" + item.UniqueId + "] \nrealName: " + item.Record.GetRealName() +" \nowner:[" + item.OwnerJID + "] \nposition:[" + item.Movement.Source.ToString() + "]" + 
                         "\nhas owner: " + item.HasOwner.ToString());
-                };
+                };*/
 
                 foreach (var item in entities.OrderBy(item => item.Movement.Source.DistanceTo(playerPosition)/*.Take(5)*/))
                 {

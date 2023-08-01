@@ -146,16 +146,17 @@ namespace RSBot.Items.Views
             tabPage1 = new TabPage();
             groupBoxOptions = new SDUI.Controls.GroupBox();
             checkPickupGold = new CheckBox();
-            checkAllEquips = new SDUI.Controls.CheckBox();
-            checkEverything = new SDUI.Controls.CheckBox();
-            checkPickupRare = new SDUI.Controls.CheckBox();
-            checkQuestItems = new SDUI.Controls.CheckBox();
-            checkPickupBlue = new SDUI.Controls.CheckBox();
+            checkAllEquips = new CheckBox();
+            checkEverything = new CheckBox();
+            checkPickupRare = new CheckBox();
+            checkQuestItems = new CheckBox();
+            // checkPickupBlue = new SDUI.Controls.CheckBox();
             groupBoxGeneral = new SDUI.Controls.GroupBox();
-            cbDontPickupWhileBotting = new SDUI.Controls.CheckBox();
-            cbJustpickmyitems = new SDUI.Controls.CheckBox();
-            checkDontPickupInBerzerk = new SDUI.Controls.CheckBox();
-            checkEnableAbilityPet = new SDUI.Controls.CheckBox();
+            cbDontPickupWhileBotting = new CheckBox();
+            cbJustpickmyitems = new CheckBox();
+            checkDontPickupInBerzerk = new CheckBox();
+            checkEnableAbilityPet = new CheckBox();
+            checkPickupBlue = new CheckBox();
             contextShoppingList.SuspendLayout();
             contextAvailableProducts.SuspendLayout();
             tabMain.SuspendLayout();
@@ -1626,13 +1627,10 @@ namespace RSBot.Items.Views
             // 
             checkAllEquips.AutoSize = true;
             checkAllEquips.BackColor = Color.Transparent;
-            checkAllEquips.Depth = 0;
             checkAllEquips.Location = new Point(272, 61);
             checkAllEquips.Margin = new Padding(0);
-            checkAllEquips.MouseLocation = new Point(-1, -1);
             checkAllEquips.Name = "checkAllEquips";
-            checkAllEquips.Ripple = true;
-            checkAllEquips.Size = new Size(148, 30);
+            checkAllEquips.Size = new Size(142, 19);
             checkAllEquips.TabIndex = 5;
             checkAllEquips.Text = "Pickup all equip items";
             checkAllEquips.UseVisualStyleBackColor = false;
@@ -1642,13 +1640,10 @@ namespace RSBot.Items.Views
             // 
             checkEverything.AutoSize = true;
             checkEverything.BackColor = Color.Transparent;
-            checkEverything.Depth = 0;
             checkEverything.Location = new Point(506, 61);
             checkEverything.Margin = new Padding(0);
-            checkEverything.MouseLocation = new Point(-1, -1);
             checkEverything.Name = "checkEverything";
-            checkEverything.Ripple = true;
-            checkEverything.Size = new Size(126, 30);
+            checkEverything.Size = new Size(121, 19);
             checkEverything.TabIndex = 4;
             checkEverything.Text = "Pickup everything";
             checkEverything.UseVisualStyleBackColor = false;
@@ -1658,13 +1653,10 @@ namespace RSBot.Items.Views
             // 
             checkPickupRare.AutoSize = true;
             checkPickupRare.BackColor = Color.Transparent;
-            checkPickupRare.Depth = 0;
             checkPickupRare.Location = new Point(15, 61);
             checkPickupRare.Margin = new Padding(0);
-            checkPickupRare.MouseLocation = new Point(-1, -1);
             checkPickupRare.Name = "checkPickupRare";
-            checkPickupRare.Ripple = true;
-            checkPickupRare.Size = new Size(164, 30);
+            checkPickupRare.Size = new Size(157, 19);
             checkPickupRare.TabIndex = 1;
             checkPickupRare.Text = "Always pickup rare items";
             checkPickupRare.UseVisualStyleBackColor = false;
@@ -1674,13 +1666,10 @@ namespace RSBot.Items.Views
             // 
             checkQuestItems.AutoSize = true;
             checkQuestItems.BackColor = Color.Transparent;
-            checkQuestItems.Depth = 0;
             checkQuestItems.Location = new Point(506, 32);
             checkQuestItems.Margin = new Padding(0);
-            checkQuestItems.MouseLocation = new Point(-1, -1);
             checkQuestItems.Name = "checkQuestItems";
-            checkQuestItems.Ripple = true;
-            checkQuestItems.Size = new Size(132, 30);
+            checkQuestItems.Size = new Size(126, 19);
             checkQuestItems.TabIndex = 4;
             checkQuestItems.Text = "Pickup quest items";
             checkQuestItems.UseVisualStyleBackColor = false;
@@ -1690,12 +1679,12 @@ namespace RSBot.Items.Views
             // 
             checkPickupBlue.AutoSize = true;
             checkPickupBlue.BackColor = Color.Transparent;
-            checkPickupBlue.Depth = 0;
+            //checkPickupBlue.Depth = 0;
             checkPickupBlue.Location = new Point(272, 32);
             checkPickupBlue.Margin = new Padding(0);
-            checkPickupBlue.MouseLocation = new Point(-1, -1);
+            //checkPickupBlue.MouseLocation = new Point(-1, -1);
             checkPickupBlue.Name = "checkPickupBlue";
-            checkPickupBlue.Ripple = true;
+            //checkPickupBlue.Ripple = true;
             checkPickupBlue.Size = new Size(167, 30);
             checkPickupBlue.TabIndex = 1;
             checkPickupBlue.Text = "Always pickup blue items";
@@ -1724,13 +1713,10 @@ namespace RSBot.Items.Views
             cbDontPickupWhileBotting.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbDontPickupWhileBotting.AutoSize = true;
             cbDontPickupWhileBotting.BackColor = Color.Transparent;
-            cbDontPickupWhileBotting.Depth = 0;
-            cbDontPickupWhileBotting.Location = new Point(281, 56);
+            cbDontPickupWhileBotting.Location = new Point(289, 56);
             cbDontPickupWhileBotting.Margin = new Padding(0);
-            cbDontPickupWhileBotting.MouseLocation = new Point(-1, -1);
             cbDontPickupWhileBotting.Name = "cbDontPickupWhileBotting";
-            cbDontPickupWhileBotting.Ripple = true;
-            cbDontPickupWhileBotting.Size = new Size(207, 30);
+            cbDontPickupWhileBotting.Size = new Size(199, 19);
             cbDontPickupWhileBotting.TabIndex = 3;
             cbDontPickupWhileBotting.Text = "Don't pickup items while botting";
             cbDontPickupWhileBotting.UseVisualStyleBackColor = false;
@@ -1740,13 +1726,10 @@ namespace RSBot.Items.Views
             // 
             cbJustpickmyitems.AutoSize = true;
             cbJustpickmyitems.BackColor = Color.Transparent;
-            cbJustpickmyitems.Depth = 0;
             cbJustpickmyitems.Location = new Point(281, 26);
             cbJustpickmyitems.Margin = new Padding(0);
-            cbJustpickmyitems.MouseLocation = new Point(-1, -1);
             cbJustpickmyitems.Name = "cbJustpickmyitems";
-            cbJustpickmyitems.Ripple = true;
-            cbJustpickmyitems.Size = new Size(129, 30);
+            cbJustpickmyitems.Size = new Size(123, 19);
             cbJustpickmyitems.TabIndex = 1;
             cbJustpickmyitems.Text = "Just pick my items";
             cbJustpickmyitems.UseVisualStyleBackColor = false;
@@ -1757,13 +1740,10 @@ namespace RSBot.Items.Views
             checkDontPickupInBerzerk.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             checkDontPickupInBerzerk.AutoSize = true;
             checkDontPickupInBerzerk.BackColor = Color.Transparent;
-            checkDontPickupInBerzerk.Depth = 0;
-            checkDontPickupInBerzerk.Location = new Point(15, 56);
+            checkDontPickupInBerzerk.Location = new Point(25, 56);
             checkDontPickupInBerzerk.Margin = new Padding(0);
-            checkDontPickupInBerzerk.MouseLocation = new Point(-1, -1);
             checkDontPickupInBerzerk.Name = "checkDontPickupInBerzerk";
-            checkDontPickupInBerzerk.Ripple = true;
-            checkDontPickupInBerzerk.Size = new Size(224, 30);
+            checkDontPickupInBerzerk.Size = new Size(214, 19);
             checkDontPickupInBerzerk.TabIndex = 2;
             checkDontPickupInBerzerk.Text = "Don't pickup items in berzerk mode";
             checkDontPickupInBerzerk.UseVisualStyleBackColor = false;
@@ -1773,13 +1753,10 @@ namespace RSBot.Items.Views
             // 
             checkEnableAbilityPet.AutoSize = true;
             checkEnableAbilityPet.BackColor = Color.Transparent;
-            checkEnableAbilityPet.Depth = 0;
             checkEnableAbilityPet.Location = new Point(15, 26);
             checkEnableAbilityPet.Margin = new Padding(0);
-            checkEnableAbilityPet.MouseLocation = new Point(-1, -1);
             checkEnableAbilityPet.Name = "checkEnableAbilityPet";
-            checkEnableAbilityPet.Ripple = true;
-            checkEnableAbilityPet.Size = new Size(195, 30);
+            checkEnableAbilityPet.Size = new Size(188, 19);
             checkEnableAbilityPet.TabIndex = 1;
             checkEnableAbilityPet.Text = "Use ability pet to pickup items ";
             checkEnableAbilityPet.UseVisualStyleBackColor = false;
@@ -1900,12 +1877,12 @@ namespace RSBot.Items.Views
         private SDUI.Controls.GroupBox groupBoxGeneral;
         // private SDUI.Controls.CheckBox checkPickupGold;
         private ColumnHeader colPickup;
-        private SDUI.Controls.CheckBox checkPickupRare;
-        private SDUI.Controls.CheckBox checkEnableAbilityPet;
+        // private SDUI.Controls.CheckBox checkPickupRare;
+        // private SDUI.Controls.CheckBox checkEnableAbilityPet;
         private SDUI.Controls.Button btnResetFilter;
-        private SDUI.Controls.CheckBox checkDontPickupInBerzerk;
-        private SDUI.Controls.CheckBox cbJustpickmyitems;
-        private SDUI.Controls.CheckBox cbDontPickupWhileBotting;
+        // private SDUI.Controls.CheckBox checkDontPickupInBerzerk;
+        // private SDUI.Controls.CheckBox cbJustpickmyitems;
+        // private SDUI.Controls.CheckBox cbDontPickupWhileBotting;
         private SDUI.Controls.Panel panel3;
         private SDUI.Controls.Label labelResult;
         private SDUI.Controls.Panel panel7;
@@ -1942,12 +1919,21 @@ namespace RSBot.Items.Views
         private SDUI.Controls.Separator separator2;
         private SDUI.Controls.Separator separator5;
         private SDUI.Controls.CheckBox checkStoreItemsFromPet;
-        private SDUI.Controls.CheckBox checkPickupBlue;
+        // private SDUI.Controls.CheckBox checkPickupBlue;
         private ToolStripMenuItem btnPickOnlyCharacter;
-        private SDUI.Controls.CheckBox checkQuestItems;
-        private SDUI.Controls.CheckBox checkAllEquips;
-        private SDUI.Controls.CheckBox checkEverything;
+        // private SDUI.Controls.CheckBox checkQuestItems;
+        // private SDUI.Controls.CheckBox checkAllEquips;
+        // private SDUI.Controls.CheckBox checkEverything;
         private SDUI.Controls.GroupBox groupBoxOptions;
         private CheckBox checkPickupGold;
+        private CheckBox cbDontPickupWhileBotting;
+        private CheckBox checkDontPickupInBerzerk;
+        private CheckBox cbJustpickmyitems;
+        private CheckBox checkEnableAbilityPet;
+        private CheckBox checkQuestItems;
+        private CheckBox checkEverything;
+        private CheckBox checkAllEquips;
+        private CheckBox checkPickupRare;
+        private CheckBox checkPickupBlue;
     }
 }
