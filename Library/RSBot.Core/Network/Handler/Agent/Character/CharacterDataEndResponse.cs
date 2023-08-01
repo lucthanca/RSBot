@@ -154,7 +154,7 @@ namespace RSBot.Core.Network.Handler.Agent.Character
             }
 
             //GuideFlag
-            if (Game.ClientType >= GameClientType.Thailand)
+            if (Game.ClientType >= GameClientType.Thailand && Game.ClientType != GameClientType.VTC_Game)
                 packet.ReadULong();
             else
                 packet.ReadUInt();
