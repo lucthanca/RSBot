@@ -41,7 +41,7 @@
         /// The status.
         /// </value>
         public bool Status { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the server capacity state.
         /// </summary>
