@@ -68,8 +68,8 @@
             buttonSelectTrainingArea = new SDUI.Controls.Button();
             label6 = new SDUI.Controls.Label();
             label5 = new SDUI.Controls.Label();
-            radioWalkAround = new SDUI.Controls.Radio();
-            radioCenter = new SDUI.Controls.Radio();
+            radioWalkAround = new System.Windows.Forms.RadioButton();
+            
             btnGetCurrent = new SDUI.Controls.Button();
             label3 = new SDUI.Controls.Label();
             label2 = new SDUI.Controls.Label();
@@ -81,6 +81,7 @@
             linkAttackWeakerMobsHelp = new System.Windows.Forms.LinkLabel();
             checkAttackWeakerFirst = new SDUI.Controls.CheckBox();
             checkBoxDimensionPillar = new SDUI.Controls.CheckBox();
+            radioCenter = new System.Windows.Forms.RadioButton();
             groupBox2.SuspendLayout();
             ctxAvoidance.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -305,7 +306,8 @@
             label4.ApplyGradient = false;
             label4.AutoSize = true;
             label4.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label4.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            label4.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label4.GradientAnimation = false;
             label4.Location = new System.Drawing.Point(18, 33);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(65, 15);
@@ -351,7 +353,8 @@
             label7.ApplyGradient = false;
             label7.AutoSize = true;
             label7.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label7.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            label7.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label7.GradientAnimation = false;
             label7.Location = new System.Drawing.Point(300, 67);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(56, 15);
@@ -360,7 +363,7 @@
             // 
             // numBerzerkMonsterAmount
             // 
-            numBerzerkMonsterAmount.BackColor = System.Drawing.Color.FromArgb(238, 238, 238);
+            numBerzerkMonsterAmount.BackColor = System.Drawing.Color.Transparent;
             numBerzerkMonsterAmount.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             numBerzerkMonsterAmount.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             numBerzerkMonsterAmount.Location = new System.Drawing.Point(214, 62);
@@ -408,6 +411,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = System.Drawing.Color.Transparent;
+            
             groupBox1.Controls.Add(buttonSelectTrainingArea);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
@@ -449,7 +453,8 @@
             label6.ApplyGradient = false;
             label6.AutoSize = true;
             label6.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label6.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            label6.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label6.GradientAnimation = false;
             label6.Location = new System.Drawing.Point(14, 145);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(159, 15);
@@ -460,7 +465,8 @@
             // 
             label5.ApplyGradient = false;
             label5.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label5.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            label5.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label5.GradientAnimation = false;
             label5.Location = new System.Drawing.Point(11, 142);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(200, 2);
@@ -473,8 +479,7 @@
             radioWalkAround.Location = new System.Drawing.Point(35, 192);
             radioWalkAround.Margin = new System.Windows.Forms.Padding(0);
             radioWalkAround.Name = "radioWalkAround";
-            radioWalkAround.Ripple = true;
-            radioWalkAround.Size = new System.Drawing.Size(100, 30);
+            radioWalkAround.Size = new System.Drawing.Size(92, 19);
             radioWalkAround.TabIndex = 5;
             radioWalkAround.TabStop = true;
             radioWalkAround.Text = "Walk around";
@@ -486,7 +491,7 @@
             radioCenter.Location = new System.Drawing.Point(35, 166);
             radioCenter.Margin = new System.Windows.Forms.Padding(0);
             radioCenter.Name = "radioCenter";
-            radioCenter.Ripple = true;
+            
             radioCenter.Size = new System.Drawing.Size(127, 30);
             radioCenter.TabIndex = 4;
             radioCenter.Text = "Go back to center";
@@ -510,7 +515,8 @@
             label3.ApplyGradient = false;
             label3.AutoSize = true;
             label3.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label3.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            label3.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label3.GradientAnimation = false;
             label3.Location = new System.Drawing.Point(27, 84);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(45, 15);
@@ -522,7 +528,8 @@
             label2.ApplyGradient = false;
             label2.AutoSize = true;
             label2.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label2.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            label2.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label2.GradientAnimation = false;
             label2.Location = new System.Drawing.Point(53, 58);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(17, 15);
@@ -534,7 +541,8 @@
             label1.ApplyGradient = false;
             label1.AutoSize = true;
             label1.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label1.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            label1.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label1.GradientAnimation = false;
             label1.Location = new System.Drawing.Point(53, 32);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(17, 15);
@@ -692,8 +700,8 @@
         private SDUI.Controls.GroupBox groupBox1;
         private SDUI.Controls.Label label6;
         private SDUI.Controls.Label label5;
-        private SDUI.Controls.Radio radioWalkAround;
-        private SDUI.Controls.Radio radioCenter;
+
+        
         private SDUI.Controls.Button btnGetCurrent;
         private SDUI.Controls.Label label3;
         private SDUI.Controls.Label label2;
@@ -709,5 +717,7 @@
         private SDUI.Controls.CheckBox checkAttackWeakerFirst;
         private System.Windows.Forms.LinkLabel linkAttackWeakerMobsHelp;
         private System.Windows.Forms.LinkLabel linkRecord;
+        private System.Windows.Forms.RadioButton radioWalkAround;
+        private System.Windows.Forms.RadioButton radioCenter;
     }
 }
