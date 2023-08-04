@@ -168,6 +168,7 @@ public partial class Main : UserControl
         checkUseDefaultAttack.Checked = PlayerConfig.Get("RSBot.Skills.UseDefaultAttack", true);
         checkUseSkillsInOrder.Checked = PlayerConfig.Get("RSBot.Skills.UseSkillsInOrder", false);
         checkUseTeleportSkill.Checked = PlayerConfig.Get("RSBot.Skills.UseTeleportSkill", false);
+        tbMagBalanc.Text = PlayerConfig.Get<string>("RSBot.Skills.castSkillSetting", "0").ToString();
     }
 
     /// <summary>
@@ -1083,5 +1084,10 @@ public partial class Main : UserControl
         PlayerConfig.Set("RSBot.Skills.TeleportSkill", comboItem.Record.ID);
 
         SkillManager.TeleportSkill = Game.Player.Skills.GetSkillInfoById(comboItem.Record.ID);
+    }
+
+    private void tbMagBalanc_TextChanged(object sender, EventArgs e)
+    {
+        PlayerConfig.Set("RSBot.Skills.castSkillSetting", tbMagBalanc.Text);
     }
 }

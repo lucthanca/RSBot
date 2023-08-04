@@ -138,7 +138,7 @@ namespace RSBot.Core.Components
             {
                 MessageBox.Show(LanguageManager.GetLang("Client.StartGameFailedDesc"), "Client.StartGameFailedTittle", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-                return false;
+                /*return false;*/
             }
 
             WaitForSingleObject(remoteThread, uint.MaxValue);

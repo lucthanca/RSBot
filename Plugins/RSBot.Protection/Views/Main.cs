@@ -82,7 +82,7 @@ namespace RSBot.Protection.Views
         private void ApplySettings()
         {
             const string key = "RSBot.Protection.";
-            foreach (var checkbox in groupHPMP.Controls.OfType<SDUI.Controls.CheckBox>())
+            foreach (var checkbox in groupHPMP.Controls.OfType<System.Windows.Forms.CheckBox>())
                 PlayerConfig.Set(key + checkbox.Name, checkbox.Checked);
 
             foreach (var num in groupHPMP.Controls.OfType<NumericUpDown>())

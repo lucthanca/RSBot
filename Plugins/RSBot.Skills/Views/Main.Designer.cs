@@ -70,6 +70,10 @@
             groupBox4 = new SDUI.Controls.GroupBox();
             checkCastBuffsDuringWalkBack = new SDUI.Controls.CheckBox();
             checkCastBuffsInTowns = new SDUI.Controls.CheckBox();
+            tabPage5 = new System.Windows.Forms.TabPage();
+            groupBox5_1 = new SDUI.Controls.GroupBox();
+            lbMagBalanc = new System.Windows.Forms.Label();
+            tbMagBalanc = new System.Windows.Forms.TextBox();
             tabControl2 = new SDUI.Controls.TabControl();
             tabPage3 = new System.Windows.Forms.TabPage();
             listSkills = new SDUI.Controls.ListView();
@@ -100,6 +104,8 @@
             grpMasteryLearn.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
+            tabPage5.SuspendLayout();
+            groupBox5_1.SuspendLayout();
             tabControl2.SuspendLayout();
             tabPage3.SuspendLayout();
             skillContextMenu.SuspendLayout();
@@ -186,7 +192,8 @@
             label2.ApplyGradient = false;
             label2.AutoSize = true;
             label2.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label2.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            label2.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label2.GradientAnimation = false;
             label2.Location = new System.Drawing.Point(9, 183);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(34, 15);
@@ -343,7 +350,8 @@
             label1.ApplyGradient = false;
             label1.AutoSize = true;
             label1.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label1.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            label1.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label1.GradientAnimation = false;
             label1.Location = new System.Drawing.Point(9, 174);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(44, 15);
@@ -368,10 +376,12 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage5);
             tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
             tabControl1.ItemSize = new System.Drawing.Size(80, 24);
             tabControl1.Location = new System.Drawing.Point(362, 0);
             tabControl1.Name = "tabControl1";
+            tabControl1.Radius = new System.Windows.Forms.Padding(4);
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new System.Drawing.Size(392, 467);
             tabControl1.TabIndex = 5;
@@ -522,7 +532,8 @@
             label4.ApplyGradient = false;
             label4.AutoSize = true;
             label4.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label4.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            label4.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label4.GradientAnimation = false;
             label4.Location = new System.Drawing.Point(243, 36);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(28, 15);
@@ -531,7 +542,7 @@
             // 
             // numMasteryGap
             // 
-            numMasteryGap.BackColor = System.Drawing.Color.FromArgb(238, 238, 238);
+            numMasteryGap.BackColor = System.Drawing.Color.Transparent;
             numMasteryGap.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             numMasteryGap.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             numMasteryGap.Location = new System.Drawing.Point(277, 32);
@@ -591,7 +602,7 @@
             groupBox3.Size = new System.Drawing.Size(367, 119);
             groupBox3.TabIndex = 11;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Automated resurrection";
+            groupBox3.Text = "General";
             // 
             // comboResurrectionSkill
             // 
@@ -630,7 +641,8 @@
             label3.ApplyGradient = false;
             label3.AutoSize = true;
             label3.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label3.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            label3.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label3.GradientAnimation = false;
             label3.Location = new System.Drawing.Point(26, 35);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(54, 15);
@@ -700,6 +712,49 @@
             checkCastBuffsInTowns.UseVisualStyleBackColor = false;
             checkCastBuffsInTowns.CheckedChanged += checkCastBuffsInTowns_CheckedChanged;
             // 
+            // tabPage5
+            // 
+            tabPage5.BackColor = System.Drawing.Color.White;
+            tabPage5.Controls.Add(groupBox5_1);
+            tabPage5.Location = new System.Drawing.Point(4, 28);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            tabPage5.Size = new System.Drawing.Size(384, 435);
+            tabPage5.TabIndex = 2;
+            tabPage5.Text = "Cast Skill Setting";
+            // 
+            // groupBox5_1
+            // 
+            groupBox5_1.BackColor = System.Drawing.Color.Transparent;
+            groupBox5_1.Controls.Add(lbMagBalanc);
+            groupBox5_1.Controls.Add(tbMagBalanc);
+            groupBox5_1.Location = new System.Drawing.Point(6, 3);
+            groupBox5_1.Name = "groupBox5_1";
+            groupBox5_1.Padding = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            groupBox5_1.Radius = 10;
+            groupBox5_1.ShadowDepth = 4;
+            groupBox5_1.Size = new System.Drawing.Size(372, 101);
+            groupBox5_1.TabIndex = 0;
+            groupBox5_1.TabStop = false;
+            groupBox5_1.Text = "General Setting";
+            // 
+            // lbMagBalanc
+            // 
+            lbMagBalanc.AutoSize = true;
+            lbMagBalanc.Location = new System.Drawing.Point(6, 30);
+            lbMagBalanc.Name = "lbMagBalanc";
+            lbMagBalanc.Size = new System.Drawing.Size(84, 15);
+            lbMagBalanc.TabIndex = 1;
+            lbMagBalanc.Text = "Magic Balance";
+            // 
+            // tbMagBalanc
+            // 
+            tbMagBalanc.Location = new System.Drawing.Point(96, 27);
+            tbMagBalanc.Name = "tbMagBalanc";
+            tbMagBalanc.Size = new System.Drawing.Size(54, 23);
+            tbMagBalanc.TabIndex = 0;
+            tbMagBalanc.TextChanged += tbMagBalanc_TextChanged;
+            // 
             // tabControl2
             // 
             tabControl2.Controls.Add(tabPage3);
@@ -708,6 +763,7 @@
             tabControl2.ItemSize = new System.Drawing.Size(80, 24);
             tabControl2.Location = new System.Drawing.Point(0, 0);
             tabControl2.Name = "tabControl2";
+            tabControl2.Radius = new System.Windows.Forms.Padding(4);
             tabControl2.SelectedIndex = 0;
             tabControl2.Size = new System.Drawing.Size(362, 467);
             tabControl2.TabIndex = 6;
@@ -945,6 +1001,9 @@
             groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            tabPage5.ResumeLayout(false);
+            groupBox5_1.ResumeLayout(false);
+            groupBox5_1.PerformLayout();
             tabControl2.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             skillContextMenu.ResumeLayout(false);
@@ -974,6 +1033,7 @@
         private SDUI.Controls.CheckBox checkAcceptResurrection;
         private SDUI.Controls.CheckBox checkCastBuffsInTowns;
         private SDUI.Controls.GroupBox groupBox3;
+        private SDUI.Controls.GroupBox groupBox5_1;
         private SDUI.Controls.GroupBox groupBox4;
         private SDUI.Controls.CheckBox checkCastBuffsDuringWalkBack;
         private SDUI.Controls.TabControl tabControl2;
@@ -1018,5 +1078,9 @@
         private SDUI.Controls.CheckBox checkUseSkillsInOrder;
         private SDUI.Controls.ComboBox comboTeleportSkill;
         private SDUI.Controls.CheckBox checkUseTeleportSkill;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lbMagBalanc;
+        private System.Windows.Forms.TextBox tbMagBalanc;
     }
 }

@@ -74,6 +74,27 @@ namespace RSBot.Default.Bundle.Attack
             var uniqueId = Game.SelectedEntity?.UniqueId;
             if (uniqueId == null)
                 return;
+
+            int targetLevel = Game.SelectedEntity.Record.Level;
+            int targetHP = Game.SelectedEntity.Health;
+            uint maxMagAtk = Game.Player.MagicalAttackMax;
+            double baseRate = 1.31;
+            int playerLevel = Game.Player.Level;
+            double magBalance = PlayerConfig.Get<double>("RSBot.Skills.castSkillSetting", 0);
+            double atkRate = 0;
+            if (magBalance > 0) {
+                if (playerLevel - targetLevel > 0)
+                {
+                    atkRate = baseRate + (playerLevel - targetLevel) * 0.03;
+                }
+                double estimateNormalDmg = (maxMagAtk * magBalance) * atkRate;
+                /*Log.Notify($"Estimate Player Damage: {magBalance}");*/
+                if (estimateNormalDmg >= (double)targetHP)
+                {
+                    SkillManager.CastAutoAttack();
+                    return;
+                }
+            }
             
             skill?.Cast(uniqueId.Value);
         }

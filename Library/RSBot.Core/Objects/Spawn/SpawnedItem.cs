@@ -92,15 +92,15 @@ namespace RSBot.Core.Objects.Spawn
                 result.OwnerJID = packet.ReadUInt();
 
 
-            Log.Notify("\n Real Name: " + result.Record.GetRealName() +
+            /*Log.Notify("\n Real Name: " + result.Record.GetRealName() +
                 "\n Owner: " + result.OwnerName +
                 "\n RecordObject: " + result.Record.ToString() +
-                /*"\n packet: " + BitConverter.ToString(packet.GetBytes()).Replace("-", " ") +*/
+                *//*"\n packet: " + BitConverter.ToString(packet.GetBytes()).Replace("-", " ") +*//*
                 "\n Owner_JID: " + result.OwnerJID + 
                 "\n Player_JID: " + Game.Player.JID + 
                 "\n UniqueID: " + result.UniqueId + 
                 "\n Source: " + result.Movement.Source.ToString() +
-                "\n hasOwner: " + result.HasOwner.ToString());
+                "\n hasOwner: " + result.HasOwner.ToString());*/
 
             result.Rarity = (ObjectRarity)packet.ReadByte();
 
