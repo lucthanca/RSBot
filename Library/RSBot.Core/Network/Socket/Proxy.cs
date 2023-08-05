@@ -280,6 +280,7 @@ namespace RSBot.Core.Network
 
                 Game.Ready = false;
                 Game.Started = false;
+                Game.Party?.Clear();
 
                 EventManager.FireEvent("OnAgentServerDisconnected");
             }

@@ -59,7 +59,7 @@
             textBoxLeaveIfMasterNotName = new SDUI.Controls.TextBox();
             checkBoxListenCommandsOnlyList = new SDUI.Controls.CheckBox();
             checkBoxListenMasterCommands = new SDUI.Controls.CheckBox();
-            //checkBoxLeaveIfMasterNot = new SDUI.Controls.CheckBox();
+            checkBoxLeaveIfMasterNot = new System.Windows.Forms.CheckBox();
             checkAcceptIfBotStopped = new System.Windows.Forms.CheckBox();
             checkAcceptAtTrainingPlace = new System.Windows.Forms.CheckBox();
             label2 = new SDUI.Controls.Label();
@@ -150,7 +150,6 @@
             columnLimit = new System.Windows.Forms.ColumnHeader();
             panel5 = new SDUI.Controls.Panel();
             checkHideLowerLevelSkills = new SDUI.Controls.CheckBox();
-            checkBoxLeaveIfMasterNot = new System.Windows.Forms.CheckBox();
             tabMain.SuspendLayout();
             tabCurrentParty.SuspendLayout();
             contextParty.SuspendLayout();
@@ -367,10 +366,10 @@
             // 
             checkCurrentAllowInvitations.BackColor = System.Drawing.Color.Transparent;
             checkCurrentAllowInvitations.Enabled = false;
-            checkCurrentAllowInvitations.Location = new System.Drawing.Point(143, 31);
+            checkCurrentAllowInvitations.Location = new System.Drawing.Point(136, 31);
             checkCurrentAllowInvitations.Margin = new System.Windows.Forms.Padding(0);
             checkCurrentAllowInvitations.Name = "checkCurrentAllowInvitations";
-            checkCurrentAllowInvitations.Size = new System.Drawing.Size(111, 15);
+            checkCurrentAllowInvitations.Size = new System.Drawing.Size(111, 16);
             checkCurrentAllowInvitations.TabIndex = 6;
             checkCurrentAllowInvitations.Text = "Allow invitations";
             checkCurrentAllowInvitations.UseVisualStyleBackColor = false;
@@ -382,7 +381,7 @@
             checkCurrentAutoShareItems.Location = new System.Drawing.Point(13, 54);
             checkCurrentAutoShareItems.Margin = new System.Windows.Forms.Padding(0);
             checkCurrentAutoShareItems.Name = "checkCurrentAutoShareItems";
-            checkCurrentAutoShareItems.Size = new System.Drawing.Size(105, 15);
+            checkCurrentAutoShareItems.Size = new System.Drawing.Size(105, 16);
             checkCurrentAutoShareItems.TabIndex = 5;
             checkCurrentAutoShareItems.Text = "Item auto share";
             checkCurrentAutoShareItems.UseVisualStyleBackColor = false;
@@ -394,7 +393,7 @@
             checkCurrentAutoShareEXP.Location = new System.Drawing.Point(13, 31);
             checkCurrentAutoShareEXP.Margin = new System.Windows.Forms.Padding(0);
             checkCurrentAutoShareEXP.Name = "checkCurrentAutoShareEXP";
-            checkCurrentAutoShareEXP.Size = new System.Drawing.Size(103, 15);
+            checkCurrentAutoShareEXP.Size = new System.Drawing.Size(103, 16);
             checkCurrentAutoShareEXP.TabIndex = 5;
             checkCurrentAutoShareEXP.Text = "EXP Auto share";
             checkCurrentAutoShareEXP.UseVisualStyleBackColor = false;
@@ -546,13 +545,10 @@
             // 
             checkBoxLeaveIfMasterNot.AutoSize = true;
             checkBoxLeaveIfMasterNot.BackColor = System.Drawing.Color.Transparent;
-            //checkBoxLeaveIfMasterNot.Depth = 0;
             checkBoxLeaveIfMasterNot.Location = new System.Drawing.Point(20, 190);
             checkBoxLeaveIfMasterNot.Margin = new System.Windows.Forms.Padding(0);
-            //checkBoxLeaveIfMasterNot.MouseLocation = new System.Drawing.Point(-1, -1);
             checkBoxLeaveIfMasterNot.Name = "checkBoxLeaveIfMasterNot";
-            //checkBoxLeaveIfMasterNot.Ripple = true;
-            checkBoxLeaveIfMasterNot.Size = new System.Drawing.Size(138, 30);
+            checkBoxLeaveIfMasterNot.Size = new System.Drawing.Size(132, 19);
             checkBoxLeaveIfMasterNot.TabIndex = 13;
             checkBoxLeaveIfMasterNot.Text = "Leave, if master not:";
             checkBoxLeaveIfMasterNot.UseVisualStyleBackColor = false;

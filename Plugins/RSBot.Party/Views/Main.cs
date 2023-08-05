@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace RSBot.Party.Views
 {
@@ -82,6 +83,8 @@ namespace RSBot.Party.Views
         /// <param name="member"></param>
         public void AddNewPartyMember(PartyMember member)
         {
+            var existedInList = listParty.Items.Find(member.Name, true);
+            if (existedInList == null || existedInList.Length > 0) { return; }
             var viewItem = listParty.Items.Add(member.Name, member.Name, 0);
             viewItem.UseItemStyleForSubItems = false;
             viewItem.Tag = member;
@@ -286,9 +289,24 @@ namespace RSBot.Party.Views
             textBoxLeaveIfMasterNotName.Enabled = !checkBoxLeaveIfMasterNot.Checked;
             checkBoxFollowMaster.Checked = PlayerConfig.Get("RSBot.Party.AlwaysFollowPartyMaster", false);
 
+            listParty.Items.Clear();
+
             var autoPartyList = PlayerConfig.GetArray<string>("RSBot.Party.AutoPartyList");
             foreach (var item in autoPartyList)
-                listAutoParty.Items.Add(item);
+            {
+                bool isExist = false;
+                foreach (ListViewItem party in listParty.Items)
+                {
+                    if (party.Text == item)
+                    {
+                        isExist = true;
+                        break;
+                    }
+                }
+                
+                if (!isExist)
+                    listParty.Items.Add(item);
+            }
 
             var playerList = PlayerConfig.GetArray<string>("RSBot.Party.Commands.PlayersList");
             foreach (var item in playerList)
@@ -417,7 +435,9 @@ namespace RSBot.Party.Views
                     return;
                 }
 
-                foreach (var member in Game.Party.Members.FindAll(p => p.Name != Game.Player.Name || p.Name != Game.Player.JobInformation.Name))
+                List<PartyMember> validMembers = Game.Party.Members.FindAll(p => p.Name != Game.Player.Name || p.Name != Game.Player.JobInformation.Name);
+
+                foreach (var member in validMembers)
                     AddNewPartyMember(member);
 
                 menuBanish.Enabled = Game.Party.IsLeader;
