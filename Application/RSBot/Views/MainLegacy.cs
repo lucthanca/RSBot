@@ -1,27 +1,30 @@
 ﻿using Microsoft.Win32;
-using RSBot.Core;
 using RSBot.Core.Client;
 using RSBot.Core.Components;
 using RSBot.Core.Event;
 using RSBot.Core.Plugins;
+using RSBot.Core;
 using RSBot.Views.Dialog;
-using SDUI;
 using SDUI.Controls;
 using SDUI.Helpers;
+using SDUI;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SDUI.NativeMethods;
+using System.Security.Policy;
 
 namespace RSBot.Views
 {
-    public partial class Main : Form
+    public partial class MainLegacy : Form
     {
-        public static readonly Color LightThemeColor = Color.FromArgb(255, 255, 255);
-        public static readonly Color DarkThemeColor = Color.FromArgb(16, 16, 16);
 
         #region Events
         public static event UserPreferenceChangingEventHandler UserPreferenceChanging;
@@ -41,7 +44,7 @@ namespace RSBot.Views
         /// <summary>
         /// Initializes a new instance of the <see cref="Main"/> class.
         /// </summary>
-        public Main()
+        public MainLegacy()
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
@@ -67,10 +70,10 @@ namespace RSBot.Views
             if (!detectDarkLight)
                 return;
 
-            if (WindowsHelper.IsDark())
+            /*if (WindowsHelper.IsDark())
                 SetThemeColor(DarkThemeColor);
             else
-                SetThemeColor(LightThemeColor);
+                SetThemeColor(LightThemeColor);*/
         }
 
         /// <summary>
@@ -244,7 +247,9 @@ namespace RSBot.Views
         /// </summary>
         private void ConfigureSidebar()
         {
-            var size = Size;
+            pSidebar.Visible = menuSidebar.Checked;
+            
+            /*var size = Size;
             if (menuSidebar.Checked)
             {
                 size.Width = 1048;
@@ -261,7 +266,7 @@ namespace RSBot.Views
             Width = size.Width;
             Height = size.Height;
             MinimumSize = size;
-            MaximumSize = size;
+            MaximumSize = size;*/
         }
 
         /// <summary>
@@ -622,11 +627,11 @@ namespace RSBot.Views
         /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void menuStrip_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            /*if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            }*/
         }
 
         /// <summary>
@@ -637,7 +642,7 @@ namespace RSBot.Views
         private void darkToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GlobalConfig.Set("RSBot.Theme.Auto", false);
-            SetThemeColor(DarkThemeColor);
+            /*SetThemeColor(DarkThemeColor);*/
         }
 
         /// <summary>
@@ -648,7 +653,7 @@ namespace RSBot.Views
         private void lightToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GlobalConfig.Set("RSBot.Theme.Auto", false);
-            SetThemeColor(LightThemeColor);
+            /*SetThemeColor(LightThemeColor);*/
         }
 
         /// <summary>

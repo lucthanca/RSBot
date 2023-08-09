@@ -83,8 +83,20 @@ namespace RSBot.Party.Views
         /// <param name="member"></param>
         public void AddNewPartyMember(PartyMember member)
         {
-            var existedInList = listParty.Items.Find(member.Name, true);
-            if (existedInList == null || existedInList.Length > 0) { return; }
+            bool isExist = false;
+            foreach (ListViewItem item in listParty.Items)
+            {
+                if (item == null) { continue; }
+                if (item.Text == member.Name)
+                {
+                    isExist = true;
+                    break;
+                }
+            }
+            if (isExist)
+            {
+                return;
+            }
             var viewItem = listParty.Items.Add(member.Name, member.Name, 0);
             viewItem.UseItemStyleForSubItems = false;
             viewItem.Tag = member;

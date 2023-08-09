@@ -1,4 +1,6 @@
-﻿namespace RSBot.Protection.Views
+﻿using System.Windows.Forms;
+
+namespace RSBot.Protection.Views
 {
     partial class Main
     {
@@ -47,33 +49,33 @@
             checkUseBadStatusSkill = new SDUI.Controls.CheckBox();
             checkUseUniversalPills = new SDUI.Controls.CheckBox();
             groupHPMP = new SDUI.Controls.GroupBox();
+            numPlayerMPPotionMin = new NumericUpDown();
             label17 = new SDUI.Controls.Label();
-            comboSkillPlayerMP = new SDUI.Controls.ComboBox();
-            comboSkillPlayerHP = new SDUI.Controls.ComboBox();
+            comboSkillPlayerMP = new ComboBox();
+            comboSkillPlayerHP = new ComboBox();
             label11 = new SDUI.Controls.Label();
-            numPlayerSkillMPMin = new SDUI.Controls.NumUpDown();
+            numPlayerSkillMPMin = new NumericUpDown();
             label12 = new SDUI.Controls.Label();
             label9 = new SDUI.Controls.Label();
-            numPlayerSkillHPMin = new SDUI.Controls.NumUpDown();
+            numPlayerSkillHPMin = new NumericUpDown();
             label10 = new SDUI.Controls.Label();
             label7 = new SDUI.Controls.Label();
-            numPlayerMPVigorPotionMin = new SDUI.Controls.NumUpDown();
+            numPlayerMPVigorPotionMin = new NumericUpDown();
             label8 = new SDUI.Controls.Label();
             label5 = new SDUI.Controls.Label();
-            numPlayerHPVigorPotionMin = new SDUI.Controls.NumUpDown();
+            numPlayerHPVigorPotionMin = new NumericUpDown();
             label6 = new SDUI.Controls.Label();
             label3 = new SDUI.Controls.Label();
-            numPlayerMPPotionMin = new SDUI.Controls.NumUpDown();
             label4 = new SDUI.Controls.Label();
             label2 = new SDUI.Controls.Label();
-            numPlayerHPPotionMin = new SDUI.Controls.NumUpDown();
+            numPlayerHPPotionMin = new NumericUpDown();
             label1 = new SDUI.Controls.Label();
-            checkUseSkillHP = new System.Windows.Forms.CheckBox();
-            checkUseSkillMP = new System.Windows.Forms.CheckBox();
-            checkUseHPPotionsPlayer = new System.Windows.Forms.CheckBox();
-            checkUseVigorMP = new System.Windows.Forms.CheckBox();
-            checkUseMPPotionsPlayer = new System.Windows.Forms.CheckBox();
-            checkUseVigorHP = new System.Windows.Forms.CheckBox();
+            checkUseSkillHP = new CheckBox();
+            checkUseSkillMP = new CheckBox();
+            checkUseHPPotionsPlayer = new CheckBox();
+            checkUseVigorMP = new CheckBox();
+            checkUseMPPotionsPlayer = new CheckBox();
+            checkUseVigorHP = new CheckBox();
             groupPet = new SDUI.Controls.GroupBox();
             checkAutoSummonAttackPet = new SDUI.Controls.CheckBox();
             checkUseAbnormalStatePotion = new SDUI.Controls.CheckBox();
@@ -87,17 +89,25 @@
             checkUsePetHP = new SDUI.Controls.CheckBox();
             checkUseHGP = new SDUI.Controls.CheckBox();
             groupStatPoints = new SDUI.Controls.GroupBox();
-            buttonRun = new SDUI.Controls.Button();
-            checkIncBotStopped = new SDUI.Controls.CheckBox();
-            numIncStr = new SDUI.Controls.NumUpDown();
-            numIncInt = new SDUI.Controls.NumUpDown();
-            checkIncStr = new SDUI.Controls.CheckBox();
-            checkIncInt = new SDUI.Controls.CheckBox();
+            buttonRun = new Button();
+            checkIncBotStopped = new CheckBox();
+            numIncStr = new NumericUpDown();
+            numIncInt = new NumericUpDown();
+            checkIncStr = new CheckBox();
+            checkIncInt = new CheckBox();
             groupBackTown.SuspendLayout();
             groupBadStatus.SuspendLayout();
             groupHPMP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numPlayerMPPotionMin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPlayerSkillMPMin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPlayerSkillHPMin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPlayerMPVigorPotionMin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPlayerHPVigorPotionMin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPlayerHPPotionMin).BeginInit();
             groupPet.SuspendLayout();
             groupStatPoints.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numIncStr).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numIncInt).BeginInit();
             SuspendLayout();
             // 
             // label22
@@ -129,7 +139,7 @@
             groupBackTown.Controls.Add(checkNoArrows);
             groupBackTown.Location = new System.Drawing.Point(500, 7);
             groupBackTown.Name = "groupBackTown";
-            groupBackTown.Padding = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            groupBackTown.Padding = new Padding(3, 10, 3, 3);
             groupBackTown.Radius = 10;
             groupBackTown.ShadowDepth = 4;
             groupBackTown.Size = new System.Drawing.Size(254, 266);
@@ -143,7 +153,7 @@
             checkStopBotOnReturnToTown.BackColor = System.Drawing.Color.Transparent;
             checkStopBotOnReturnToTown.Depth = 0;
             checkStopBotOnReturnToTown.Location = new System.Drawing.Point(12, 63);
-            checkStopBotOnReturnToTown.Margin = new System.Windows.Forms.Padding(0);
+            checkStopBotOnReturnToTown.Margin = new Padding(0);
             checkStopBotOnReturnToTown.MouseLocation = new System.Drawing.Point(-1, -1);
             checkStopBotOnReturnToTown.Name = "checkStopBotOnReturnToTown";
             checkStopBotOnReturnToTown.Ripple = true;
@@ -187,7 +197,7 @@
             checkLevelUp.BackColor = System.Drawing.Color.Transparent;
             checkLevelUp.Depth = 0;
             checkLevelUp.Location = new System.Drawing.Point(12, 231);
-            checkLevelUp.Margin = new System.Windows.Forms.Padding(0);
+            checkLevelUp.Margin = new Padding(0);
             checkLevelUp.MouseLocation = new System.Drawing.Point(-1, -1);
             checkLevelUp.Name = "checkLevelUp";
             checkLevelUp.Ripple = true;
@@ -203,7 +213,7 @@
             checkFullPetInventory.BackColor = System.Drawing.Color.Transparent;
             checkFullPetInventory.Depth = 0;
             checkFullPetInventory.Location = new System.Drawing.Point(12, 135);
-            checkFullPetInventory.Margin = new System.Windows.Forms.Padding(0);
+            checkFullPetInventory.Margin = new Padding(0);
             checkFullPetInventory.MouseLocation = new System.Drawing.Point(-1, -1);
             checkFullPetInventory.Name = "checkFullPetInventory";
             checkFullPetInventory.Ripple = true;
@@ -219,7 +229,7 @@
             checkNoMPPotions.BackColor = System.Drawing.Color.Transparent;
             checkNoMPPotions.Depth = 0;
             checkNoMPPotions.Location = new System.Drawing.Point(12, 183);
-            checkNoMPPotions.Margin = new System.Windows.Forms.Padding(0);
+            checkNoMPPotions.Margin = new Padding(0);
             checkNoMPPotions.MouseLocation = new System.Drawing.Point(-1, -1);
             checkNoMPPotions.Name = "checkNoMPPotions";
             checkNoMPPotions.Ripple = true;
@@ -235,7 +245,7 @@
             checkNoHPPotions.BackColor = System.Drawing.Color.Transparent;
             checkNoHPPotions.Depth = 0;
             checkNoHPPotions.Location = new System.Drawing.Point(12, 159);
-            checkNoHPPotions.Margin = new System.Windows.Forms.Padding(0);
+            checkNoHPPotions.Margin = new Padding(0);
             checkNoHPPotions.MouseLocation = new System.Drawing.Point(-1, -1);
             checkNoHPPotions.Name = "checkNoHPPotions";
             checkNoHPPotions.Ripple = true;
@@ -251,7 +261,7 @@
             checkDurability.BackColor = System.Drawing.Color.Transparent;
             checkDurability.Depth = 0;
             checkDurability.Location = new System.Drawing.Point(12, 207);
-            checkDurability.Margin = new System.Windows.Forms.Padding(0);
+            checkDurability.Margin = new Padding(0);
             checkDurability.MouseLocation = new System.Drawing.Point(-1, -1);
             checkDurability.Name = "checkDurability";
             checkDurability.Ripple = true;
@@ -267,7 +277,7 @@
             checkDead.BackColor = System.Drawing.Color.Transparent;
             checkDead.Depth = 0;
             checkDead.Location = new System.Drawing.Point(12, 36);
-            checkDead.Margin = new System.Windows.Forms.Padding(0);
+            checkDead.Margin = new Padding(0);
             checkDead.MouseLocation = new System.Drawing.Point(-1, -1);
             checkDead.Name = "checkDead";
             checkDead.Ripple = true;
@@ -283,7 +293,7 @@
             checkInventory.BackColor = System.Drawing.Color.Transparent;
             checkInventory.Depth = 0;
             checkInventory.Location = new System.Drawing.Point(12, 111);
-            checkInventory.Margin = new System.Windows.Forms.Padding(0);
+            checkInventory.Margin = new Padding(0);
             checkInventory.MouseLocation = new System.Drawing.Point(-1, -1);
             checkInventory.Name = "checkInventory";
             checkInventory.Ripple = true;
@@ -299,7 +309,7 @@
             checkNoArrows.BackColor = System.Drawing.Color.Transparent;
             checkNoArrows.Depth = 0;
             checkNoArrows.Location = new System.Drawing.Point(12, 87);
-            checkNoArrows.Margin = new System.Windows.Forms.Padding(0);
+            checkNoArrows.Margin = new Padding(0);
             checkNoArrows.MouseLocation = new System.Drawing.Point(-1, -1);
             checkNoArrows.Name = "checkNoArrows";
             checkNoArrows.Ripple = true;
@@ -318,7 +328,7 @@
             groupBadStatus.Controls.Add(checkUseUniversalPills);
             groupBadStatus.Location = new System.Drawing.Point(15, 226);
             groupBadStatus.Name = "groupBadStatus";
-            groupBadStatus.Padding = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            groupBadStatus.Padding = new Padding(3, 10, 3, 3);
             groupBadStatus.Radius = 10;
             groupBadStatus.ShadowDepth = 4;
             groupBadStatus.Size = new System.Drawing.Size(468, 93);
@@ -341,9 +351,9 @@
             // 
             // comboSkillBadStatus
             // 
-            comboSkillBadStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            comboSkillBadStatus.DrawMode = DrawMode.OwnerDrawFixed;
             comboSkillBadStatus.DropDownHeight = 100;
-            comboSkillBadStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboSkillBadStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             comboSkillBadStatus.FormattingEnabled = true;
             comboSkillBadStatus.IntegralHeight = false;
             comboSkillBadStatus.ItemHeight = 17;
@@ -361,7 +371,7 @@
             checkUseBadStatusSkill.BackColor = System.Drawing.Color.Transparent;
             checkUseBadStatusSkill.Depth = 0;
             checkUseBadStatusSkill.Location = new System.Drawing.Point(11, 56);
-            checkUseBadStatusSkill.Margin = new System.Windows.Forms.Padding(0);
+            checkUseBadStatusSkill.Margin = new Padding(0);
             checkUseBadStatusSkill.MouseLocation = new System.Drawing.Point(-1, -1);
             checkUseBadStatusSkill.Name = "checkUseBadStatusSkill";
             checkUseBadStatusSkill.Ripple = true;
@@ -377,7 +387,7 @@
             checkUseUniversalPills.BackColor = System.Drawing.Color.Transparent;
             checkUseUniversalPills.Depth = 0;
             checkUseUniversalPills.Location = new System.Drawing.Point(11, 29);
-            checkUseUniversalPills.Margin = new System.Windows.Forms.Padding(0);
+            checkUseUniversalPills.Margin = new Padding(0);
             checkUseUniversalPills.MouseLocation = new System.Drawing.Point(-1, -1);
             checkUseUniversalPills.Name = "checkUseUniversalPills";
             checkUseUniversalPills.Ripple = true;
@@ -390,6 +400,7 @@
             // groupHPMP
             // 
             groupHPMP.BackColor = System.Drawing.Color.Transparent;
+            groupHPMP.Controls.Add(numPlayerMPPotionMin);
             groupHPMP.Controls.Add(label17);
             groupHPMP.Controls.Add(comboSkillPlayerMP);
             groupHPMP.Controls.Add(comboSkillPlayerHP);
@@ -406,7 +417,6 @@
             groupHPMP.Controls.Add(numPlayerHPVigorPotionMin);
             groupHPMP.Controls.Add(label6);
             groupHPMP.Controls.Add(label3);
-            groupHPMP.Controls.Add(numPlayerMPPotionMin);
             groupHPMP.Controls.Add(label4);
             groupHPMP.Controls.Add(label2);
             groupHPMP.Controls.Add(numPlayerHPPotionMin);
@@ -419,13 +429,26 @@
             groupHPMP.Controls.Add(checkUseVigorHP);
             groupHPMP.Location = new System.Drawing.Point(15, 7);
             groupHPMP.Name = "groupHPMP";
-            groupHPMP.Padding = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            groupHPMP.Padding = new Padding(3, 10, 3, 3);
             groupHPMP.Radius = 10;
             groupHPMP.ShadowDepth = 4;
             groupHPMP.Size = new System.Drawing.Size(468, 213);
             groupHPMP.TabIndex = 5;
             groupHPMP.TabStop = false;
             groupHPMP.Text = "Health / Mana recovery";
+            // 
+            // numPlayerMPPotionMin
+            // 
+            numPlayerMPPotionMin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            numPlayerMPPotionMin.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            numPlayerMPPotionMin.Location = new System.Drawing.Point(365, 51);
+            numPlayerMPPotionMin.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numPlayerMPPotionMin.MinimumSize = new System.Drawing.Size(80, 0);
+            numPlayerMPPotionMin.Name = "numPlayerMPPotionMin";
+            numPlayerMPPotionMin.Size = new System.Drawing.Size(80, 23);
+            numPlayerMPPotionMin.TabIndex = 11;
+            numPlayerMPPotionMin.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            numPlayerMPPotionMin.ValueChanged += numSettings_ValueChanged;
             // 
             // label17
             // 
@@ -442,32 +465,28 @@
             // 
             // comboSkillPlayerMP
             // 
-            comboSkillPlayerMP.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            comboSkillPlayerMP.DrawMode = DrawMode.OwnerDrawFixed;
             comboSkillPlayerMP.DropDownHeight = 100;
-            comboSkillPlayerMP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboSkillPlayerMP.DropDownStyle = ComboBoxStyle.DropDownList;
             comboSkillPlayerMP.FormattingEnabled = true;
             comboSkillPlayerMP.IntegralHeight = false;
             comboSkillPlayerMP.ItemHeight = 17;
             comboSkillPlayerMP.Location = new System.Drawing.Point(332, 179);
             comboSkillPlayerMP.Name = "comboSkillPlayerMP";
-            comboSkillPlayerMP.Radius = 5;
-            comboSkillPlayerMP.ShadowDepth = 4F;
             comboSkillPlayerMP.Size = new System.Drawing.Size(121, 23);
             comboSkillPlayerMP.TabIndex = 25;
             comboSkillPlayerMP.SelectedIndexChanged += comboSkill_SelectedIndexChanged;
             // 
             // comboSkillPlayerHP
             // 
-            comboSkillPlayerHP.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            comboSkillPlayerHP.DrawMode = DrawMode.OwnerDrawFixed;
             comboSkillPlayerHP.DropDownHeight = 100;
-            comboSkillPlayerHP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboSkillPlayerHP.DropDownStyle = ComboBoxStyle.DropDownList;
             comboSkillPlayerHP.FormattingEnabled = true;
             comboSkillPlayerHP.IntegralHeight = false;
             comboSkillPlayerHP.ItemHeight = 17;
             comboSkillPlayerHP.Location = new System.Drawing.Point(332, 152);
             comboSkillPlayerHP.Name = "comboSkillPlayerHP";
-            comboSkillPlayerHP.Radius = 5;
-            comboSkillPlayerHP.ShadowDepth = 4F;
             comboSkillPlayerHP.Size = new System.Drawing.Size(121, 23);
             comboSkillPlayerHP.TabIndex = 7;
             comboSkillPlayerHP.SelectedIndexChanged += comboSkill_SelectedIndexChanged;
@@ -487,15 +506,13 @@
             // 
             // numPlayerSkillMPMin
             // 
-            numPlayerSkillMPMin.BackColor = System.Drawing.Color.Transparent;
             numPlayerSkillMPMin.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             numPlayerSkillMPMin.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             numPlayerSkillMPMin.Location = new System.Drawing.Point(220, 179);
-            numPlayerSkillMPMin.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
             numPlayerSkillMPMin.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numPlayerSkillMPMin.MinimumSize = new System.Drawing.Size(80, 25);
+            numPlayerSkillMPMin.MinimumSize = new System.Drawing.Size(80, 0);
             numPlayerSkillMPMin.Name = "numPlayerSkillMPMin";
-            numPlayerSkillMPMin.Size = new System.Drawing.Size(80, 25);
+            numPlayerSkillMPMin.Size = new System.Drawing.Size(80, 24);
             numPlayerSkillMPMin.TabIndex = 23;
             numPlayerSkillMPMin.Value = new decimal(new int[] { 50, 0, 0, 0 });
             numPlayerSkillMPMin.ValueChanged += numSettings_ValueChanged;
@@ -528,15 +545,13 @@
             // 
             // numPlayerSkillHPMin
             // 
-            numPlayerSkillHPMin.BackColor = System.Drawing.Color.Transparent;
             numPlayerSkillHPMin.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             numPlayerSkillHPMin.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             numPlayerSkillHPMin.Location = new System.Drawing.Point(220, 152);
-            numPlayerSkillHPMin.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
             numPlayerSkillHPMin.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numPlayerSkillHPMin.MinimumSize = new System.Drawing.Size(80, 25);
+            numPlayerSkillHPMin.MinimumSize = new System.Drawing.Size(80, 0);
             numPlayerSkillHPMin.Name = "numPlayerSkillHPMin";
-            numPlayerSkillHPMin.Size = new System.Drawing.Size(80, 25);
+            numPlayerSkillHPMin.Size = new System.Drawing.Size(80, 24);
             numPlayerSkillHPMin.TabIndex = 20;
             numPlayerSkillHPMin.Value = new decimal(new int[] { 50, 0, 0, 0 });
             numPlayerSkillHPMin.ValueChanged += numSettings_ValueChanged;
@@ -569,15 +584,13 @@
             // 
             // numPlayerMPVigorPotionMin
             // 
-            numPlayerMPVigorPotionMin.BackColor = System.Drawing.Color.Transparent;
             numPlayerMPVigorPotionMin.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             numPlayerMPVigorPotionMin.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             numPlayerMPVigorPotionMin.Location = new System.Drawing.Point(363, 109);
-            numPlayerMPVigorPotionMin.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
             numPlayerMPVigorPotionMin.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numPlayerMPVigorPotionMin.MinimumSize = new System.Drawing.Size(80, 25);
+            numPlayerMPVigorPotionMin.MinimumSize = new System.Drawing.Size(80, 0);
             numPlayerMPVigorPotionMin.Name = "numPlayerMPVigorPotionMin";
-            numPlayerMPVigorPotionMin.Size = new System.Drawing.Size(80, 25);
+            numPlayerMPVigorPotionMin.Size = new System.Drawing.Size(80, 24);
             numPlayerMPVigorPotionMin.TabIndex = 17;
             numPlayerMPVigorPotionMin.Value = new decimal(new int[] { 50, 0, 0, 0 });
             numPlayerMPVigorPotionMin.ValueChanged += numSettings_ValueChanged;
@@ -610,15 +623,13 @@
             // 
             // numPlayerHPVigorPotionMin
             // 
-            numPlayerHPVigorPotionMin.BackColor = System.Drawing.Color.Transparent;
-            numPlayerHPVigorPotionMin.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            numPlayerHPVigorPotionMin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             numPlayerHPVigorPotionMin.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            numPlayerHPVigorPotionMin.Location = new System.Drawing.Point(363, 82);
-            numPlayerHPVigorPotionMin.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
+            numPlayerHPVigorPotionMin.Location = new System.Drawing.Point(365, 82);
             numPlayerHPVigorPotionMin.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numPlayerHPVigorPotionMin.MinimumSize = new System.Drawing.Size(80, 25);
+            numPlayerHPVigorPotionMin.MinimumSize = new System.Drawing.Size(80, 0);
             numPlayerHPVigorPotionMin.Name = "numPlayerHPVigorPotionMin";
-            numPlayerHPVigorPotionMin.Size = new System.Drawing.Size(80, 25);
+            numPlayerHPVigorPotionMin.Size = new System.Drawing.Size(80, 23);
             numPlayerHPVigorPotionMin.TabIndex = 14;
             numPlayerHPVigorPotionMin.Value = new decimal(new int[] { 50, 0, 0, 0 });
             numPlayerHPVigorPotionMin.ValueChanged += numSettings_ValueChanged;
@@ -649,21 +660,6 @@
             label3.TabIndex = 12;
             label3.Text = "%";
             // 
-            // numPlayerMPPotionMin
-            // 
-            numPlayerMPPotionMin.BackColor = System.Drawing.Color.Transparent;
-            numPlayerMPPotionMin.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            numPlayerMPPotionMin.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            numPlayerMPPotionMin.Location = new System.Drawing.Point(363, 51);
-            numPlayerMPPotionMin.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
-            numPlayerMPPotionMin.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numPlayerMPPotionMin.MinimumSize = new System.Drawing.Size(80, 25);
-            numPlayerMPPotionMin.Name = "numPlayerMPPotionMin";
-            numPlayerMPPotionMin.Size = new System.Drawing.Size(80, 25);
-            numPlayerMPPotionMin.TabIndex = 11;
-            numPlayerMPPotionMin.Value = new decimal(new int[] { 50, 0, 0, 0 });
-            numPlayerMPPotionMin.ValueChanged += numSettings_ValueChanged;
-            // 
             // label4
             // 
             label4.ApplyGradient = false;
@@ -692,15 +688,13 @@
             // 
             // numPlayerHPPotionMin
             // 
-            numPlayerHPPotionMin.BackColor = System.Drawing.Color.Transparent;
             numPlayerHPPotionMin.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             numPlayerHPPotionMin.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            numPlayerHPPotionMin.Location = new System.Drawing.Point(363, 23);
-            numPlayerHPPotionMin.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
+            numPlayerHPPotionMin.Location = new System.Drawing.Point(365, 24);
             numPlayerHPPotionMin.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numPlayerHPPotionMin.MinimumSize = new System.Drawing.Size(80, 25);
+            numPlayerHPPotionMin.MinimumSize = new System.Drawing.Size(80, 0);
             numPlayerHPPotionMin.Name = "numPlayerHPPotionMin";
-            numPlayerHPPotionMin.Size = new System.Drawing.Size(80, 25);
+            numPlayerHPPotionMin.Size = new System.Drawing.Size(80, 24);
             numPlayerHPPotionMin.TabIndex = 8;
             numPlayerHPPotionMin.Value = new decimal(new int[] { 50, 0, 0, 0 });
             numPlayerHPPotionMin.ValueChanged += numSettings_ValueChanged;
@@ -723,7 +717,7 @@
             checkUseSkillHP.AutoSize = true;
             checkUseSkillHP.BackColor = System.Drawing.Color.Transparent;
             checkUseSkillHP.Location = new System.Drawing.Point(11, 156);
-            checkUseSkillHP.Margin = new System.Windows.Forms.Padding(0);
+            checkUseSkillHP.Margin = new Padding(0);
             checkUseSkillHP.Name = "checkUseSkillHP";
             checkUseSkillHP.Size = new System.Drawing.Size(97, 19);
             checkUseSkillHP.TabIndex = 4;
@@ -736,7 +730,7 @@
             checkUseSkillMP.AutoSize = true;
             checkUseSkillMP.BackColor = System.Drawing.Color.Transparent;
             checkUseSkillMP.Location = new System.Drawing.Point(11, 183);
-            checkUseSkillMP.Margin = new System.Windows.Forms.Padding(0);
+            checkUseSkillMP.Margin = new Padding(0);
             checkUseSkillMP.Name = "checkUseSkillMP";
             checkUseSkillMP.Size = new System.Drawing.Size(99, 19);
             checkUseSkillMP.TabIndex = 5;
@@ -749,7 +743,7 @@
             checkUseHPPotionsPlayer.AutoSize = true;
             checkUseHPPotionsPlayer.BackColor = System.Drawing.Color.Transparent;
             checkUseHPPotionsPlayer.Location = new System.Drawing.Point(11, 29);
-            checkUseHPPotionsPlayer.Margin = new System.Windows.Forms.Padding(0);
+            checkUseHPPotionsPlayer.Margin = new Padding(0);
             checkUseHPPotionsPlayer.Name = "checkUseHPPotionsPlayer";
             checkUseHPPotionsPlayer.Size = new System.Drawing.Size(144, 19);
             checkUseHPPotionsPlayer.TabIndex = 0;
@@ -762,7 +756,7 @@
             checkUseVigorMP.AutoSize = true;
             checkUseVigorMP.BackColor = System.Drawing.Color.Transparent;
             checkUseVigorMP.Location = new System.Drawing.Point(11, 113);
-            checkUseVigorMP.Margin = new System.Windows.Forms.Padding(0);
+            checkUseVigorMP.Margin = new Padding(0);
             checkUseVigorMP.Name = "checkUseVigorMP";
             checkUseVigorMP.Size = new System.Drawing.Size(150, 19);
             checkUseVigorMP.TabIndex = 3;
@@ -775,7 +769,7 @@
             checkUseMPPotionsPlayer.AutoSize = true;
             checkUseMPPotionsPlayer.BackColor = System.Drawing.Color.Transparent;
             checkUseMPPotionsPlayer.Location = new System.Drawing.Point(11, 56);
-            checkUseMPPotionsPlayer.Margin = new System.Windows.Forms.Padding(0);
+            checkUseMPPotionsPlayer.Margin = new Padding(0);
             checkUseMPPotionsPlayer.Name = "checkUseMPPotionsPlayer";
             checkUseMPPotionsPlayer.Size = new System.Drawing.Size(148, 19);
             checkUseMPPotionsPlayer.TabIndex = 1;
@@ -788,7 +782,7 @@
             checkUseVigorHP.AutoSize = true;
             checkUseVigorHP.BackColor = System.Drawing.Color.Transparent;
             checkUseVigorHP.Location = new System.Drawing.Point(11, 86);
-            checkUseVigorHP.Margin = new System.Windows.Forms.Padding(0);
+            checkUseVigorHP.Margin = new Padding(0);
             checkUseVigorHP.Name = "checkUseVigorHP";
             checkUseVigorHP.Size = new System.Drawing.Size(148, 19);
             checkUseVigorHP.TabIndex = 2;
@@ -812,7 +806,7 @@
             groupPet.Controls.Add(checkUseHGP);
             groupPet.Location = new System.Drawing.Point(15, 325);
             groupPet.Name = "groupPet";
-            groupPet.Padding = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            groupPet.Padding = new Padding(3, 10, 3, 3);
             groupPet.Radius = 10;
             groupPet.ShadowDepth = 4;
             groupPet.Size = new System.Drawing.Size(468, 160);
@@ -826,7 +820,7 @@
             checkAutoSummonAttackPet.BackColor = System.Drawing.Color.Transparent;
             checkAutoSummonAttackPet.Depth = 0;
             checkAutoSummonAttackPet.Location = new System.Drawing.Point(11, 129);
-            checkAutoSummonAttackPet.Margin = new System.Windows.Forms.Padding(0);
+            checkAutoSummonAttackPet.Margin = new Padding(0);
             checkAutoSummonAttackPet.MouseLocation = new System.Drawing.Point(-1, -1);
             checkAutoSummonAttackPet.Name = "checkAutoSummonAttackPet";
             checkAutoSummonAttackPet.Ripple = true;
@@ -842,7 +836,7 @@
             checkUseAbnormalStatePotion.BackColor = System.Drawing.Color.Transparent;
             checkUseAbnormalStatePotion.Depth = 0;
             checkUseAbnormalStatePotion.Location = new System.Drawing.Point(11, 82);
-            checkUseAbnormalStatePotion.Margin = new System.Windows.Forms.Padding(0);
+            checkUseAbnormalStatePotion.Margin = new Padding(0);
             checkUseAbnormalStatePotion.MouseLocation = new System.Drawing.Point(-1, -1);
             checkUseAbnormalStatePotion.Name = "checkUseAbnormalStatePotion";
             checkUseAbnormalStatePotion.Ripple = true;
@@ -858,7 +852,7 @@
             checkReviveAttackPet.BackColor = System.Drawing.Color.Transparent;
             checkReviveAttackPet.Depth = 0;
             checkReviveAttackPet.Location = new System.Drawing.Point(11, 105);
-            checkReviveAttackPet.Margin = new System.Windows.Forms.Padding(0);
+            checkReviveAttackPet.Margin = new Padding(0);
             checkReviveAttackPet.MouseLocation = new System.Drawing.Point(-1, -1);
             checkReviveAttackPet.Name = "checkReviveAttackPet";
             checkReviveAttackPet.Ripple = true;
@@ -956,7 +950,7 @@
             checkUsePetHP.BackColor = System.Drawing.Color.Transparent;
             checkUsePetHP.Depth = 0;
             checkUsePetHP.Location = new System.Drawing.Point(11, 30);
-            checkUsePetHP.Margin = new System.Windows.Forms.Padding(0);
+            checkUsePetHP.Margin = new Padding(0);
             checkUsePetHP.MouseLocation = new System.Drawing.Point(-1, -1);
             checkUsePetHP.Name = "checkUsePetHP";
             checkUsePetHP.Ripple = true;
@@ -972,7 +966,7 @@
             checkUseHGP.BackColor = System.Drawing.Color.Transparent;
             checkUseHGP.Depth = 0;
             checkUseHGP.Location = new System.Drawing.Point(11, 57);
-            checkUseHGP.Margin = new System.Windows.Forms.Padding(0);
+            checkUseHGP.Margin = new Padding(0);
             checkUseHGP.MouseLocation = new System.Drawing.Point(-1, -1);
             checkUseHGP.Name = "checkUseHGP";
             checkUseHGP.Ripple = true;
@@ -993,7 +987,7 @@
             groupStatPoints.Controls.Add(checkIncInt);
             groupStatPoints.Location = new System.Drawing.Point(500, 277);
             groupStatPoints.Name = "groupStatPoints";
-            groupStatPoints.Padding = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            groupStatPoints.Padding = new Padding(3, 10, 3, 3);
             groupStatPoints.Radius = 10;
             groupStatPoints.ShadowDepth = 4;
             groupStatPoints.Size = new System.Drawing.Size(254, 169);
@@ -1003,11 +997,8 @@
             // 
             // buttonRun
             // 
-            buttonRun.Color = System.Drawing.Color.Transparent;
             buttonRun.Location = new System.Drawing.Point(63, 137);
             buttonRun.Name = "buttonRun";
-            buttonRun.Radius = 6;
-            buttonRun.ShadowDepth = 4F;
             buttonRun.Size = new System.Drawing.Size(97, 23);
             buttonRun.TabIndex = 27;
             buttonRun.Text = "Run";
@@ -1018,84 +1009,70 @@
             // 
             checkIncBotStopped.AutoSize = true;
             checkIncBotStopped.BackColor = System.Drawing.Color.Transparent;
-            checkIncBotStopped.Depth = 0;
             checkIncBotStopped.Location = new System.Drawing.Point(18, 104);
-            checkIncBotStopped.Margin = new System.Windows.Forms.Padding(0);
-            checkIncBotStopped.MouseLocation = new System.Drawing.Point(-1, -1);
+            checkIncBotStopped.Margin = new Padding(0);
             checkIncBotStopped.Name = "checkIncBotStopped";
-            checkIncBotStopped.Ripple = true;
-            checkIncBotStopped.Size = new System.Drawing.Size(165, 30);
+            checkIncBotStopped.Size = new System.Drawing.Size(156, 19);
             checkIncBotStopped.TabIndex = 24;
             checkIncBotStopped.Text = "Enabled if bot is stopped";
-            checkIncBotStopped.UseVisualStyleBackColor = false;
+            checkIncBotStopped.UseVisualStyleBackColor = true;
             checkIncBotStopped.CheckedChanged += settings_CheckedChanged;
             // 
             // numIncStr
             // 
-            numIncStr.BackColor = System.Drawing.Color.Transparent;
             numIncStr.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             numIncStr.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             numIncStr.Location = new System.Drawing.Point(133, 76);
             numIncStr.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
-            numIncStr.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
-            numIncStr.MinimumSize = new System.Drawing.Size(80, 25);
+            numIncStr.MinimumSize = new System.Drawing.Size(80, 0);
             numIncStr.Name = "numIncStr";
-            numIncStr.Size = new System.Drawing.Size(80, 25);
+            numIncStr.Size = new System.Drawing.Size(80, 24);
             numIncStr.TabIndex = 22;
-            numIncStr.Value = new decimal(new int[] { 0, 0, 0, 0 });
             numIncStr.ValueChanged += numIncStr_ValueChanged;
             // 
             // numIncInt
             // 
-            numIncInt.BackColor = System.Drawing.Color.Transparent;
             numIncInt.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             numIncInt.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             numIncInt.Location = new System.Drawing.Point(133, 45);
             numIncInt.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
-            numIncInt.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
-            numIncInt.MinimumSize = new System.Drawing.Size(80, 25);
+            numIncInt.MinimumSize = new System.Drawing.Size(80, 0);
             numIncInt.Name = "numIncInt";
-            numIncInt.Size = new System.Drawing.Size(80, 25);
+            numIncInt.Size = new System.Drawing.Size(80, 24);
             numIncInt.TabIndex = 21;
-            numIncInt.Value = new decimal(new int[] { 0, 0, 0, 0 });
             numIncInt.ValueChanged += numIncInt_ValueChanged;
             // 
             // checkIncStr
             // 
             checkIncStr.AutoSize = true;
             checkIncStr.BackColor = System.Drawing.Color.Transparent;
-            checkIncStr.Depth = 0;
             checkIncStr.Location = new System.Drawing.Point(18, 74);
-            checkIncStr.Margin = new System.Windows.Forms.Padding(0);
-            checkIncStr.MouseLocation = new System.Drawing.Point(-1, -1);
+            checkIncStr.Margin = new Padding(0);
             checkIncStr.Name = "checkIncStr";
-            checkIncStr.Ripple = true;
-            checkIncStr.Size = new System.Drawing.Size(98, 30);
+            checkIncStr.Size = new System.Drawing.Size(91, 19);
             checkIncStr.TabIndex = 20;
             checkIncStr.Text = "Increase STR";
-            checkIncStr.UseVisualStyleBackColor = false;
+            checkIncStr.UseVisualStyleBackColor = true;
             checkIncStr.CheckedChanged += settings_CheckedChanged;
             // 
             // checkIncInt
             // 
             checkIncInt.AutoSize = true;
             checkIncInt.BackColor = System.Drawing.Color.Transparent;
-            checkIncInt.Depth = 0;
             checkIncInt.Location = new System.Drawing.Point(18, 43);
-            checkIncInt.Margin = new System.Windows.Forms.Padding(0);
-            checkIncInt.MouseLocation = new System.Drawing.Point(-1, -1);
+            checkIncInt.Margin = new Padding(0);
             checkIncInt.Name = "checkIncInt";
-            checkIncInt.Ripple = true;
-            checkIncInt.Size = new System.Drawing.Size(97, 30);
+            checkIncInt.Size = new System.Drawing.Size(90, 19);
             checkIncInt.TabIndex = 19;
             checkIncInt.Text = "Increase INT";
-            checkIncInt.UseVisualStyleBackColor = false;
+            checkIncInt.UseVisualStyleBackColor = true;
             checkIncInt.CheckedChanged += settings_CheckedChanged;
             // 
             // Main
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = System.Drawing.SystemColors.Control;
             Controls.Add(groupStatPoints);
             Controls.Add(groupBackTown);
             Controls.Add(label22);
@@ -1104,17 +1081,25 @@
             Controls.Add(groupPet);
             Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             Name = "Main";
-            Size = new System.Drawing.Size(776, 497);
+            Size = new System.Drawing.Size(775, 500);
             groupBackTown.ResumeLayout(false);
             groupBackTown.PerformLayout();
             groupBadStatus.ResumeLayout(false);
             groupBadStatus.PerformLayout();
             groupHPMP.ResumeLayout(false);
             groupHPMP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numPlayerMPPotionMin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPlayerSkillMPMin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPlayerSkillHPMin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPlayerMPVigorPotionMin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPlayerHPVigorPotionMin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPlayerHPPotionMin).EndInit();
             groupPet.ResumeLayout(false);
             groupPet.PerformLayout();
             groupStatPoints.ResumeLayout(false);
             groupStatPoints.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numIncStr).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numIncInt).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1131,26 +1116,20 @@
         //private SDUI.Controls.CheckBox checkUseSkillHP;
         //private SDUI.Controls.CheckBox checkUseSkillMP;
         private SDUI.Controls.Label label11;
-        private SDUI.Controls.NumUpDown numPlayerSkillMPMin;
         private SDUI.Controls.Label label12;
         private SDUI.Controls.Label label9;
-        private SDUI.Controls.NumUpDown numPlayerSkillHPMin;
         private SDUI.Controls.Label label10;
         private SDUI.Controls.Label label7;
-        private SDUI.Controls.NumUpDown numPlayerMPVigorPotionMin;
         private SDUI.Controls.Label label8;
         private SDUI.Controls.Label label5;
-        private SDUI.Controls.NumUpDown numPlayerHPVigorPotionMin;
         private SDUI.Controls.Label label6;
         private SDUI.Controls.Label label3;
-        private SDUI.Controls.NumUpDown numPlayerMPPotionMin;
+
         private SDUI.Controls.Label label4;
         private SDUI.Controls.Label label2;
-        private SDUI.Controls.NumUpDown numPlayerHPPotionMin;
+
         private SDUI.Controls.Label label1;
         private SDUI.Controls.CheckBox checkUseBadStatusSkill;
-        private SDUI.Controls.ComboBox comboSkillPlayerMP;
-        private SDUI.Controls.ComboBox comboSkillPlayerHP;
         private SDUI.Controls.ComboBox comboSkillBadStatus;
         private SDUI.Controls.Label label13;
         private SDUI.Controls.NumUpDown numPetMinHGP;
@@ -1181,19 +1160,33 @@
         private SDUI.Controls.CheckBox checkInventory;
         private SDUI.Controls.CheckBox checkNoArrows;
         private SDUI.Controls.GroupBox groupStatPoints;
-        private SDUI.Controls.NumUpDown numIncStr;
-        private SDUI.Controls.NumUpDown numIncInt;
-        private SDUI.Controls.CheckBox checkIncStr;
-        private SDUI.Controls.CheckBox checkIncInt;
-        private SDUI.Controls.CheckBox checkIncBotStopped;
-        private SDUI.Controls.Button buttonRun;
+
+
+
+        //private SDUI.Controls.CheckBox checkIncInt;
+
+
         private SDUI.Controls.CheckBox checkStopBotOnReturnToTown;
         private SDUI.Controls.Label label17;
-        private System.Windows.Forms.CheckBox checkUseHPPotionsPlayer;
-        private System.Windows.Forms.CheckBox checkUseMPPotionsPlayer;
-        private System.Windows.Forms.CheckBox checkUseVigorHP;
-        private System.Windows.Forms.CheckBox checkUseVigorMP;
-        private System.Windows.Forms.CheckBox checkUseSkillHP;
-        private System.Windows.Forms.CheckBox checkUseSkillMP;
+        private CheckBox checkUseHPPotionsPlayer;
+        private CheckBox checkUseMPPotionsPlayer;
+        private CheckBox checkUseVigorHP;
+        private CheckBox checkUseVigorMP;
+        private CheckBox checkUseSkillHP;
+        private CheckBox checkUseSkillMP;
+        private NumericUpDown numPlayerHPPotionMin;
+        private NumericUpDown numPlayerMPPotionMin;
+        private NumericUpDown numPlayerHPVigorPotionMin;
+        private NumericUpDown numPlayerMPVigorPotionMin;
+        private NumericUpDown numPlayerSkillHPMin;
+        private NumericUpDown numPlayerSkillMPMin;
+        private ComboBox comboSkillPlayerHP;
+        private ComboBox comboSkillPlayerMP;
+        private CheckBox checkIncInt;
+        private CheckBox checkIncStr;
+        private CheckBox checkIncBotStopped;
+        private Button buttonRun;
+        private NumericUpDown numIncInt;
+        private NumericUpDown numIncStr;
     }
 }

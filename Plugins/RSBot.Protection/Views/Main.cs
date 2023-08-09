@@ -48,7 +48,7 @@ namespace RSBot.Protection.Views
         {
             const string key = "RSBot.Protection.";
 
-            foreach (var checkbox in groupHPMP.Controls.OfType<SDUI.Controls.CheckBox>())
+            foreach (var checkbox in groupHPMP.Controls.OfType<CheckBox>())
                 checkbox.Checked = PlayerConfig.Get<bool>(key + checkbox.Name);
 
             foreach (var num in groupHPMP.Controls.OfType<NumericUpDown>())
@@ -69,7 +69,7 @@ namespace RSBot.Protection.Views
             foreach (var num in groupBackTown.Controls.OfType<NumericUpDown>())
                 num.Value = PlayerConfig.Get<int>(key + num.Name, 50);
 
-            foreach (var checkbox in groupStatPoints.Controls.OfType<SDUI.Controls.CheckBox>())
+            foreach (var checkbox in groupStatPoints.Controls.OfType<CheckBox>())
                 checkbox.Checked = PlayerConfig.Get<bool>(key + checkbox.Name);
 
             foreach (var num in groupStatPoints.Controls.OfType<NumericUpDown>())
@@ -82,7 +82,7 @@ namespace RSBot.Protection.Views
         private void ApplySettings()
         {
             const string key = "RSBot.Protection.";
-            foreach (var checkbox in groupHPMP.Controls.OfType<System.Windows.Forms.CheckBox>())
+            foreach (var checkbox in groupHPMP.Controls.OfType<CheckBox>())
                 PlayerConfig.Set(key + checkbox.Name, checkbox.Checked);
 
             foreach (var num in groupHPMP.Controls.OfType<NumericUpDown>())
@@ -103,7 +103,7 @@ namespace RSBot.Protection.Views
             foreach (var num in groupBackTown.Controls.OfType<NumericUpDown>())
                 PlayerConfig.Set(key + num.Name, num.Value);
 
-            foreach (var checkbox in groupStatPoints.Controls.OfType<SDUI.Controls.CheckBox>())
+            foreach (var checkbox in groupStatPoints.Controls.OfType<CheckBox>())
                 PlayerConfig.Set(key + checkbox.Name, checkbox.Checked);
 
             foreach (var num in groupStatPoints.Controls.OfType<NumericUpDown>())

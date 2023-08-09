@@ -1,4 +1,6 @@
-﻿namespace RSBot.Views.Controls
+﻿using System.Windows.Forms;
+
+namespace RSBot.Views.Controls
 {
 
 
@@ -30,16 +32,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label3 = new SDUI.Controls.Label();
-            label4 = new SDUI.Controls.Label();
-            lblLevel = new SDUI.Controls.Label();
-            lblGold = new SDUI.Controls.Label();
-            lblSP = new SDUI.Controls.Label();
-            lblPlayerName = new SDUI.Controls.Label();
-            lblStr = new SDUI.Controls.Label();
-            label9 = new SDUI.Controls.Label();
-            lblInt = new SDUI.Controls.Label();
-            label11 = new SDUI.Controls.Label();
+            label3 = new Label();
+            label4 = new Label();
+            lblLevel = new Label();
+            lblGold = new Label();
+            lblSP = new Label();
+            lblPlayerName = new Label();
+            lblStr = new Label();
+            label9 = new Label();
+            lblInt = new Label();
+            label11 = new Label();
             progressEXP = new SDUI.Controls.ProgressBar();
             progressMP = new SDUI.Controls.ProgressBar();
             progressHP = new SDUI.Controls.ProgressBar();
@@ -48,12 +50,13 @@
             // 
             // label3
             // 
-            label3.ApplyGradient = false;
+            //label3.ApplyGradient = false;
             label3.AutoSize = true;
             label3.BackColor = System.Drawing.Color.Transparent;
             label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label3.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label3.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            //label3.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            //label3.GradientAnimation = false;
             label3.Location = new System.Drawing.Point(586, 16);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(39, 17);
@@ -62,12 +65,13 @@
             // 
             // label4
             // 
-            label4.ApplyGradient = false;
+            //label4.ApplyGradient = false;
             label4.AutoSize = true;
             label4.BackColor = System.Drawing.Color.Transparent;
             label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label4.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label4.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            //label4.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            //label4.GradientAnimation = false;
             label4.Location = new System.Drawing.Point(598, 38);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(26, 17);
@@ -76,10 +80,11 @@
             // 
             // lblLevel
             // 
-            lblLevel.ApplyGradient = false;
+            //lblLevel.ApplyGradient = false;
             lblLevel.BackColor = System.Drawing.Color.Transparent;
             lblLevel.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            lblLevel.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            //lblLevel.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            //lblLevel.GradientAnimation = false;
             lblLevel.Location = new System.Drawing.Point(371, 4);
             lblLevel.Name = "lblLevel";
             lblLevel.Size = new System.Drawing.Size(65, 15);
@@ -89,11 +94,12 @@
             // 
             // lblGold
             // 
-            lblGold.ApplyGradient = false;
+            //lblGold.ApplyGradient = false;
             lblGold.AutoSize = true;
             lblGold.BackColor = System.Drawing.Color.Transparent;
             lblGold.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            lblGold.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            //lblGold.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            //lblGold.GradientAnimation = false;
             lblGold.Location = new System.Drawing.Point(628, 16);
             lblGold.Name = "lblGold";
             lblGold.Size = new System.Drawing.Size(15, 17);
@@ -102,11 +108,12 @@
             // 
             // lblSP
             // 
-            lblSP.ApplyGradient = false;
+            //lblSP.ApplyGradient = false;
             lblSP.AutoSize = true;
             lblSP.BackColor = System.Drawing.Color.Transparent;
             lblSP.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            lblSP.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            //lblSP.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            //lblSP.GradientAnimation = false;
             lblSP.Location = new System.Drawing.Point(628, 38);
             lblSP.Name = "lblSP";
             lblSP.Size = new System.Drawing.Size(15, 17);
@@ -115,12 +122,13 @@
             // 
             // lblPlayerName
             // 
-            lblPlayerName.ApplyGradient = false;
+            //lblPlayerName.ApplyGradient = false;
             lblPlayerName.AutoSize = true;
             lblPlayerName.BackColor = System.Drawing.Color.Transparent;
             lblPlayerName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblPlayerName.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            lblPlayerName.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            //lblPlayerName.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            //lblPlayerName.GradientAnimation = false;
             lblPlayerName.Location = new System.Drawing.Point(7, 4);
             lblPlayerName.Name = "lblPlayerName";
             lblPlayerName.Size = new System.Drawing.Size(84, 17);
@@ -129,11 +137,12 @@
             // 
             // lblStr
             // 
-            lblStr.ApplyGradient = false;
+            //lblStr.ApplyGradient = false;
             lblStr.AutoSize = true;
             lblStr.BackColor = System.Drawing.Color.Transparent;
             lblStr.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            lblStr.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            //lblStr.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            //lblStr.GradientAnimation = false;
             lblStr.Location = new System.Drawing.Point(519, 16);
             lblStr.Name = "lblStr";
             lblStr.Size = new System.Drawing.Size(15, 17);
@@ -142,12 +151,13 @@
             // 
             // label9
             // 
-            label9.ApplyGradient = false;
+            //label9.ApplyGradient = false;
             label9.AutoSize = true;
             label9.BackColor = System.Drawing.Color.Transparent;
             label9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label9.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label9.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            //label9.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            //label9.GradientAnimation = false;
             label9.Location = new System.Drawing.Point(481, 16);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(33, 17);
@@ -156,11 +166,12 @@
             // 
             // lblInt
             // 
-            lblInt.ApplyGradient = false;
+            //lblInt.ApplyGradient = false;
             lblInt.AutoSize = true;
             lblInt.BackColor = System.Drawing.Color.Transparent;
             lblInt.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            lblInt.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            //lblInt.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            //lblInt.GradientAnimation = false;
             lblInt.Location = new System.Drawing.Point(519, 38);
             lblInt.Name = "lblInt";
             lblInt.Size = new System.Drawing.Size(15, 17);
@@ -169,12 +180,13 @@
             // 
             // label11
             // 
-            label11.ApplyGradient = false;
+            //label11.ApplyGradient = false;
             label11.AutoSize = true;
             label11.BackColor = System.Drawing.Color.Transparent;
             label11.Font = new System.Drawing.Font("Segoe UI Semibold", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label11.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label11.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black });
+            //label11.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            //label11.GradientAnimation = false;
             label11.Location = new System.Drawing.Point(483, 38);
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(32, 17);
@@ -185,34 +197,36 @@
             // 
             progressEXP.BackColor = System.Drawing.Color.Transparent;
             progressEXP.DrawHatch = false;
+            progressEXP.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             progressEXP.ForeColor = System.Drawing.Color.FromArgb(0, 192, 0);
-            progressEXP.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.DarkGreen, System.Drawing.Color.Lime });
+            progressEXP.Gradient = new System.Drawing.Color[] { System.Drawing.Color.DarkGreen, System.Drawing.Color.Lime };
             progressEXP.HatchType = System.Drawing.Drawing2D.HatchStyle.Percent10;
             progressEXP.Location = new System.Drawing.Point(10, 49);
             progressEXP.Maximum = 1L;
             progressEXP.MaxPercentShowValue = 99.99F;
             progressEXP.Name = "progressEXP";
             progressEXP.PercentIndices = 2;
-            progressEXP.Radius = 6;
+            progressEXP.Radius = 1;
             progressEXP.ShowAsPercent = true;
             progressEXP.ShowValue = true;
             progressEXP.Size = new System.Drawing.Size(426, 20);
             progressEXP.TabIndex = 2;
-            progressEXP.Text = "0,00%";
+            progressEXP.Text = "0.00%";
             progressEXP.Value = 0L;
             // 
             // progressMP
             // 
             progressMP.BackColor = System.Drawing.Color.Transparent;
             progressMP.DrawHatch = false;
-            progressMP.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.MidnightBlue, System.Drawing.Color.RoyalBlue });
+            progressMP.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            progressMP.Gradient = new System.Drawing.Color[] { System.Drawing.Color.MidnightBlue, System.Drawing.Color.RoyalBlue };
             progressMP.HatchType = System.Drawing.Drawing2D.HatchStyle.Percent10;
             progressMP.Location = new System.Drawing.Point(226, 26);
             progressMP.Maximum = 1L;
             progressMP.MaxPercentShowValue = 100F;
             progressMP.Name = "progressMP";
             progressMP.PercentIndices = 2;
-            progressMP.Radius = 6;
+            progressMP.Radius = 1;
             progressMP.ShowAsPercent = false;
             progressMP.ShowValue = true;
             progressMP.Size = new System.Drawing.Size(210, 20);
@@ -224,15 +238,16 @@
             // 
             progressHP.BackColor = System.Drawing.Color.Transparent;
             progressHP.DrawHatch = false;
+            progressHP.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             progressHP.ForeColor = System.Drawing.Color.Firebrick;
-            progressHP.Gradient = (new System.Drawing.Color[] { System.Drawing.Color.Maroon, System.Drawing.Color.Red });
+            progressHP.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Maroon, System.Drawing.Color.Red };
             progressHP.HatchType = System.Drawing.Drawing2D.HatchStyle.Percent10;
             progressHP.Location = new System.Drawing.Point(10, 26);
             progressHP.Maximum = 1L;
             progressHP.MaxPercentShowValue = 100F;
             progressHP.Name = "progressHP";
             progressHP.PercentIndices = 2;
-            progressHP.Radius = 6;
+            progressHP.Radius = 1;
             progressHP.ShowAsPercent = false;
             progressHP.ShowValue = true;
             progressHP.Size = new System.Drawing.Size(210, 20);
@@ -281,16 +296,16 @@
         private SDUI.Controls.ProgressBar progressHP;
         private SDUI.Controls.ProgressBar progressMP;
         private SDUI.Controls.ProgressBar progressEXP;
-        private SDUI.Controls.Label label3;
-        private SDUI.Controls.Label label4;
-        private SDUI.Controls.Label lblLevel;
-        private SDUI.Controls.Label lblGold;
-        private SDUI.Controls.Label lblSP;
-        private SDUI.Controls.Label lblPlayerName;
-        private SDUI.Controls.Label lblStr;
-        private SDUI.Controls.Label label9;
-        private SDUI.Controls.Label lblInt;
-        private SDUI.Controls.Label label11;
+        private Label label3;
+        private Label label4;
+        private Label lblLevel;
+        private Label lblGold;
+        private Label lblSP;
+        private Label lblPlayerName;
+        private Label lblStr;
+        private Label label9;
+        private Label lblInt;
+        private Label label11;
         private SDUI.Controls.Separator separator1;
     }
 }

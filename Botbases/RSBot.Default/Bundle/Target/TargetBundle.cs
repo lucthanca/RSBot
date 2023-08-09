@@ -123,15 +123,36 @@ namespace RSBot.Default.Bundle.Target
             var ignorePillar = PlayerConfig.Get<bool>("RSBot.Ignores.DimensionPillar");
 
             if (!SpawnManager.TryGetEntities<SpawnedMonster>(m =>
-                    m.State.LifeState == LifeState.Alive &&
+            {
+                /*Log.Notify($"State: {(m.State.LifeState == LifeState.Alive).ToString()}" +
+                    $"\n Warlock: {(!(warlockModeEnabled && m.State.HasTwoDots())).ToString()}" +
+                    $"\n Not BehindObstacle: {m.IsBehindObstacle == false}" +
+                    "\n inSight: " + Container.Bot.Area.IsInSight(m).ToString() +
+                    "\n Not pandora: " + (!m.Record.IsPandora).ToString() +
+                    "\n Not DimensionPillar: " + (!(m.Record.IsDimensionPillar && ignorePillar)).ToString() +
+                    "\n Not summon Flower: " + (!m.Record.IsSummonFlower).ToString() +
+                    "\n Not in blacklist: " + (_blacklist?.ContainsKey(m.UniqueId) == false).ToString() +
+                    "\n lacklist: " + _blacklist?.ContainsKey(m.UniqueId).ToString());*/
+
+                if (m.State.LifeState != LifeState.Alive) return false;
+                if (warlockModeEnabled && m.State.HasTwoDots()) return false;
+                if (m.IsBehindObstacle) return false;
+                if (_blacklist?.ContainsKey(m.UniqueId) == true) return false;
+                if (!Container.Bot.Area.IsInSight(m)) return false;
+                if (m.Record.IsPandora) return false;
+                if (ignorePillar && m.Record.IsDimensionPillar) return false;
+                if (m.Record.IsSummonFlower) return false;
+                return true;
+                /*return m.State.LifeState == LifeState.Alive &&
                     !(warlockModeEnabled && m.State.HasTwoDots()) &&
                     m.IsBehindObstacle == false &&
-                    _blacklist?.ContainsKey(m.UniqueId) == false &&
+                    (_blacklist == null || _blacklist?.ContainsKey(m.UniqueId) == false) &&
                     Container.Bot.Area.IsInSight(m) &&
                     !m.Record.IsPandora &&
                     //m.DistanceToPlayer <= 40 &&
                     !(m.Record.IsDimensionPillar && ignorePillar) &&
-                    !m.Record.IsSummonFlower, out var entities))
+                    !m.Record.IsSummonFlower;*/
+            }, out var entities))
                 return default;
 
             return entities.OrderBy(m => m.Movement.Source.DistanceTo(Container.Bot.Area.Position))

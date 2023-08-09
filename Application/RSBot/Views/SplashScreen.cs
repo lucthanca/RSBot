@@ -14,7 +14,7 @@ namespace RSBot.Views
 {
     public partial class SplashScreen : UIWindow
     {
-        private readonly Main _mainForm;
+        private readonly MainLegacy _mainForm;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SplashScreen"/> class.
