@@ -136,12 +136,9 @@ namespace RSBot.Views
             // 
             // buttonConfig
             // 
-            //buttonConfig.Color = System.Drawing.Color.Transparent;
             buttonConfig.Font = new System.Drawing.Font("Webdings", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             buttonConfig.Location = new System.Drawing.Point(249, 15);
             buttonConfig.Name = "buttonConfig";
-            //buttonConfig.Radius = 6;
-            //buttonConfig.ShadowDepth = 4F;
             buttonConfig.Size = new System.Drawing.Size(25, 23);
             buttonConfig.TabIndex = 12;
             buttonConfig.Text = "@";
@@ -150,33 +147,31 @@ namespace RSBot.Views
             // 
             // comboServer
             // 
-            comboServer.DrawMode = DrawMode.OwnerDrawFixed;
+            comboServer.BackColor = System.Drawing.SystemColors.Window;
             comboServer.DropDownHeight = 100;
             comboServer.DropDownStyle = ComboBoxStyle.DropDownList;
             comboServer.FormattingEnabled = true;
             comboServer.IntegralHeight = false;
-            comboServer.ItemHeight = 17;
-            comboServer.Location = new System.Drawing.Point(111, 15);
+            comboServer.ItemHeight = 15;
+            comboServer.Location = new System.Drawing.Point(110, 15);
             comboServer.Name = "comboServer";
-            //comboServer.Radius = 5;
-            //comboServer.ShadowDepth = 4F;
             comboServer.Size = new System.Drawing.Size(132, 23);
             comboServer.TabIndex = 11;
             comboServer.SelectedIndexChanged += comboServer_SelectedIndexChanged;
             // 
             // comboDivision
             // 
-            comboDivision.DrawMode = DrawMode.OwnerDrawFixed;
+            comboDivision.BackColor = System.Drawing.SystemColors.Window;
             comboDivision.DropDownHeight = 100;
             comboDivision.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboDivision.ForeColor = System.Drawing.SystemColors.MenuText;
             comboDivision.FormattingEnabled = true;
             comboDivision.IntegralHeight = false;
-            comboDivision.ItemHeight = 17;
-            comboDivision.Location = new System.Drawing.Point(14, 15);
+            comboDivision.ItemHeight = 15;
+            comboDivision.Items.AddRange(new object[] { "DIV01" });
+            comboDivision.Location = new System.Drawing.Point(15, 15);
             comboDivision.Name = "comboDivision";
-            //comboDivision.Radius = 5;
-            //comboDivision.ShadowDepth = 4F;
-            comboDivision.Size = new System.Drawing.Size(91, 23);
+            comboDivision.Size = new System.Drawing.Size(90, 23);
             comboDivision.TabIndex = 10;
             comboDivision.SelectedIndexChanged += comboDivision_SelectedIndexChanged;
             // 

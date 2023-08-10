@@ -136,9 +136,15 @@ namespace RSBot.Core.Components
             }
             catch (Exception)
             {
-                MessageBox.Show(LanguageManager.GetLang("Client.StartGameFailedDesc"), "Client.StartGameFailedTittle", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                /*return false;*/
+                MessageBox.Show(
+                    LanguageManager.GetText(
+                        "Client.StartGameFailedDesc",
+                        "Can not start sro_client, please check the task manager for any sro_client suppending. Terminate and try again!"
+                    ),
+                    LanguageManager.GetText("Client.StartGameFailedTittle", "Start Silkroad Failed"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
 
             WaitForSingleObject(remoteThread, uint.MaxValue);

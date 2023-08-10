@@ -185,6 +185,38 @@ namespace RSBot.Core.Components
         }
 
         /// <summary>
+        /// Get language value with default message
+        /// </summary>
+        /// <param name="key">The key</param>
+        /// <param name="defaultMsg">The default message will return if not found translated message</param>
+        public static string GetText(string key, string defaultMsg)
+        {
+            string result = GetLang(key);
+            if (result == string.Empty)
+            {
+                return defaultMsg;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Get language value with default message
+        /// </summary>
+        /// <param name="key">The key</param>
+        /// <param name="defaultMsg">The default message will return if not found translated message</param>
+        public static string GetText(string key, string defaultMsg, params object[] args)
+        {
+            string result = GetLang(key);
+            if (result == string.Empty)
+            {
+                result = defaultMsg;
+            }
+
+            return string.Format(result, args);
+        }
+
+        /// <summary>
         /// Get language value
         /// </summary>
         /// <param name="key">The key</param>
