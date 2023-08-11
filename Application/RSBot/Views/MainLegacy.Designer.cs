@@ -50,6 +50,7 @@ namespace RSBot.Views
             notifyIcon = new NotifyIcon(components);
             fileToolStripMenuItem = new ToolStripMenuItem();
             menuSelectProfile = new ToolStripMenuItem();
+            menuEnableDebug = new ToolStripMenuItem();
             networkConfigToolStripMenuItem = new ToolStripMenuItem();
             menuItemExit = new ToolStripMenuItem();
             viewToolStripMenuItem = new ToolStripMenuItem();
@@ -254,7 +255,7 @@ namespace RSBot.Views
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { menuSelectProfile, networkConfigToolStripMenuItem, menuItemExit });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { menuSelectProfile, menuEnableDebug, networkConfigToolStripMenuItem, menuItemExit });
             fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new System.Drawing.Size(37, 21);
@@ -267,6 +268,14 @@ namespace RSBot.Views
             menuSelectProfile.Size = new System.Drawing.Size(151, 22);
             menuSelectProfile.Text = "Select Profile...";
             menuSelectProfile.Click += menuSelectProfile_Click;
+            // 
+            // menuSelectProfile
+            // 
+            menuEnableDebug.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            menuEnableDebug.Name = "menuDebugMode";
+            menuEnableDebug.Size = new System.Drawing.Size(151, 22);
+            menuEnableDebug.Text = "Debug mode";
+            menuEnableDebug.Click += menuDebugMode_Click;
             // 
             // networkConfigToolStripMenuItem
             // 
@@ -516,6 +525,7 @@ namespace RSBot.Views
         private ToolStripMenuItem languageToolStripMenuItem;
         private SDUI.Controls.Separator separator;
         private ToolStripMenuItem menuSelectProfile;
+        private ToolStripMenuItem menuEnableDebug;
         private ToolStripMenuItem menuCurrentProfile;
         private ToolStripMenuItem botsToolStripMenuItem;
         private ToolStripMenuItem autoToolStripMenuItem;

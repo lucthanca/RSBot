@@ -742,6 +742,12 @@ namespace RSBot.Views
             EventManager.FireEvent("OnLoadCharacter");
         }
 
+        private void menuDebugMode_Click(object sender, EventArgs e)
+        {
+            menuEnableDebug.Checked = !menuEnableDebug.Checked;
+            GlobalConfig.Set("RSBot.DebugMode", menuEnableDebug.Checked.ToString());
+        }
+
         /// <summary>
         /// Handles the Click event of the buttonConfig control.
         /// </summary>

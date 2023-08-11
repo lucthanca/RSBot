@@ -121,27 +121,51 @@ namespace RSBot.Default.Bundle.Target
         {
             var warlockModeEnabled = PlayerConfig.Get<bool>("RSBot.Skills.WarlockMode");
             var ignorePillar = PlayerConfig.Get<bool>("RSBot.Ignores.DimensionPillar");
+            bool isDebugMode = GlobalConfig.Get<bool>(GlobalConfigKeys.DEBUG_MODE, false);
 
             if (!SpawnManager.TryGetEntities<SpawnedMonster>(m =>
             {
-                /*Log.Notify($"State: {(m.State.LifeState == LifeState.Alive).ToString()}" +
-                    $"\n Warlock: {(!(warlockModeEnabled && m.State.HasTwoDots())).ToString()}" +
-                    $"\n Not BehindObstacle: {m.IsBehindObstacle == false}" +
-                    "\n inSight: " + Container.Bot.Area.IsInSight(m).ToString() +
-                    "\n Not pandora: " + (!m.Record.IsPandora).ToString() +
-                    "\n Not DimensionPillar: " + (!(m.Record.IsDimensionPillar && ignorePillar)).ToString() +
-                    "\n Not summon Flower: " + (!m.Record.IsSummonFlower).ToString() +
-                    "\n Not in blacklist: " + (_blacklist?.ContainsKey(m.UniqueId) == false).ToString() +
-                    "\n lacklist: " + _blacklist?.ContainsKey(m.UniqueId).ToString());*/
+                if (m.State.LifeState != LifeState.Alive)
+                {
+                    if (isDebugMode) Log.Notify($"[TargetBundle] Mob {m.Record.GetRealName()}:[{m.UniqueId}] is not alive!");
 
-                if (m.State.LifeState != LifeState.Alive) return false;
-                if (warlockModeEnabled && m.State.HasTwoDots()) return false;
-                if (m.IsBehindObstacle) return false;
-                if (_blacklist?.ContainsKey(m.UniqueId) == true) return false;
-                if (!Container.Bot.Area.IsInSight(m)) return false;
-                if (m.Record.IsPandora) return false;
-                if (ignorePillar && m.Record.IsDimensionPillar) return false;
-                if (m.Record.IsSummonFlower) return false;
+                    return false;
+                }
+                if (warlockModeEnabled && m.State.HasTwoDots())
+                {
+                    if (isDebugMode) Log.Notify($"[TargetBundle] Mob {m.Record.GetRealName()} has two dots!");
+                    return false;
+                }
+                if (m.IsBehindObstacle)
+                {
+                    if (isDebugMode) Log.Notify($"[TargetBundle] Mob {m.Record.GetRealName()} is behind obstacle!");
+                    return false;
+                }
+                if (_blacklist?.ContainsKey(m.UniqueId) == true)
+                {
+                    if (isDebugMode) Log.Notify($"[TargetBundle] Mob {m.Record.GetRealName()} is in blacklist!");
+                    return false;
+                }
+                if (!Container.Bot.Area.IsInSight(m))
+                {
+                    if (isDebugMode) Log.Notify($"[TargetBundle] Mob {m.Record.GetRealName()} is not in sight!");
+                    return false;
+                }
+                if (m.Record.IsPandora)
+                {
+                    if (isDebugMode) Log.Notify($"[TargetBundle] Mob {m.Record.GetRealName()} is a pandora!");
+                    return false;
+                }
+                if (ignorePillar && m.Record.IsDimensionPillar)
+                {
+                    if (isDebugMode) Log.Notify($"[TargetBundle] Mob {m.Record.GetRealName()} is a dimension pillar!");
+                    return false;
+                }
+                if (m.Record.IsSummonFlower)
+                {
+                    if (isDebugMode) Log.Notify($"[TargetBundle] Mob {m.Record.GetRealName()} is a summon flower!");
+                    return false;
+                }
                 return true;
                 /*return m.State.LifeState == LifeState.Alive &&
                     !(warlockModeEnabled && m.State.HasTwoDots()) &&
