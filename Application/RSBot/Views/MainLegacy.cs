@@ -20,6 +20,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Policy;
+using System.Reflection;
 
 namespace RSBot.Views
 {
@@ -50,6 +51,25 @@ namespace RSBot.Views
             CheckForIllegalCrossThreadCalls = false;
             SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
             RegisterEvents();
+
+            DoubleBuffered = true;
+
+            #region Set double buffer for tabControl
+            try
+            {
+                typeof(Control).InvokeMember(
+                    "DoubleBuffered",
+                    BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+                    null,
+                    tabMain,
+                    new object[] { DoubleBuffered }
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            #endregion
         }
 
         #endregion Constructor

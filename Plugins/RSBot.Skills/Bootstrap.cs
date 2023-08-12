@@ -21,7 +21,7 @@ public class Bootstrap : IPlugin
     public int Index => 1;
 
     /// <inheritdoc />
-    public bool RequireIngame => true;
+    public bool RequireIngame => false;
 
     /// <inheritdoc />
     public void Initialize() =>

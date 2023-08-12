@@ -8,6 +8,7 @@ using RSBot.Core.Objects.Skill;
 using RSBot.Skills.Components;
 using System;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -56,6 +57,21 @@ public partial class Main : UserControl
         listActiveBuffs.SmallImageList = Core.Extensions.ListViewExtensions.StaticImageList;
 
         _lock = new object();
+
+        #region Set Double Buffering for docked controls
+        // Enable double buffering to prevent flickering
+        DoubleBuffered = true;
+        SetDoubleBuffer(tableLayoutPanel1, true);
+        SetDoubleBuffer(panel1, true);
+        SetDoubleBuffer(panel2, true);
+        SetDoubleBuffer(panel3, true);
+        SetDoubleBuffer(tabControl1, true);
+        SetDoubleBuffer(tableLayoutPanel2, true);
+        SetDoubleBuffer(groupBox2, true);
+        SetDoubleBuffer(groupBox1, true);
+        SetDoubleBuffer(tabControl2, true);
+
+        #endregion
     }
 
     /// <summary>
@@ -1089,5 +1105,28 @@ public partial class Main : UserControl
     private void tbMagBalanc_TextChanged(object sender, EventArgs e)
     {
         PlayerConfig.Set("RSBot.Skills.castSkillSetting", tbMagBalanc.Text);
+    }
+
+    /// <summary>
+    /// Enable double buffer to any control ex gridview, flowlayout, tableLayout panel
+    /// </summary>
+    /// <param name="ctl"></param>
+    /// <param name="DoubleBuffered"></param>
+    static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
+    {
+        try
+        {
+            typeof(Control).InvokeMember(
+                "DoubleBuffered",
+                BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+                null,
+                ctl,
+                new object[] { DoubleBuffered }
+            );
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
     }
 }
