@@ -13,7 +13,7 @@ using Vadu.AlphaForm;
 
 namespace RSBot.Views
 {
-    public partial class SplashScreen : Form
+    public partial class SplashScreen : AlphaForm
     {
         private readonly MainLegacy _mainForm;
 
@@ -41,8 +41,8 @@ namespace RSBot.Views
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void SplashScreen_Load(object sender, EventArgs e)
         {
-            alphaFormTransformer1.TransformForm(255);
-            // DrawControlBackground(lbLoadingState, false);
+            DrawControlBackground(lbLoadingState, false);
+            UpdateLayeredBackground();
             lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingProfileConfig", "Initializing Profile Config...");
             if (!LoadProfileConfig())
             {
@@ -131,8 +131,8 @@ namespace RSBot.Views
             // _mainForm.Show();
             // _mainForm.RefreshTheme(false);
 
-            _completed = 1;
-            Close();
+            //_completed = 1;
+            //Close();
         }
 
         /// <summary>

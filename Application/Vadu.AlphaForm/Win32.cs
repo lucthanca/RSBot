@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Runtime.InteropServices;
 
-static class Win64
+static class Win32
 {
 	public enum Message : uint
 	{

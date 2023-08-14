@@ -60,9 +60,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSBot.Trade", "Botbases\RSB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParsePacket", "ParsePacket\ParsePacket.csproj", "{2C56AD4A-9BF5-4746-AB43-4E1A30FBB335}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vadu.AlphaForm", "Application\Vadu.AlphaForm\Vadu.AlphaForm.csproj", "{58CCB71F-850A-4195-8844-626B34AF9BCE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestFormSkinChange", "C:\Users\lucthanca\Downloads\Compressed\AlphaForm_1_1_3_Part1\AlphaForm_1_1_3\TestFormSkinChange\TestFormSkinChange.csproj", "{66A68860-A1EA-4637-8CE7-47E6930EAE50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vadu.AlphaForm", "Application\Vadu.AlphaForm\Vadu.AlphaForm.csproj", "{58CCB71F-850A-4195-8844-626B34AF9BCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -509,24 +507,6 @@ Global
 		{58CCB71F-850A-4195-8844-626B34AF9BCE}.Release|x64.Build.0 = Release|Any CPU
 		{58CCB71F-850A-4195-8844-626B34AF9BCE}.Release|x86.ActiveCfg = Release|Any CPU
 		{58CCB71F-850A-4195-8844-626B34AF9BCE}.Release|x86.Build.0 = Release|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Debug|x64.Build.0 = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Debug|x86.Build.0 = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Demo|Any CPU.ActiveCfg = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Demo|Any CPU.Build.0 = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Demo|x64.ActiveCfg = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Demo|x64.Build.0 = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Demo|x86.ActiveCfg = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Demo|x86.Build.0 = Debug|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Release|x64.ActiveCfg = Release|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Release|x64.Build.0 = Release|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Release|x86.ActiveCfg = Release|Any CPU
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -556,7 +536,6 @@ Global
 		{49078DE1-EAB9-4C56-9559-6CC9A8FB66B4} = {981CBAF8-4F97-48A9-9A42-6682029D7508}
 		{2C56AD4A-9BF5-4746-AB43-4E1A30FBB335} = {AC1664CE-FD32-4A07-8C5C-0C96D973960C}
 		{58CCB71F-850A-4195-8844-626B34AF9BCE} = {AC1664CE-FD32-4A07-8C5C-0C96D973960C}
-		{66A68860-A1EA-4637-8CE7-47E6930EAE50} = {AC1664CE-FD32-4A07-8C5C-0C96D973960C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E2A0162-C6BF-4792-97DC-C8824F69B98C}

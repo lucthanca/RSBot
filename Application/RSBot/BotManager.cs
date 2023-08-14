@@ -31,9 +31,9 @@ namespace RSBot
 
         public static MainLegacy MainForm { set { _mainForm = value; } }
 
-        private static SplashScreenV2 _splashScreen;
+        private static SplashScreen _splashScreen;
 
-        public static SplashScreenV2 SplashScreen { set { _splashScreen = value; } }
+        public static SplashScreen SplashScreen { set { _splashScreen = value; } }
 
         public static BotInitState CurrentStep { get { return _loadingStep; } }
 

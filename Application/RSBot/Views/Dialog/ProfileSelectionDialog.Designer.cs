@@ -144,6 +144,7 @@
             ShowIcon = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "RSBot - Profile";
+            TopMost = true;
             ResumeLayout(false);
             PerformLayout();
         }
