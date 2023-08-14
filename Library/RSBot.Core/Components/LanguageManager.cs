@@ -35,6 +35,23 @@ namespace RSBot.Core.Components
         }
 
         /// <summary>
+        /// Load the language file with specific assembly and language
+        /// </summary>
+        /// <param name="assembly">the directory name</param>
+        /// <param name="language">language key</param>
+        public static void LoadLanguage(string assembly, string language)
+        {
+            var path = Path.Combine(_path, assembly, language + ".rsl");
+            var dir = Path.GetDirectoryName(path);
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+            if (!File.Exists(path))
+                return;
+            var values = ParseLanguageFile(path);
+            _values[assembly] = values;
+        }
+
+        /// <summary>
         /// Parse the language file
         /// </summary>
         /// <param name="file">The language file</param>
@@ -95,6 +112,19 @@ namespace RSBot.Core.Components
             }
 
             return languages;
+        }
+
+        /// <summary>
+        /// Parse the language file with specific assembly
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="assembly"></param>
+        /// <returns></returns>
+        public static LangDict ParseLanguageFile(string file, string assembly)
+        {
+            if (!_values.ContainsKey(assembly))
+                return ParseLanguageFile(file);
+            return _values[assembly];
         }
 
         /// <summary>
@@ -250,27 +280,25 @@ namespace RSBot.Core.Components
             var controlName = type.FullName;
             var assembly = type.Assembly.GetName().Name;
 
-            var path = Path.Combine(_path, assembly, language + ".rsl");
-            var dir = Path.GetDirectoryName(path);
-
-            if (!Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
-
-            var stopwatch = Stopwatch.StartNew();
-
-            if (!File.Exists(path))
-                return;
+            if (!_values.ContainsKey(assembly))
+            {
+                var path = Path.Combine(_path, assembly, language + ".rsl");
+                var dir = Path.GetDirectoryName(path);
+                if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+                var stopwatch = Stopwatch.StartNew();
+                if (!File.Exists(path)) return;
+                var values = ParseLanguageFile(path);
+                _values[assembly] = values;
+            }
+                
                 //File.CreateText(path).Dispose();
 
             //var instance = (Control)Activator.CreateInstance(type);
 
-            var values = ParseLanguageFile(path);
+            
             //CheckMissings(path, assembly, instance, values);
 
-
-            _values[assembly] = values;
-
-            TranslateControls(values, view, assembly);
+            TranslateControls(_values[assembly], view, assembly);
         }
      
         private static void TranslateControls(LangDict values, Control view, string header)

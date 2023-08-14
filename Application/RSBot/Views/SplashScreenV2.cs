@@ -1,71 +1,114 @@
 ﻿using RSBot.Core;
 using RSBot.Core.Components;
-using RSBot.Properties;
-using RSBot.Views.Dialog;
-using SDUI;
-using SDUI.Controls;
-using SDUI.Helpers;
 using System;
-using System.Drawing;
-using System.IO;
+using System.Globalization;
 using System.Windows.Forms;
 using Vadu.AlphaForm;
+using RSBot.Core.Event;
+using RSBot.Views.Dialog;
+using SDUI.Controls;
+using System.IO;
 
 namespace RSBot.Views
 {
-    public partial class SplashScreen : Form
+    public partial class SplashScreenV2 : Form
     {
         private readonly MainLegacy _mainForm;
 
-        private byte _completed = 0;
-
-        public byte Completed { get => _completed; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SplashScreen"/> class.
-        /// </summary>
-        public SplashScreen()
+        public SplashScreenV2()
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            // _mainForm = new();
+            _mainForm = new();
 
-            // labelVersion.Text = Program.AssemblyVersion;
+            // Enable console
+            // AllocConsole();
+
+            var ci = CultureInfo.InstalledUICulture;
+            Kernel.Language = ci.Name.Replace("-", "_");
+            LanguageManager.LoadLanguage("RSBot", Kernel.Language);
             referenceDataLoader.RunWorkerCompleted += ReferenceDataLoaderCompleted;
         }
 
         /// <summary>
-        /// Handles the Load event of the SplashScreen control.
+        /// Handles the RunWorkerCompleted event of the Initializer control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void SplashScreen_Load(object sender, EventArgs e)
+        /// <param name="e">The <see cref="System.ComponentModel.RunWorkerCompletedEventArgs"/> instance containing the event data.</param>
+        private void ReferenceDataLoaderCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            alphaFormTransformer1.TransformForm(255);
-            // DrawControlBackground(lbLoadingState, false);
-            lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingProfileConfig", "Initializing Profile Config...");
-            if (!LoadProfileConfig())
-            {
-                Environment.Exit(0);
-                return;
-            }
+            _mainForm.Show();
+            _mainForm.RefreshTheme(false);
 
+            Hide();
+        }
+
+        private void SplashScreenV2_Load(object sender, EventArgs e)
+        {
+            Initialize();
+            referenceDataLoader.RunWorkerAsync();
+        }
+
+
+        private void Initialize()
+        {
+            InitializeProfileConfig();
             lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingLanguage", "Initializing Language...");
-            Kernel.Language = GlobalConfig.Get("RSBot.Language", "en_US");
+            LanguageManager.Translate(_mainForm, Kernel.Language);
+            InitializeGameClient();
+            InitializeBot();
+            InitializeBotPlugins();
+            InitializeBotTypes();
+            lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingBotCommands", "Initializing Bot Commands...");
+            CommandManager.Initialize();
+            InitializeMap();
+        }
+        /// <summary>
+        /// Loads the profile configuration.
+        /// </summary>
+        private void InitializeProfileConfig()
+        {
+            lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingProfileConfig", "Initializing Profile Config...");
 
-            /*var detectDarkLight = GlobalConfig.Get("RSBot.Theme.Auto", true);
-            if (detectDarkLight)
+            try
             {
-                if (WindowsHelper.IsDark())
-                    ColorScheme.BackColor = Main.DarkThemeColor;
-                else
-                    ColorScheme.BackColor = Main.LightThemeColor;
+                if (!ProfileManager.IsProfileLoadedByArgs)
+                {
+                    if (ProfileManager.ShowProfileDialog)
+                    {
+                        var dialog = new ProfileSelectionDialog();
+                        if (dialog.ShowDialog() != DialogResult.Cancel)
+                            ProfileManager.SetSelectedProfile(dialog.SelectedProfile);
+                        else
+                            return;
+                    }
+                    else //Load selected profile without dialog
+                    {
+                        var selectedProfile = ProfileManager.SelectedProfile;
+                        var profilePath = ProfileManager.GetProfileFile(selectedProfile);
+
+                        //Configured profile could not be found. Fallback to default profile
+                        if (!string.IsNullOrEmpty(selectedProfile) && !File.Exists(profilePath))
+                            selectedProfile = "Default";
+
+                        ProfileManager.SetSelectedProfile(selectedProfile);
+                    }
+                }
+
+                GlobalConfig.Load();
+                Log.Notify($"Loaded profile {ProfileManager.SelectedProfile}");
+
+                Kernel.Language = GlobalConfig.Get("RSBot.Language", "en_US");
             }
-            else
-                ColorScheme.BackColor = Color.FromArgb(GlobalConfig.Get("SDUI.Color", Color.White.ToArgb()));*/
+            catch (Exception ex)
+            {
+                File.WriteAllText(Kernel.BasePath + "\\critical.log", $"[Loading Profile Config] Failed: \n{ex.Message} at {ex.StackTrace}");
+                throw new Exception(LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingProfileConfigFailed", "Initialize Profile config failed! Please try again!"));
+            }
+        }
 
-            // LanguageManager.Translate(_mainForm, Kernel.Language);
-
+        private void InitializeGameClient()
+        {
             lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingGameClient", "Initializing Game Client...");
             if (!GlobalConfig.Exists("RSBot.SilkroadDirectory") || !File.Exists(GlobalConfig.Get<string>("RSBot.SilkroadDirectory") + "\\media.pk2"))
             {
@@ -115,70 +158,17 @@ namespace RSBot.Views
                     Environment.Exit(0);
                 }
             }
-
-            InitializeBot();
-
-            referenceDataLoader.RunWorkerAsync();
         }
 
-        /// <summary>
-        /// Handles the RunWorkerCompleted event of the Initializer control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.RunWorkerCompletedEventArgs"/> instance containing the event data.</param>
-        private void ReferenceDataLoaderCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            // _mainForm.Show();
-            // _mainForm.RefreshTheme(false);
-
-            _completed = 1;
-            Close();
-        }
-
-        /// <summary>
-        /// Loads the profile configuration.
-        /// </summary>
-        private bool LoadProfileConfig()
-        {
-            if (!ProfileManager.IsProfileLoadedByArgs)
-            {
-                if (ProfileManager.ShowProfileDialog)
-                {
-                    var dialog = new ProfileSelectionDialog();
-                    if (dialog.ShowDialog() != DialogResult.Cancel)
-                        ProfileManager.SetSelectedProfile(dialog.SelectedProfile);
-                    else
-                        return false;
-                }
-                else //Load selected profile without dialog
-                {
-                    var selectedProfile = ProfileManager.SelectedProfile;
-                    var profilePath = ProfileManager.GetProfileFile(selectedProfile);
-
-                    //Configured profile could not be found. Fallback to default profile
-                    if (!string.IsNullOrEmpty(selectedProfile) && !File.Exists(profilePath))
-                        selectedProfile = "Default";
-
-                    ProfileManager.SetSelectedProfile(selectedProfile);
-                }
-            }
-
-            GlobalConfig.Load();
-            Log.Notify($"Loaded profile {ProfileManager.SelectedProfile}");
-
-            return true;
-        }
-
-        /// <summary>
-        /// Initializes the bot.
-        /// </summary>
         private void InitializeBot()
         {
             lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingBotCore", "Initializing Bot Core...");
-            //---- Boot kernel -----
             Kernel.Initialize();
             Game.Initialize();
+        }
 
+        private void InitializeBotPlugins()
+        {
             lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingBotPlugins", "Initializing Bot Plugins...");
             //---- Load Plugins ----
             if (!Kernel.PluginManager.LoadAssemblies())
@@ -186,16 +176,13 @@ namespace RSBot.Views
                 MessageBox.Show(@"Failed to load plugins. Process canceled!", @"Initialize Application - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
 
+        private void InitializeBotTypes()
+        {
             lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingBotTypes", "Initializing Bot Types...");
-            //---- Load Botbases ----
             if (!Kernel.BotbaseManager.LoadAssemblies())
                 MessageBox.Show(@"Failed to load botbases. Process canceled!", @"Initialize Application - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            CommandManager.Initialize();
-
-            lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingBotMap", "Initializing Map...");
-            InitializeMap();
         }
 
         /// <summary>
@@ -203,6 +190,7 @@ namespace RSBot.Views
         /// </summary>
         private void InitializeMap()
         {
+            lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingBotMap", "Initializing Map...");
             //---- Load Map ----
             var mapFile = Path.Combine(Kernel.BasePath, "Data", "Game", "map.rsc");
 

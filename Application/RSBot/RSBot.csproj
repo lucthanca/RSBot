@@ -28,5 +28,6 @@
 		  <Private>True</Private>
 		</ProjectReference>
 		<ProjectReference Include="..\..\SDUI\SDUI\SDUI.csproj" />
+		<ProjectReference Include="..\Vadu.AlphaForm\Vadu.AlphaForm.csproj" />
 	</ItemGroup>
 </Project>
