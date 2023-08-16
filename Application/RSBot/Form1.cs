@@ -1,19 +1,12 @@
 ﻿using RSBot.Core.Components;
 using RSBot.Core;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Vadu.AlphaForm;
 using RSBot.Views.Dialog;
 using SDUI.Controls;
-using System.Threading;
 using RSBot.Views;
-using System.Threading.Tasks;
-using RSBot.Core.Plugins;
 
 namespace RSBot
 {
@@ -31,7 +24,6 @@ namespace RSBot
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            // _mainForm = new();
 
             // labelVersion.Text = Program.AssemblyVersion;
         }
@@ -39,73 +31,6 @@ namespace RSBot
         private void Form1_Load(object sender, EventArgs e)
         {
             UpdateLayeredBackground();
-            /*Task.Run(() => {
-                if (!LoadProfileConfig())
-                {
-                    Environment.Exit(0);
-                    return;
-                }
-                Kernel.Language = GlobalConfig.Get("RSBot.Language", "en_US");
-                if (!GlobalConfig.Exists("RSBot.SilkroadDirectory") || !File.Exists(GlobalConfig.Get<string>("RSBot.SilkroadDirectory") + "\\media.pk2"))
-                {
-                    var dialog = new OpenFileDialog
-                    {
-                        Title = LanguageManager.GetLang("OpenFileDialogTitle"),
-                        Filter = "Executable (*.exe)|*.exe",
-                        FileName = "sro_client.exe"
-                    };
-
-                    var result = dialog.ShowDialog(this);
-
-                    var silkroadDirectory = Path.GetDirectoryName(dialog.FileName);
-
-                    if (result == DialogResult.OK && File.Exists(Path.Combine(silkroadDirectory, "media.pk2")))
-                    {
-                        GlobalConfig.Set("RSBot.SilkroadDirectory", silkroadDirectory);
-                        GlobalConfig.Set("RSBot.SilkroadExecutable", Path.GetFileName(dialog.FileName));
-
-                        var title = LanguageManager.GetLang("ClientTypeInputDialogTitle");
-                        var content = LanguageManager.GetLang("ClientTypeInputDialogContent");
-
-                        var clientTypeDialog = new InputDialog(title, title, content, InputDialog.InputType.Combobox);
-                        clientTypeDialog.ShowInTaskbar = true;
-                        clientTypeDialog.StartPosition = FormStartPosition.CenterScreen;
-                        clientTypeDialog.Selector.Items.AddRange(Enum.GetNames(typeof(GameClientType)));
-                        clientTypeDialog.Selector.SelectedIndex = 2;
-                        clientTypeDialog.TopMost = true;
-                        clientTypeDialog.StartPosition = FormStartPosition.CenterScreen;
-
-                        if (clientTypeDialog.ShowDialog() == DialogResult.OK)
-                        {
-                            if (Enum.TryParse<GameClientType>(clientTypeDialog.Value.ToString(), out var clientType))
-                            {
-                                GlobalConfig.Set("RSBot.Game.ClientType", clientType);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show(LanguageManager.GetLang("ClientTypeNotSelected"));
-                            GlobalConfig.Set("RSBot.Game.ClientType", GameClientType.Vietnam);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show(LanguageManager.GetLang("SelectSroDirWarn"));
-                        Environment.Exit(0);
-                    }
-                }
-                InitializeBot();
-            });*/
-            // lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingProfileConfig", "Initializing Profile Config...");
-            
-            //lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingLanguage", "Initializing Language...");
-            // Kernel.Language = GlobalConfig.Get("RSBot.Language", "en_US");
-
-            //lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingGameClient", "Initializing Game Client...");
-            
-
-            // InitializeBot();
-
             referenceDataLoader.RunWorkerAsync();
         }
         /// <summary>
@@ -140,37 +65,6 @@ namespace RSBot
             Log.Notify($"Loaded profile {ProfileManager.SelectedProfile}");
 
             return true;
-        }
-
-        /// <summary>
-        /// Initializes the bot.
-        /// </summary>
-        private void InitializeBot()
-        {
-            //lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingBotCore", "Initializing Bot Core...");
-            //---- Boot kernel -----
-            //Kernel.Initialize();
-            //Game.Initialize();
-
-            //lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingBotPlugins", "Initializing Bot Plugins...");
-            //---- Load Plugins ----
-            //if (!Kernel.PluginManager.LoadAssemblies())
-            //{
-            //    MessageBox.Show(@"Failed to load plugins. Process canceled!", @"Initialize Application - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            // lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingBotTypes", "Initializing Bot Types...");
-            //---- Load Botbases ----
-            //if (!Kernel.BotbaseManager.LoadAssemblies())
-                //MessageBox.Show(@"Failed to load botbases. Process canceled!", @"Initialize Application - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            // CommandManager.Initialize();
-
-            //lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingBotMap", "Initializing Map...");
-            //InitializeMap();
-
-            // lbLoadingState.Text = LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingCompleted", "Almost Completed...");
         }
 
         /// <summary>
@@ -327,17 +221,13 @@ namespace RSBot
         /// <param name="e">The <see cref="System.ComponentModel.RunWorkerCompletedEventArgs"/> instance containing the event data.</param>
         private void ReferenceDataLoaderCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            lbLoadingState.Text = "[99%] " + LanguageManager.GetText("RSBot.SplashScreen.LoadingState.Finishing", "Finishing...");
+            lbLoadingState.Text = "[93%] " + LanguageManager.GetText("RSBot.SplashScreen.LoadingState.AlmostDone", "Almost Done...");
             Kernel.PluginManager.LoadAssemblies();
+            lbLoadingState.Text = "[99%] " + LanguageManager.GetText("RSBot.SplashScreen.LoadingState.Finishing", "Finishing...");
             Kernel.BotbaseManager.LoadAssemblies();
-            // _mainForm.Show();
             // _mainForm.RefreshTheme(false);
-
-            //_completed = 1;
             BeginInvoke(new MethodInvoker(() =>
             {
-                Dictionary<string, IBotbase> listBots = Kernel.BotbaseManager.Bots;
-                _completed = 1;
                 RemoveImage();
                 Close();
             }));

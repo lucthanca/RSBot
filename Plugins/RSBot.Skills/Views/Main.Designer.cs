@@ -91,9 +91,9 @@ namespace RSBot.Skills.Views
             useToPartyMemberToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new SDUI.Controls.Panel();
             panel2 = new SDUI.Controls.Panel();
-            checkHideLowerLevelSkills = new SDUI.Controls.CheckBox();
-            checkShowAttacks = new SDUI.Controls.CheckBox();
-            checkShowBuffs = new SDUI.Controls.CheckBox();
+            checkHideLowerLevelSkills = new CheckBox();
+            checkShowAttacks = new CheckBox();
+            checkShowBuffs = new CheckBox();
             tabPage4 = new TabPage();
             listActiveBuffs = new SDUI.Controls.ListView();
             colActiveName = new ColumnHeader();
@@ -919,15 +919,14 @@ namespace RSBot.Skills.Views
             // 
             // checkHideLowerLevelSkills
             // 
-            checkHideLowerLevelSkills.AutoSize = true;
+            checkHideLowerLevelSkills.Anchor = AnchorStyles.Right;
+            checkHideLowerLevelSkills.AutoEllipsis = true;
             checkHideLowerLevelSkills.BackColor = System.Drawing.Color.Transparent;
-            checkHideLowerLevelSkills.Depth = 0;
-            checkHideLowerLevelSkills.Location = new System.Drawing.Point(202, 6);
+            checkHideLowerLevelSkills.Location = new System.Drawing.Point(219, 10);
             checkHideLowerLevelSkills.Margin = new Padding(0);
-            checkHideLowerLevelSkills.MouseLocation = new System.Drawing.Point(-1, -1);
             checkHideLowerLevelSkills.Name = "checkHideLowerLevelSkills";
-            checkHideLowerLevelSkills.Ripple = true;
-            checkHideLowerLevelSkills.Size = new System.Drawing.Size(146, 30);
+            checkHideLowerLevelSkills.Padding = new Padding(5, 2, 0, 0);
+            checkHideLowerLevelSkills.Size = new System.Drawing.Size(150, 20);
             checkHideLowerLevelSkills.TabIndex = 6;
             checkHideLowerLevelSkills.Text = "Hide lower level skills";
             checkHideLowerLevelSkills.UseVisualStyleBackColor = false;
@@ -939,13 +938,14 @@ namespace RSBot.Skills.Views
             checkShowAttacks.BackColor = System.Drawing.Color.Transparent;
             checkShowAttacks.Checked = true;
             checkShowAttacks.CheckState = CheckState.Checked;
-            checkShowAttacks.Depth = 0;
-            checkShowAttacks.Location = new System.Drawing.Point(0, 5);
+            checkShowAttacks.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
+            checkShowAttacks.FlatAppearance.BorderSize = 0;
+            checkShowAttacks.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            checkShowAttacks.Location = new System.Drawing.Point(10, 10);
             checkShowAttacks.Margin = new Padding(0);
-            checkShowAttacks.MouseLocation = new System.Drawing.Point(-1, -1);
             checkShowAttacks.Name = "checkShowAttacks";
-            checkShowAttacks.Ripple = true;
-            checkShowAttacks.Size = new System.Drawing.Size(75, 30);
+            checkShowAttacks.Padding = new Padding(5, 2, 0, 0);
+            checkShowAttacks.Size = new System.Drawing.Size(100, 20);
             checkShowAttacks.TabIndex = 7;
             checkShowAttacks.Text = "Attacks 22 2 222";
             checkShowAttacks.UseVisualStyleBackColor = false;
@@ -953,19 +953,17 @@ namespace RSBot.Skills.Views
             // 
             // checkShowBuffs
             // 
-            checkShowBuffs.AutoSize = true;
+            checkShowBuffs.AutoEllipsis = true;
             checkShowBuffs.BackColor = System.Drawing.Color.Transparent;
             checkShowBuffs.Checked = true;
             checkShowBuffs.CheckState = CheckState.Checked;
-            checkShowBuffs.Depth = 0;
-            checkShowBuffs.Location = new System.Drawing.Point(83, 6);
+            checkShowBuffs.Location = new System.Drawing.Point(110, 10);
             checkShowBuffs.Margin = new Padding(0);
-            checkShowBuffs.MouseLocation = new System.Drawing.Point(-1, -1);
             checkShowBuffs.Name = "checkShowBuffs";
-            checkShowBuffs.Ripple = true;
-            checkShowBuffs.Size = new System.Drawing.Size(57, 30);
+            checkShowBuffs.Padding = new Padding(5, 2, 0, 0);
+            checkShowBuffs.Size = new System.Drawing.Size(100, 20);
             checkShowBuffs.TabIndex = 8;
-            checkShowBuffs.Text = "Buffs";
+            checkShowBuffs.Text = "Buffs lorem ausm";
             checkShowBuffs.UseVisualStyleBackColor = false;
             checkShowBuffs.CheckedChanged += Filter_CheckedChanged;
             // 
@@ -1063,7 +1061,6 @@ namespace RSBot.Skills.Views
             tabPage3.ResumeLayout(false);
             skillContextMenu.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             tabPage4.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
@@ -1095,9 +1092,8 @@ namespace RSBot.Skills.Views
         private SDUI.Controls.CheckBox checkCastBuffsDuringWalkBack;
         private SDUI.Controls.TabControl tabControl2;
         private TabPage tabPage3;
-        private SDUI.Controls.CheckBox checkShowAttacks;
-        private SDUI.Controls.CheckBox checkShowBuffs;
-        private SDUI.Controls.CheckBox checkHideLowerLevelSkills;
+        private CheckBox checkShowAttacks;
+
         private SDUI.Controls.ListView listSkills;
         private ColumnHeader colName;
         private ColumnHeader colLevel;
@@ -1142,5 +1138,7 @@ namespace RSBot.Skills.Views
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private Panel panel3;
+        private CheckBox checkHideLowerLevelSkills;
+        private CheckBox checkShowBuffs;
     }
 }
