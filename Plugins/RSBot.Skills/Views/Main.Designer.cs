@@ -31,16 +31,20 @@ namespace RSBot.Skills.Views
         private void InitializeComponent()
         {
             groupBox1 = new SDUI.Controls.GroupBox();
-            checkUseSkillsInOrder = new SDUI.Controls.CheckBox();
-            checkBoxNoAttack = new SDUI.Controls.CheckBox();
+            panel6 = new Panel();
             listAttackingSkills = new SDUI.Controls.ListView();
             columnName = new ColumnHeader();
             columnLevel = new ColumnHeader();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnRemoveAttackSkill = new SDUI.Controls.Button();
+            btnMoveAttackSkillUp = new SDUI.Controls.Button();
+            btnMoveAttackSkillDown = new SDUI.Controls.Button();
+            panel4 = new Panel();
+            panel5 = new Panel();
+            checkBoxNoAttack = new CheckBox();
+            checkUseSkillsInOrder = new CheckBox();
             label2 = new SDUI.Controls.Label();
             comboMonsterType = new SDUI.Controls.ComboBox();
-            btnMoveAttackSkillDown = new SDUI.Controls.Button();
-            btnMoveAttackSkillUp = new SDUI.Controls.Button();
-            btnRemoveAttackSkill = new SDUI.Controls.Button();
             groupBox2 = new SDUI.Controls.GroupBox();
             listBuffs = new SDUI.Controls.ListView();
             columnHeader1 = new ColumnHeader();
@@ -101,6 +105,10 @@ namespace RSBot.Skills.Views
             tableLayoutPanel1 = new TableLayoutPanel();
             panel3 = new Panel();
             groupBox1.SuspendLayout();
+            panel6.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            panel4.SuspendLayout();
+            panel5.SuspendLayout();
             groupBox2.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -124,14 +132,9 @@ namespace RSBot.Skills.Views
             // groupBox1
             // 
             groupBox1.BackColor = System.Drawing.Color.Transparent;
-            groupBox1.Controls.Add(checkUseSkillsInOrder);
-            groupBox1.Controls.Add(checkBoxNoAttack);
-            groupBox1.Controls.Add(listAttackingSkills);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(comboMonsterType);
-            groupBox1.Controls.Add(btnMoveAttackSkillDown);
-            groupBox1.Controls.Add(btnMoveAttackSkillUp);
-            groupBox1.Controls.Add(btnRemoveAttackSkill);
+            groupBox1.Controls.Add(panel6);
+            groupBox1.Controls.Add(flowLayoutPanel1);
+            groupBox1.Controls.Add(panel4);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new System.Drawing.Point(0, 0);
             groupBox1.Margin = new Padding(0);
@@ -144,46 +147,28 @@ namespace RSBot.Skills.Views
             groupBox1.TabStop = false;
             groupBox1.Text = "Attacking skills";
             // 
-            // checkUseSkillsInOrder
+            // panel6
             // 
-            checkUseSkillsInOrder.BackColor = System.Drawing.Color.Transparent;
-            checkUseSkillsInOrder.Depth = 0;
-            checkUseSkillsInOrder.Location = new System.Drawing.Point(231, 194);
-            checkUseSkillsInOrder.Margin = new Padding(0);
-            checkUseSkillsInOrder.MouseLocation = new System.Drawing.Point(-1, -1);
-            checkUseSkillsInOrder.Name = "checkUseSkillsInOrder";
-            checkUseSkillsInOrder.Ripple = true;
-            checkUseSkillsInOrder.Size = new System.Drawing.Size(86, 15);
-            checkUseSkillsInOrder.TabIndex = 10;
-            checkUseSkillsInOrder.Text = "Use in order";
-            checkUseSkillsInOrder.UseVisualStyleBackColor = false;
-            checkUseSkillsInOrder.CheckedChanged += checkUseSkillsInOrder_CheckedChanged;
-            // 
-            // checkBoxNoAttack
-            // 
-            checkBoxNoAttack.BackColor = System.Drawing.Color.Transparent;
-            checkBoxNoAttack.Depth = 0;
-            checkBoxNoAttack.Location = new System.Drawing.Point(231, 175);
-            checkBoxNoAttack.Margin = new Padding(0);
-            checkBoxNoAttack.MouseLocation = new System.Drawing.Point(-1, -1);
-            checkBoxNoAttack.Name = "checkBoxNoAttack";
-            checkBoxNoAttack.Ripple = true;
-            checkBoxNoAttack.Size = new System.Drawing.Size(76, 15);
-            checkBoxNoAttack.TabIndex = 9;
-            checkBoxNoAttack.Text = "No Attack";
-            checkBoxNoAttack.UseVisualStyleBackColor = false;
-            checkBoxNoAttack.CheckedChanged += checkBoxNoAttack_CheckedChanged;
+            panel6.Controls.Add(listAttackingSkills);
+            panel6.Dock = DockStyle.Fill;
+            panel6.Location = new System.Drawing.Point(3, 26);
+            panel6.Margin = new Padding(0);
+            panel6.Name = "panel6";
+            panel6.Padding = new Padding(10, 10, 0, 10);
+            panel6.Size = new System.Drawing.Size(307, 145);
+            panel6.TabIndex = 13;
             // 
             // listAttackingSkills
             // 
             listAttackingSkills.BackColor = System.Drawing.Color.White;
             listAttackingSkills.Columns.AddRange(new ColumnHeader[] { columnName, columnLevel });
+            listAttackingSkills.Dock = DockStyle.Fill;
             listAttackingSkills.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             listAttackingSkills.FullRowSelect = true;
             listAttackingSkills.HeaderStyle = ColumnHeaderStyle.None;
-            listAttackingSkills.Location = new System.Drawing.Point(6, 25);
+            listAttackingSkills.Location = new System.Drawing.Point(10, 10);
             listAttackingSkills.Name = "listAttackingSkills";
-            listAttackingSkills.Size = new System.Drawing.Size(315, 146);
+            listAttackingSkills.Size = new System.Drawing.Size(297, 125);
             listAttackingSkills.TabIndex = 8;
             listAttackingSkills.UseCompatibleStateImageBehavior = false;
             listAttackingSkills.View = System.Windows.Forms.View.Details;
@@ -197,77 +182,148 @@ namespace RSBot.Skills.Views
             // 
             columnLevel.Text = "Level";
             // 
-            // label2
+            // flowLayoutPanel1
             // 
-            label2.ApplyGradient = false;
-            label2.AutoSize = true;
-            label2.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label2.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
-            label2.GradientAnimation = false;
-            label2.Location = new System.Drawing.Point(9, 183);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(34, 15);
-            label2.TabIndex = 7;
-            label2.Text = "Type:";
-            // 
-            // comboMonsterType
-            // 
-            comboMonsterType.DrawMode = DrawMode.OwnerDrawFixed;
-            comboMonsterType.DropDownHeight = 100;
-            comboMonsterType.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboMonsterType.FormattingEnabled = true;
-            comboMonsterType.IntegralHeight = false;
-            comboMonsterType.ItemHeight = 17;
-            comboMonsterType.Items.AddRange(new object[] { "General (Default)", "Champion", "Giant", "General (Party)", "Champion (Party)", "Giant (Party)", "Elite", "Strong", "Unique", "Event" });
-            comboMonsterType.Location = new System.Drawing.Point(54, 180);
-            comboMonsterType.Name = "comboMonsterType";
-            comboMonsterType.Radius = 5;
-            comboMonsterType.ShadowDepth = 4F;
-            comboMonsterType.Size = new System.Drawing.Size(171, 23);
-            comboMonsterType.TabIndex = 2;
-            comboMonsterType.SelectedIndexChanged += comboMonsterType_SelectedIndexChanged;
-            // 
-            // btnMoveAttackSkillDown
-            // 
-            btnMoveAttackSkillDown.Color = System.Drawing.Color.Transparent;
-            btnMoveAttackSkillDown.Font = new System.Drawing.Font("Webdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnMoveAttackSkillDown.Location = new System.Drawing.Point(327, 85);
-            btnMoveAttackSkillDown.Name = "btnMoveAttackSkillDown";
-            btnMoveAttackSkillDown.Radius = 6;
-            btnMoveAttackSkillDown.ShadowDepth = 4F;
-            btnMoveAttackSkillDown.Size = new System.Drawing.Size(24, 24);
-            btnMoveAttackSkillDown.TabIndex = 1;
-            btnMoveAttackSkillDown.Text = "6";
-            btnMoveAttackSkillDown.UseVisualStyleBackColor = true;
-            btnMoveAttackSkillDown.Click += btnMoveAttackSkillDown_Click;
-            // 
-            // btnMoveAttackSkillUp
-            // 
-            btnMoveAttackSkillUp.Color = System.Drawing.Color.Transparent;
-            btnMoveAttackSkillUp.Font = new System.Drawing.Font("Webdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnMoveAttackSkillUp.Location = new System.Drawing.Point(327, 55);
-            btnMoveAttackSkillUp.Name = "btnMoveAttackSkillUp";
-            btnMoveAttackSkillUp.Radius = 6;
-            btnMoveAttackSkillUp.ShadowDepth = 4F;
-            btnMoveAttackSkillUp.Size = new System.Drawing.Size(24, 24);
-            btnMoveAttackSkillUp.TabIndex = 1;
-            btnMoveAttackSkillUp.Text = "5";
-            btnMoveAttackSkillUp.UseVisualStyleBackColor = true;
-            btnMoveAttackSkillUp.Click += btnMoveAttackSkillUp_Click;
+            flowLayoutPanel1.Controls.Add(btnRemoveAttackSkill);
+            flowLayoutPanel1.Controls.Add(btnMoveAttackSkillUp);
+            flowLayoutPanel1.Controls.Add(btnMoveAttackSkillDown);
+            flowLayoutPanel1.Dock = DockStyle.Right;
+            flowLayoutPanel1.Location = new System.Drawing.Point(310, 26);
+            flowLayoutPanel1.Margin = new Padding(0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Padding = new Padding(9, 10, 9, 10);
+            flowLayoutPanel1.Size = new System.Drawing.Size(50, 145);
+            flowLayoutPanel1.TabIndex = 12;
             // 
             // btnRemoveAttackSkill
             // 
             btnRemoveAttackSkill.Color = System.Drawing.Color.Transparent;
             btnRemoveAttackSkill.Font = new System.Drawing.Font("Webdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnRemoveAttackSkill.Location = new System.Drawing.Point(327, 25);
+            btnRemoveAttackSkill.Location = new System.Drawing.Point(9, 10);
+            btnRemoveAttackSkill.Margin = new Padding(0);
             btnRemoveAttackSkill.Name = "btnRemoveAttackSkill";
             btnRemoveAttackSkill.Radius = 6;
             btnRemoveAttackSkill.ShadowDepth = 4F;
-            btnRemoveAttackSkill.Size = new System.Drawing.Size(24, 22);
+            btnRemoveAttackSkill.Size = new System.Drawing.Size(32, 32);
             btnRemoveAttackSkill.TabIndex = 1;
             btnRemoveAttackSkill.Text = "r";
             btnRemoveAttackSkill.UseVisualStyleBackColor = true;
             btnRemoveAttackSkill.Click += btnRemoveAttackSkill_Click;
+            // 
+            // btnMoveAttackSkillUp
+            // 
+            btnMoveAttackSkillUp.Color = System.Drawing.Color.Transparent;
+            btnMoveAttackSkillUp.Font = new System.Drawing.Font("Webdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnMoveAttackSkillUp.Location = new System.Drawing.Point(9, 52);
+            btnMoveAttackSkillUp.Margin = new Padding(0, 10, 0, 0);
+            btnMoveAttackSkillUp.Name = "btnMoveAttackSkillUp";
+            btnMoveAttackSkillUp.Radius = 6;
+            btnMoveAttackSkillUp.ShadowDepth = 4F;
+            btnMoveAttackSkillUp.Size = new System.Drawing.Size(32, 32);
+            btnMoveAttackSkillUp.TabIndex = 1;
+            btnMoveAttackSkillUp.Text = "5";
+            btnMoveAttackSkillUp.UseVisualStyleBackColor = true;
+            btnMoveAttackSkillUp.Click += btnMoveAttackSkillUp_Click;
+            // 
+            // btnMoveAttackSkillDown
+            // 
+            btnMoveAttackSkillDown.Color = System.Drawing.Color.Transparent;
+            btnMoveAttackSkillDown.Font = new System.Drawing.Font("Webdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnMoveAttackSkillDown.Location = new System.Drawing.Point(9, 94);
+            btnMoveAttackSkillDown.Margin = new Padding(0, 10, 0, 0);
+            btnMoveAttackSkillDown.Name = "btnMoveAttackSkillDown";
+            btnMoveAttackSkillDown.Radius = 6;
+            btnMoveAttackSkillDown.ShadowDepth = 4F;
+            btnMoveAttackSkillDown.Size = new System.Drawing.Size(32, 32);
+            btnMoveAttackSkillDown.TabIndex = 1;
+            btnMoveAttackSkillDown.Text = "6";
+            btnMoveAttackSkillDown.UseVisualStyleBackColor = true;
+            btnMoveAttackSkillDown.Click += btnMoveAttackSkillDown_Click;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(panel5);
+            panel4.Controls.Add(label2);
+            panel4.Controls.Add(comboMonsterType);
+            panel4.Dock = DockStyle.Bottom;
+            panel4.Location = new System.Drawing.Point(3, 171);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(357, 40);
+            panel4.TabIndex = 11;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(checkBoxNoAttack);
+            panel5.Controls.Add(checkUseSkillsInOrder);
+            panel5.Dock = DockStyle.Right;
+            panel5.Location = new System.Drawing.Point(237, 0);
+            panel5.Margin = new Padding(0);
+            panel5.Name = "panel5";
+            panel5.Size = new System.Drawing.Size(120, 40);
+            panel5.TabIndex = 0;
+            // 
+            // checkBoxNoAttack
+            // 
+            checkBoxNoAttack.AutoEllipsis = true;
+            checkBoxNoAttack.BackColor = System.Drawing.Color.Transparent;
+            checkBoxNoAttack.Location = new System.Drawing.Point(10, 1);
+            checkBoxNoAttack.Margin = new Padding(0);
+            checkBoxNoAttack.Name = "checkBoxNoAttack";
+            checkBoxNoAttack.Padding = new Padding(0, 2, 0, 0);
+            checkBoxNoAttack.Size = new System.Drawing.Size(109, 19);
+            checkBoxNoAttack.TabIndex = 9;
+            checkBoxNoAttack.Text = "No Attack";
+            checkBoxNoAttack.UseVisualStyleBackColor = true;
+            checkBoxNoAttack.CheckedChanged += checkBoxNoAttack_CheckedChanged;
+            // 
+            // checkUseSkillsInOrder
+            // 
+            checkUseSkillsInOrder.AutoEllipsis = true;
+            checkUseSkillsInOrder.BackColor = System.Drawing.Color.Transparent;
+            checkUseSkillsInOrder.Location = new System.Drawing.Point(10, 20);
+            checkUseSkillsInOrder.Margin = new Padding(0);
+            checkUseSkillsInOrder.Name = "checkUseSkillsInOrder";
+            checkUseSkillsInOrder.Size = new System.Drawing.Size(109, 19);
+            checkUseSkillsInOrder.TabIndex = 10;
+            checkUseSkillsInOrder.Text = "Use in order";
+            checkUseSkillsInOrder.UseVisualStyleBackColor = true;
+            checkUseSkillsInOrder.CheckedChanged += checkUseSkillsInOrder_CheckedChanged;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Left;
+            label2.ApplyGradient = false;
+            label2.AutoEllipsis = true;
+            label2.BackColor = System.Drawing.Color.Transparent;
+            label2.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            label2.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label2.GradientAnimation = false;
+            label2.Location = new System.Drawing.Point(10, 10);
+            label2.Margin = new Padding(0);
+            label2.Name = "label2";
+            label2.Padding = new Padding(0, 2, 0, 0);
+            label2.Size = new System.Drawing.Size(50, 20);
+            label2.TabIndex = 7;
+            label2.Text = "Type:";
+            // 
+            // comboMonsterType
+            // 
+            comboMonsterType.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            comboMonsterType.DrawMode = DrawMode.OwnerDrawFixed;
+            comboMonsterType.DropDownHeight = 100;
+            comboMonsterType.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboMonsterType.FormattingEnabled = true;
+            comboMonsterType.IntegralHeight = false;
+            comboMonsterType.ItemHeight = 18;
+            comboMonsterType.Items.AddRange(new object[] { "General (Default)", "Champion", "Giant", "General (Party)", "Champion (Party)", "Giant (Party)", "Elite", "Strong", "Unique", "Event" });
+            comboMonsterType.Location = new System.Drawing.Point(65, 8);
+            comboMonsterType.Margin = new Padding(5, 0, 5, 0);
+            comboMonsterType.Name = "comboMonsterType";
+            comboMonsterType.Radius = 5;
+            comboMonsterType.ShadowDepth = 4F;
+            comboMonsterType.Size = new System.Drawing.Size(160, 24);
+            comboMonsterType.TabIndex = 2;
+            comboMonsterType.SelectedIndexChanged += comboMonsterType_SelectedIndexChanged;
             // 
             // groupBox2
             // 
@@ -934,6 +990,7 @@ namespace RSBot.Skills.Views
             // 
             // checkShowAttacks
             // 
+            checkShowAttacks.Anchor = AnchorStyles.Left;
             checkShowAttacks.AutoEllipsis = true;
             checkShowAttacks.BackColor = System.Drawing.Color.Transparent;
             checkShowAttacks.Checked = true;
@@ -953,6 +1010,7 @@ namespace RSBot.Skills.Views
             // 
             // checkShowBuffs
             // 
+            checkShowBuffs.Anchor = AnchorStyles.Left;
             checkShowBuffs.AutoEllipsis = true;
             checkShowBuffs.BackColor = System.Drawing.Color.Transparent;
             checkShowBuffs.Checked = true;
@@ -972,6 +1030,7 @@ namespace RSBot.Skills.Views
             tabPage4.BackColor = System.Drawing.Color.White;
             tabPage4.Controls.Add(listActiveBuffs);
             tabPage4.Location = new System.Drawing.Point(4, 28);
+            tabPage4.Margin = new Padding(0);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
             tabPage4.Size = new System.Drawing.Size(369, 435);
@@ -983,12 +1042,14 @@ namespace RSBot.Skills.Views
             listActiveBuffs.BackColor = System.Drawing.Color.White;
             listActiveBuffs.BorderStyle = BorderStyle.None;
             listActiveBuffs.Columns.AddRange(new ColumnHeader[] { colActiveName, colActiveLevel });
+            listActiveBuffs.Dock = DockStyle.Fill;
             listActiveBuffs.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             listActiveBuffs.FullRowSelect = true;
             listActiveBuffs.HeaderStyle = ColumnHeaderStyle.None;
             listActiveBuffs.Location = new System.Drawing.Point(3, 3);
+            listActiveBuffs.Margin = new Padding(0);
             listActiveBuffs.Name = "listActiveBuffs";
-            listActiveBuffs.Size = new System.Drawing.Size(348, 49);
+            listActiveBuffs.Size = new System.Drawing.Size(363, 429);
             listActiveBuffs.TabIndex = 6;
             listActiveBuffs.UseCompatibleStateImageBehavior = false;
             listActiveBuffs.View = System.Windows.Forms.View.Details;
@@ -1039,7 +1100,10 @@ namespace RSBot.Skills.Views
             Name = "Main";
             Size = new System.Drawing.Size(754, 467);
             groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            panel6.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel5.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             tabControl1.ResumeLayout(false);
@@ -1112,7 +1176,7 @@ namespace RSBot.Skills.Views
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private SDUI.Controls.ContextMenuStrip skillContextMenu;
-        private SDUI.Controls.CheckBox checkBoxNoAttack;
+
         private ToolStripMenuItem skillContextMenuAddBuffSkill;
         private ToolStripMenuItem skillContextMenuAddAttackSkill;
         private ToolStripSeparator toolStripSeparator1;
@@ -1128,7 +1192,7 @@ namespace RSBot.Skills.Views
         private ToolStripMenuItem useToolStripMenuItem;
         private ToolStripMenuItem useToPartyMemberToolStripMenuItem;
         private SDUI.Controls.CheckBox checkUseDefaultAttack;
-        private SDUI.Controls.CheckBox checkUseSkillsInOrder;
+        private CheckBox checkUseSkillsInOrder;
         private SDUI.Controls.ComboBox comboTeleportSkill;
         private SDUI.Controls.CheckBox checkUseTeleportSkill;
         private TabPage tabPage5;
@@ -1140,5 +1204,10 @@ namespace RSBot.Skills.Views
         private Panel panel3;
         private CheckBox checkHideLowerLevelSkills;
         private CheckBox checkShowBuffs;
+        private CheckBox checkBoxNoAttack;
+        private Panel panel4;
+        private Panel panel5;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Panel panel6;
     }
 }

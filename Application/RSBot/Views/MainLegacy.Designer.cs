@@ -68,7 +68,7 @@ namespace RSBot.Views
             autoToolStripMenuItem = new ToolStripMenuItem();
             coloredToolStripMenuItem = new ToolStripMenuItem();
             donateButton = new ToolStripMenuItem();
-            tabMain = new TabControl();
+            tabMain = new SDUI.Controls.TabControl();
             separator = new SDUI.Controls.Separator();
             topCharacter = new Character();
             menuStrip = new MenuStrip();
@@ -269,10 +269,10 @@ namespace RSBot.Views
             menuSelectProfile.Text = "Select Profile...";
             menuSelectProfile.Click += menuSelectProfile_Click;
             // 
-            // menuSelectProfile
+            // menuEnableDebug
             // 
             menuEnableDebug.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            menuEnableDebug.Name = "menuDebugMode";
+            menuEnableDebug.Name = "menuEnableDebug";
             menuEnableDebug.Size = new System.Drawing.Size(151, 22);
             menuEnableDebug.Text = "Debug mode";
             menuEnableDebug.Click += menuDebugMode_Click;
@@ -417,10 +417,11 @@ namespace RSBot.Views
             // 
             tabMain.Dock = DockStyle.Fill;
             tabMain.ItemSize = new System.Drawing.Size(80, 24);
-            tabMain.Location = new System.Drawing.Point(0, 109);
+            tabMain.Location = new System.Drawing.Point(0, 0);
+            tabMain.Margin = new Padding(0);
             tabMain.Name = "tabMain";
             tabMain.SelectedIndex = 0;
-            tabMain.Size = new System.Drawing.Size(784, 533);
+            tabMain.Size = new System.Drawing.Size(784, 561);
             tabMain.TabIndex = 3;
             // 
             // separator
@@ -448,7 +449,7 @@ namespace RSBot.Views
             menuStrip.BackColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
             menuStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            menuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, viewToolStripMenuItem, toolsToolStripMenuItem, menuPlugins, botsToolStripMenuItem, languageToolStripMenuItem, themeToolStripMenuItem, aboutToolStripMenuItem, donateButton });
+            menuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, viewToolStripMenuItem, toolsToolStripMenuItem, menuPlugins, botsToolStripMenuItem, languageToolStripMenuItem, themeToolStripMenuItem, aboutToolStripMenuItem });
             menuStrip.Location = new System.Drawing.Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(6, 4, 6, 4);
@@ -461,7 +462,7 @@ namespace RSBot.Views
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.SystemColors.Control;
-            ClientSize = new System.Drawing.Size(1034, 716);
+            ClientSize = new System.Drawing.Size(784, 561);
             Controls.Add(tabMain);
             Controls.Add(topCharacter);
             Controls.Add(pSidebar);
@@ -473,7 +474,7 @@ namespace RSBot.Views
             ForeColor = System.Drawing.Color.Black;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip;
-            MinimumSize = new System.Drawing.Size(1050, 755);
+            MinimumSize = new System.Drawing.Size(800, 600);
             Name = "MainLegacy";
             Text = "RSBot";
             FormClosing += Main_FormClosing;
@@ -487,7 +488,6 @@ namespace RSBot.Views
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -515,7 +515,7 @@ namespace RSBot.Views
         private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem thisToolStripMenuItem;
 
-        private TabControl tabMain;
+        private SDUI.Controls.TabControl tabMain;
 
 
         private ToolStripMenuItem themeToolStripMenuItem;

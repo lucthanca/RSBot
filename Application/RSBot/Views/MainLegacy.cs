@@ -55,20 +55,13 @@ namespace RSBot.Views
             DoubleBuffered = true;
 
             #region Set double buffer for tabControl
-            try
-            {
-                typeof(Control).InvokeMember(
-                    "DoubleBuffered",
-                    BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
-                    null,
-                    tabMain,
-                    new object[] { DoubleBuffered }
-                );
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DoubleBuffer.Set(menuStrip, true);
+            DoubleBuffer.Set(tabMain, true);
+            DoubleBuffer.Set(topCharacter, true);
+            DoubleBuffer.Set(pSidebar, true);
+            DoubleBuffer.Set(bottomPanel, true);
+            DoubleBuffer.Set(stripStatus, true);
+            DoubleBuffer.Set(cosController, true);
             #endregion
         }
 
@@ -268,7 +261,7 @@ namespace RSBot.Views
         private void ConfigureSidebar()
         {
             pSidebar.Visible = menuSidebar.Checked;
-            
+
             /*var size = Size;
             if (menuSidebar.Checked)
             {

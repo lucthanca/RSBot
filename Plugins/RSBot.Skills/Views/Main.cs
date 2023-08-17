@@ -61,15 +61,21 @@ public partial class Main : UserControl
         #region Set Double Buffering for docked controls
         // Enable double buffering to prevent flickering
         DoubleBuffered = true;
-        SetDoubleBuffer(tableLayoutPanel1, true);
-        SetDoubleBuffer(panel1, true);
-        SetDoubleBuffer(panel2, true);
-        SetDoubleBuffer(panel3, true);
-        SetDoubleBuffer(tabControl1, true);
-        SetDoubleBuffer(tableLayoutPanel2, true);
-        SetDoubleBuffer(groupBox2, true);
-        SetDoubleBuffer(groupBox1, true);
-        SetDoubleBuffer(tabControl2, true);
+        DoubleBuffer.Set(tableLayoutPanel1, true);
+        DoubleBuffer.Set(panel1, true);
+        DoubleBuffer.Set(panel2, true);
+        DoubleBuffer.Set(panel3, true);
+        DoubleBuffer.Set(tabControl1, true);
+        DoubleBuffer.Set(tableLayoutPanel2, true);
+        DoubleBuffer.Set(groupBox2, true);
+        DoubleBuffer.Set(groupBox1, true);
+        DoubleBuffer.Set(tabControl2, true);
+        DoubleBuffer.Set(listSkills, true);
+        DoubleBuffer.Set(panel4, true);
+        DoubleBuffer.Set(panel5, true);
+        DoubleBuffer.Set(listAttackingSkills, true);
+        DoubleBuffer.Set(flowLayoutPanel1, true);
+        DoubleBuffer.Set(panel6, true);
 
         #endregion
     }
