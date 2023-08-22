@@ -199,10 +199,12 @@ namespace RSBot
             else if (e.ProgressPercentage == 50)
             {
                 stateString += LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingCommand", "Initializing Command...");
-            } else if (e.ProgressPercentage == 66)
+            }
+            else if (e.ProgressPercentage == 66)
             {
                 stateString += LanguageManager.GetText("RSBot.SplashScreen.LoadingState.InitializingBotMap", "Initializing Map...");
-            } else if (e.ProgressPercentage == 80)
+            }
+            else if (e.ProgressPercentage == 80)
             {
                 stateString += LanguageManager.GetText("RSBot.SplashScreen.LoadingState.RecheckMediaPk2", "Rechecking Media.pk2...");
             }
@@ -238,7 +240,8 @@ namespace RSBot
                     _mainForm.Show();
                     _mainForm.RefreshTheme(false);
                 }));
-            } else
+            }
+            else
             {
                 _mainForm.Show();
             }

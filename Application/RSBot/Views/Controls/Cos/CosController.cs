@@ -12,7 +12,7 @@ using CosTransport = RSBot.Core.Objects.Cos.Transport;
 
 namespace RSBot.Views.Controls.Cos
 {
-    [ToolboxItem(false)]
+    [ToolboxItem(true)]
     public partial class CosController : UserControl
     {
         private readonly Dictionary<string, CosControlBase> _cachedControls;
@@ -105,7 +105,7 @@ namespace RSBot.Views.Controls.Cos
             }
         }
 
-        private bool TryGetCachedControl<T>(out CosControlBase control) 
+        private bool TryGetCachedControl<T>(out CosControlBase control)
             where T : CosControlBase, new()
         {
             control = null;
@@ -121,7 +121,7 @@ namespace RSBot.Views.Controls.Cos
 
             return control != null;
         }
-        private void TryAddControlToPanel<T>() 
+        private void TryAddControlToPanel<T>()
             where T : CosControlBase, new()
         {
             if (!TryGetCachedControl<T>(out var control))
@@ -172,7 +172,7 @@ namespace RSBot.Views.Controls.Cos
         private void ReOrder()
         {
             Visible = panel.Controls.Count > 0;
-            if(!Visible)
+            if (!Visible)
             {
                 _selectedIndex = 0;
                 return;
@@ -222,7 +222,7 @@ namespace RSBot.Views.Controls.Cos
             if (_selectedIndex == index)
                 return;
 
-            _selectedIndex = index; 
+            _selectedIndex = index;
             ReOrder();
         }
     }

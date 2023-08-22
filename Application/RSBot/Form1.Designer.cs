@@ -39,15 +39,15 @@ namespace RSBot
             // 
             referenceDataLoader.WorkerReportsProgress = true;
             referenceDataLoader.DoWork += referenceDataLoader_DoWork;
-            referenceDataLoader.RunWorkerCompleted += ReferenceDataLoaderCompleted;
             referenceDataLoader.ProgressChanged += ReferenceDataLoaderProgressChanged;
+            referenceDataLoader.RunWorkerCompleted += ReferenceDataLoaderCompleted;
             // 
             // lbLoadingState
             // 
             lbLoadingState.AutoSize = true;
             lbLoadingState.BackColor = Color.Transparent;
             lbLoadingState.ForeColor = SystemColors.Window;
-            lbLoadingState.Location = new Point(12, 300);
+            lbLoadingState.Location = new Point(138, 314);
             lbLoadingState.Name = "lbLoadingState";
             lbLoadingState.Size = new Size(101, 15);
             lbLoadingState.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace RSBot
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Fuchsia;
             BlendedBackground = Properties.Resources.SilkroadOnline_splash;
-            ClientSize = new Size(600, 330);
+            ClientSize = new Size(600, 340);
             Controls.Add(lbLoadingState);
             DrawControlBackgrounds = true;
             EnhancedRendering = true;
@@ -67,9 +67,9 @@ namespace RSBot
             ImeMode = ImeMode.Disable;
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
-            MaximumSize = new Size(600, 330);
+            MaximumSize = new Size(600, 340);
             MinimizeBox = false;
-            MinimumSize = new Size(600, 330);
+            MinimumSize = new Size(600, 340);
             Name = "Form1";
             SizeMode = SizeModes.Clip;
             StartPosition = FormStartPosition.CenterScreen;

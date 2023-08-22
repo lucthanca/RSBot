@@ -15,6 +15,11 @@ namespace RSBot.Views.Controls
         {
             InitializeComponent();
 
+            DoubleBuffered = true;
+
+            DoubleBuffer.Set(charInfo, true);
+            // DoubleBuffer.Set(cosController, true);
+
             SubscribeEvents();
         }
 
@@ -36,12 +41,13 @@ namespace RSBot.Views.Controls
 
         private void OnLevelUp(byte oldLevel)
         {
-            lblLevel.Text = $"lv.{Game.Player.Level}";
+            lblLevel.Text = $"[lv.{Game.Player.Level}]";
         }
 
         private void OnInitialized()
         {
-            lblPlayerName.Text = LanguageManager.GetLang("LabelPlayerName");
+
+            charInfo.Text = LanguageManager.GetLang("LabelPlayerName");
         }
 
         private void OnUpdateSP()
@@ -89,7 +95,8 @@ namespace RSBot.Views.Controls
         /// </summary>
         private void OnLoadCharacter()
         {
-            lblPlayerName.Text = Game.Player.Name;
+
+            charInfo.Text = Game.Player.Name;
 
             OnLevelUp(Game.Player.Level);
             OnLoadCharacterStats();
@@ -103,8 +110,9 @@ namespace RSBot.Views.Controls
         /// </summary>
         private void OnAgentServerDisconnected()
         {
-            lblPlayerName.Text = LanguageManager.GetLang("LabelPlayerName");
-            lblLevel.Text = "0";
+
+            charInfo.Text = LanguageManager.GetLang("LabelPlayerName");
+            lblLevel.Text = "[lv.0]";
             lblStr.Text = "0";
             lblInt.Text = "0";
             lblGold.Text = "0";
