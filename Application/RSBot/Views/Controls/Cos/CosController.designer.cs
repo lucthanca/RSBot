@@ -148,7 +148,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            BackColor = System.Drawing.Color.Teal;
+            BackColor = System.Drawing.SystemColors.Window;
             Controls.Add(panel);
             Controls.Add(separator1);
             Controls.Add(topPanel);

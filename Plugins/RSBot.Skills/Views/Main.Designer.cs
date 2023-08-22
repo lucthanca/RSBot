@@ -94,7 +94,6 @@ namespace RSBot.Skills.Views
             useToolStripMenuItem = new ToolStripMenuItem();
             useToPartyMemberToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new SDUI.Controls.Panel();
-            panel2 = new SDUI.Controls.Panel();
             checkHideLowerLevelSkills = new CheckBox();
             checkShowAttacks = new CheckBox();
             checkShowBuffs = new CheckBox();
@@ -947,7 +946,6 @@ namespace RSBot.Skills.Views
             panel1.BackColor = System.Drawing.Color.Transparent;
             panel1.Border = new Padding(0, 1, 0, 0);
             panel1.BorderColor = System.Drawing.Color.Transparent;
-            panel1.Controls.Add(panel2);
             panel1.Controls.Add(checkHideLowerLevelSkills);
             panel1.Controls.Add(checkShowAttacks);
             panel1.Controls.Add(checkShowBuffs);
@@ -959,19 +957,6 @@ namespace RSBot.Skills.Views
             panel1.ShadowDepth = 4F;
             panel1.Size = new System.Drawing.Size(369, 40);
             panel1.TabIndex = 9;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = System.Drawing.Color.Transparent;
-            panel2.Border = new Padding(0, 0, 0, 0);
-            panel2.BorderColor = System.Drawing.Color.Transparent;
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new System.Drawing.Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Radius = 1;
-            panel2.ShadowDepth = 4F;
-            panel2.Size = new System.Drawing.Size(369, 1);
-            panel2.TabIndex = 9;
             // 
             // checkHideLowerLevelSkills
             // 
@@ -990,8 +975,8 @@ namespace RSBot.Skills.Views
             // 
             // checkShowAttacks
             // 
-            checkShowAttacks.Anchor = AnchorStyles.Left;
-            checkShowAttacks.AutoEllipsis = true;
+            checkShowAttacks.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            checkShowAttacks.AutoSize = true;
             checkShowAttacks.BackColor = System.Drawing.Color.Transparent;
             checkShowAttacks.Checked = true;
             checkShowAttacks.CheckState = CheckState.Checked;
@@ -1002,26 +987,26 @@ namespace RSBot.Skills.Views
             checkShowAttacks.Margin = new Padding(0);
             checkShowAttacks.Name = "checkShowAttacks";
             checkShowAttacks.Padding = new Padding(5, 2, 0, 0);
-            checkShowAttacks.Size = new System.Drawing.Size(100, 20);
+            checkShowAttacks.Size = new System.Drawing.Size(70, 21);
             checkShowAttacks.TabIndex = 7;
-            checkShowAttacks.Text = "Attacks 22 2 222";
+            checkShowAttacks.Text = "Attacks";
             checkShowAttacks.UseVisualStyleBackColor = false;
             checkShowAttacks.CheckedChanged += Filter_CheckedChanged;
             // 
             // checkShowBuffs
             // 
-            checkShowBuffs.Anchor = AnchorStyles.Left;
-            checkShowBuffs.AutoEllipsis = true;
+            checkShowBuffs.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            checkShowBuffs.AutoSize = true;
             checkShowBuffs.BackColor = System.Drawing.Color.Transparent;
             checkShowBuffs.Checked = true;
             checkShowBuffs.CheckState = CheckState.Checked;
-            checkShowBuffs.Location = new System.Drawing.Point(110, 10);
+            checkShowBuffs.Location = new System.Drawing.Point(115, 10);
             checkShowBuffs.Margin = new Padding(0);
             checkShowBuffs.Name = "checkShowBuffs";
             checkShowBuffs.Padding = new Padding(5, 2, 0, 0);
-            checkShowBuffs.Size = new System.Drawing.Size(100, 20);
+            checkShowBuffs.Size = new System.Drawing.Size(58, 21);
             checkShowBuffs.TabIndex = 8;
-            checkShowBuffs.Text = "Buffs lorem ausm";
+            checkShowBuffs.Text = "Buffs";
             checkShowBuffs.UseVisualStyleBackColor = false;
             checkShowBuffs.CheckedChanged += Filter_CheckedChanged;
             // 
@@ -1125,6 +1110,7 @@ namespace RSBot.Skills.Views
             tabPage3.ResumeLayout(false);
             skillContextMenu.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             tabPage4.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
@@ -1168,7 +1154,6 @@ namespace RSBot.Skills.Views
         private SDUI.Controls.Button btnMoveBuffSkillDown;
         private SDUI.Controls.Button btnMoveBuffSkillUp;
         private SDUI.Controls.Panel panel1;
-        private SDUI.Controls.Panel panel2;
         private SDUI.Controls.ListView listAttackingSkills;
         private ColumnHeader columnName;
         private ColumnHeader columnLevel;

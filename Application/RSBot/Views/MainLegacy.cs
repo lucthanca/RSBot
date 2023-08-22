@@ -61,7 +61,7 @@ namespace RSBot.Views
             DoubleBuffer.Set(pSidebar, true);
             DoubleBuffer.Set(bottomPanel, true);
             DoubleBuffer.Set(stripStatus, true);
-            DoubleBuffer.Set(cosController, true);
+            // DoubleBuffer.Set(cosController, true);
             #endregion
         }
 

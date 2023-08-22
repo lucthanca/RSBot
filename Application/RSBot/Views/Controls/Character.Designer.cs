@@ -47,7 +47,7 @@ namespace RSBot.Views.Controls
             progressHP = new SDUI.Controls.ProgressBar();
             charInfo = new GroupBox();
             lbCharLv = new Label();
-            cosController1 = new Cos.CosController();
+            cosController = new Cos.CosController();
             charInfo.SuspendLayout();
             SuspendLayout();
             // 
@@ -280,23 +280,24 @@ namespace RSBot.Views.Controls
             lbCharLv.TabIndex = 7;
             lbCharLv.Text = "Level:";
             // 
-            // cosController1
+            // cosController
             // 
-            cosController1.BackColor = System.Drawing.Color.Teal;
-            cosController1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            cosController1.Location = new System.Drawing.Point(3, 193);
-            cosController1.Margin = new Padding(0);
-            cosController1.MinimumSize = new System.Drawing.Size(250, 102);
-            cosController1.Name = "cosController1";
-            cosController1.Size = new System.Drawing.Size(250, 102);
-            cosController1.TabIndex = 16;
-            cosController1.Visible = false;
+            cosController.BackColor = System.Drawing.Color.Transparent;
+            cosController.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cosController.Location = new System.Drawing.Point(3, 193);
+            cosController.Margin = new Padding(0);
+            cosController.MinimumSize = new System.Drawing.Size(250, 102);
+            cosController.Name = "cosController";
+            cosController.Padding = new Padding(3);
+            cosController.Size = new System.Drawing.Size(250, 102);
+            cosController.TabIndex = 16;
+            cosController.Visible = false;
             // 
             // Character
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            Controls.Add(cosController1);
+            Controls.Add(cosController);
             Controls.Add(charInfo);
             Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             Margin = new Padding(0);
@@ -326,6 +327,6 @@ namespace RSBot.Views.Controls
         private Label label11;
         private GroupBox charInfo;
         private Label lbCharLv;
-        private Cos.CosController cosController1;
+        private Cos.CosController cosController;
     }
 }

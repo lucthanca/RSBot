@@ -30,7 +30,11 @@ public class Bootstrap : IPlugin
     /// <inheritdoc />
     public Control View => Views.View.Instance;
 
+    public IView IView => Views.View.Instance;
+
     /// <inheritdoc />
-    public void Translate() =>
+    public void Translate() {
         LanguageManager.Translate(View, Kernel.Language);
+        IView.AfterTranslate();
+    }
 }
