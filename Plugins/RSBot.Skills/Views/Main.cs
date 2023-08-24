@@ -77,6 +77,12 @@ public partial class Main : UserControl, IView
         DoubleBuffer.Set(flowLayoutPanel1, true);
         DoubleBuffer.Set(panel6, true);
 
+
+        DoubleBuffer.Set(panel2, true);
+        DoubleBuffer.Set(flowLayoutPanel2, true);
+        DoubleBuffer.Set(panel7, true);
+
+
         #endregion
     }
 
