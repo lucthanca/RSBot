@@ -104,6 +104,9 @@ namespace RSBot.Skills.Views
             colActiveLevel = new ColumnHeader();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel3 = new Panel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            panel7 = new Panel();
+            panel8 = new Panel();
             groupBox1.SuspendLayout();
             panel6.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -127,6 +130,9 @@ namespace RSBot.Skills.Views
             tabPage4.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
+            panel7.SuspendLayout();
+            panel8.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -328,12 +334,9 @@ namespace RSBot.Skills.Views
             // groupBox2
             // 
             groupBox2.BackColor = System.Drawing.Color.Transparent;
-            groupBox2.Controls.Add(listBuffs);
-            groupBox2.Controls.Add(btnMoveBuffSkillDown);
-            groupBox2.Controls.Add(comboImbue);
-            groupBox2.Controls.Add(btnMoveBuffSkillUp);
-            groupBox2.Controls.Add(label1);
-            groupBox2.Controls.Add(btnRemoveBuffSkill);
+            groupBox2.Controls.Add(panel8);
+            groupBox2.Controls.Add(panel7);
+            groupBox2.Controls.Add(flowLayoutPanel2);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new System.Drawing.Point(0, 214);
             groupBox2.Margin = new Padding(0);
@@ -350,12 +353,13 @@ namespace RSBot.Skills.Views
             // 
             listBuffs.BackColor = System.Drawing.Color.White;
             listBuffs.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            listBuffs.Dock = DockStyle.Fill;
             listBuffs.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             listBuffs.FullRowSelect = true;
             listBuffs.HeaderStyle = ColumnHeaderStyle.None;
-            listBuffs.Location = new System.Drawing.Point(6, 27);
+            listBuffs.Location = new System.Drawing.Point(0, 0);
             listBuffs.Name = "listBuffs";
-            listBuffs.Size = new System.Drawing.Size(315, 138);
+            listBuffs.Size = new System.Drawing.Size(307, 146);
             listBuffs.TabIndex = 8;
             listBuffs.UseCompatibleStateImageBehavior = false;
             listBuffs.View = System.Windows.Forms.View.Details;
@@ -373,7 +377,7 @@ namespace RSBot.Skills.Views
             // 
             btnMoveBuffSkillDown.Color = System.Drawing.Color.Transparent;
             btnMoveBuffSkillDown.Font = new System.Drawing.Font("Webdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnMoveBuffSkillDown.Location = new System.Drawing.Point(327, 87);
+            btnMoveBuffSkillDown.Location = new System.Drawing.Point(3, 63);
             btnMoveBuffSkillDown.Name = "btnMoveBuffSkillDown";
             btnMoveBuffSkillDown.Radius = 6;
             btnMoveBuffSkillDown.ShadowDepth = 4F;
@@ -385,17 +389,19 @@ namespace RSBot.Skills.Views
             // 
             // comboImbue
             // 
+            comboImbue.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             comboImbue.DrawMode = DrawMode.OwnerDrawFixed;
             comboImbue.DropDownHeight = 100;
             comboImbue.DropDownStyle = ComboBoxStyle.DropDownList;
             comboImbue.FormattingEnabled = true;
             comboImbue.IntegralHeight = false;
-            comboImbue.ItemHeight = 17;
-            comboImbue.Location = new System.Drawing.Point(54, 171);
+            comboImbue.ItemHeight = 18;
+            comboImbue.Location = new System.Drawing.Point(56, 8);
+            comboImbue.Margin = new Padding(5, 0, 5, 0);
             comboImbue.Name = "comboImbue";
             comboImbue.Radius = 5;
             comboImbue.ShadowDepth = 4F;
-            comboImbue.Size = new System.Drawing.Size(267, 23);
+            comboImbue.Size = new System.Drawing.Size(245, 24);
             comboImbue.TabIndex = 7;
             comboImbue.SelectedIndexChanged += comboImbue_SelectedIndexChanged;
             // 
@@ -403,7 +409,7 @@ namespace RSBot.Skills.Views
             // 
             btnMoveBuffSkillUp.Color = System.Drawing.Color.Transparent;
             btnMoveBuffSkillUp.Font = new System.Drawing.Font("Webdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnMoveBuffSkillUp.Location = new System.Drawing.Point(327, 57);
+            btnMoveBuffSkillUp.Location = new System.Drawing.Point(3, 33);
             btnMoveBuffSkillUp.Name = "btnMoveBuffSkillUp";
             btnMoveBuffSkillUp.Radius = 6;
             btnMoveBuffSkillUp.ShadowDepth = 4F;
@@ -416,13 +422,14 @@ namespace RSBot.Skills.Views
             // label1
             // 
             label1.ApplyGradient = false;
-            label1.AutoSize = true;
             label1.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
             label1.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
             label1.GradientAnimation = false;
-            label1.Location = new System.Drawing.Point(9, 174);
+            label1.Location = new System.Drawing.Point(10, 10);
+            label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(44, 15);
+            label1.Padding = new Padding(0, 2, 0, 0);
+            label1.Size = new System.Drawing.Size(44, 20);
             label1.TabIndex = 6;
             label1.Text = "Imbue:";
             // 
@@ -430,7 +437,7 @@ namespace RSBot.Skills.Views
             // 
             btnRemoveBuffSkill.Color = System.Drawing.Color.Transparent;
             btnRemoveBuffSkill.Font = new System.Drawing.Font("Webdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnRemoveBuffSkill.Location = new System.Drawing.Point(327, 27);
+            btnRemoveBuffSkill.Location = new System.Drawing.Point(3, 3);
             btnRemoveBuffSkill.Name = "btnRemoveBuffSkill";
             btnRemoveBuffSkill.Radius = 6;
             btnRemoveBuffSkill.ShadowDepth = 4F;
@@ -1091,6 +1098,39 @@ namespace RSBot.Skills.Views
             panel3.Size = new System.Drawing.Size(377, 467);
             panel3.TabIndex = 7;
             // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(btnRemoveBuffSkill);
+            flowLayoutPanel2.Controls.Add(btnMoveBuffSkillUp);
+            flowLayoutPanel2.Controls.Add(btnMoveBuffSkillDown);
+            flowLayoutPanel2.Dock = DockStyle.Right;
+            flowLayoutPanel2.Location = new System.Drawing.Point(310, 26);
+            flowLayoutPanel2.Margin = new Padding(0);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new System.Drawing.Size(50, 186);
+            flowLayoutPanel2.TabIndex = 10;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(comboImbue);
+            panel7.Controls.Add(label1);
+            panel7.Dock = DockStyle.Bottom;
+            panel7.Location = new System.Drawing.Point(3, 172);
+            panel7.Margin = new Padding(0);
+            panel7.Name = "panel7";
+            panel7.Size = new System.Drawing.Size(307, 40);
+            panel7.TabIndex = 11;
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(listBuffs);
+            panel8.Dock = DockStyle.Fill;
+            panel8.Location = new System.Drawing.Point(3, 26);
+            panel8.Margin = new Padding(0);
+            panel8.Name = "panel8";
+            panel8.Size = new System.Drawing.Size(307, 146);
+            panel8.TabIndex = 12;
+            // 
             // Main
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1105,7 +1145,6 @@ namespace RSBot.Skills.Views
             panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
@@ -1128,6 +1167,9 @@ namespace RSBot.Skills.Views
             tabPage4.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
+            flowLayoutPanel2.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel8.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -1209,5 +1251,8 @@ namespace RSBot.Skills.Views
         private Panel panel5;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel6;
+        private Panel panel7;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Panel panel8;
     }
 }
