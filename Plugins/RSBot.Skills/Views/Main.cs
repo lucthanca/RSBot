@@ -11,11 +11,12 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
+using RSBot.Core.Plugins;
 
 namespace RSBot.Skills.Views;
 
 [System.ComponentModel.ToolboxItem(false)]
-public partial class Main : UserControl
+public partial class Main : UserControl, IView
 {
     private class MasteryComboBoxItem
     {
@@ -63,7 +64,6 @@ public partial class Main : UserControl
         DoubleBuffered = true;
         DoubleBuffer.Set(tableLayoutPanel1, true);
         DoubleBuffer.Set(panel1, true);
-        DoubleBuffer.Set(panel2, true);
         DoubleBuffer.Set(panel3, true);
         DoubleBuffer.Set(tabControl1, true);
         DoubleBuffer.Set(tableLayoutPanel2, true);
@@ -77,7 +77,18 @@ public partial class Main : UserControl
         DoubleBuffer.Set(flowLayoutPanel1, true);
         DoubleBuffer.Set(panel6, true);
 
+
+        DoubleBuffer.Set(panel2, true);
+        DoubleBuffer.Set(flowLayoutPanel2, true);
+        DoubleBuffer.Set(panel7, true);
+
+
         #endregion
+    }
+
+    public void AfterTranslate()
+    {
+        checkShowBuffs.Location = new System.Drawing.Point(checkShowAttacks.Width + checkShowAttacks.Location.X, checkShowBuffs.Location.Y);
     }
 
     /// <summary>

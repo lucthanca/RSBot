@@ -44,6 +44,7 @@ namespace RSBot.Views
             btnSave = new Button();
             btnStartStop = new Button();
             pSidebar = new Panel();
+            topCharacter = new Character();
             entity1 = new Entity();
             botbase1ToolStripMenuItem1 = new ToolStripMenuItem();
             botbase1ToolStripMenuItem = new ToolStripMenuItem();
@@ -71,7 +72,6 @@ namespace RSBot.Views
             tabMain = new SDUI.Controls.TabControl();
             separator = new SDUI.Controls.Separator();
             menuStrip = new MenuStrip();
-            topCharacter = new Character();
             stripStatus.SuspendLayout();
             bottomPanel.SuspendLayout();
             pSidebar.SuspendLayout();
@@ -112,13 +112,15 @@ namespace RSBot.Views
             // cosController
             // 
             cosController.AutoSize = true;
+            cosController.BackColor = System.Drawing.Color.Teal;
             cosController.Dock = DockStyle.Top;
             cosController.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             cosController.Location = new System.Drawing.Point(3, 3);
             cosController.Margin = new Padding(0);
+            cosController.MinimumSize = new System.Drawing.Size(250, 102);
             cosController.Name = "cosController";
             cosController.Padding = new Padding(3);
-            cosController.Size = new System.Drawing.Size(256, 70);
+            cosController.Size = new System.Drawing.Size(256, 102);
             cosController.TabIndex = 9;
             cosController.Visible = false;
             // 
@@ -223,12 +225,24 @@ namespace RSBot.Views
             pSidebar.Size = new System.Drawing.Size(262, 465);
             pSidebar.TabIndex = 6;
             // 
+            // topCharacter
+            // 
+            topCharacter.Dock = DockStyle.Top;
+            topCharacter.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            topCharacter.Location = new System.Drawing.Point(3, 3);
+            topCharacter.Margin = new Padding(0);
+            topCharacter.MinimumSize = new System.Drawing.Size(256, 260);
+            topCharacter.Name = "topCharacter";
+            topCharacter.Padding = new Padding(3);
+            topCharacter.Size = new System.Drawing.Size(256, 366);
+            topCharacter.TabIndex = 3;
+            // 
             // entity1
             // 
             entity1.BackColor = System.Drawing.Color.Transparent;
             entity1.Dock = DockStyle.Top;
             entity1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            entity1.Location = new System.Drawing.Point(3, 263);
+            entity1.Location = new System.Drawing.Point(3, 369);
             entity1.Margin = new Padding(4);
             entity1.MinimumSize = new System.Drawing.Size(240, 76);
             entity1.Name = "entity1";
@@ -451,19 +465,6 @@ namespace RSBot.Views
             menuStrip.Size = new System.Drawing.Size(1008, 27);
             menuStrip.TabIndex = 10;
             menuStrip.MouseDown += menuStrip_MouseDown;
-            // 
-            // topCharacter
-            // 
-            topCharacter.BackColor = System.Drawing.Color.Transparent;
-            topCharacter.Dock = DockStyle.Top;
-            topCharacter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            topCharacter.Location = new System.Drawing.Point(3, 3);
-            topCharacter.Margin = new Padding(0);
-            topCharacter.MinimumSize = new System.Drawing.Size(256, 260);
-            topCharacter.Name = "topCharacter";
-            topCharacter.Padding = new Padding(3);
-            topCharacter.Size = new System.Drawing.Size(256, 260);
-            topCharacter.TabIndex = 7;
             // 
             // MainLegacy
             // 
