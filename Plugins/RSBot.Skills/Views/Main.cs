@@ -82,7 +82,10 @@ public partial class Main : UserControl, IView
         DoubleBuffer.Set(flowLayoutPanel2, true);
         DoubleBuffer.Set(panel7, true);
 
-
+        DoubleBuffer.Set(tabPage2, true);
+        DoubleBuffer.Set(flowLayoutPanel3, true);
+        DoubleBuffer.Set(panel8, true);
+        DoubleBuffer.Set(panel9, true);
         #endregion
     }
 

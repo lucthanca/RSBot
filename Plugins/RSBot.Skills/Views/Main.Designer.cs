@@ -61,17 +61,7 @@ namespace RSBot.Skills.Views
             tabPage1 = new TabPage();
             tableLayoutPanel2 = new TableLayoutPanel();
             tabPage2 = new TabPage();
-            groupWarlockMode = new SDUI.Controls.GroupBox();
-            comboTeleportSkill = new SDUI.Controls.ComboBox();
-            checkUseTeleportSkill = new SDUI.Controls.CheckBox();
-            checkUseDefaultAttack = new SDUI.Controls.CheckBox();
-            checkWarlockMode = new SDUI.Controls.CheckBox();
-            grpMasteryLearn = new SDUI.Controls.GroupBox();
-            checkLearnMasteryBotStopped = new SDUI.Controls.CheckBox();
-            label4 = new SDUI.Controls.Label();
-            numMasteryGap = new SDUI.Controls.NumUpDown();
-            comboLearnMastery = new SDUI.Controls.ComboBox();
-            checkLearnMastery = new SDUI.Controls.CheckBox();
+            flowLayoutPanel3 = new Panel();
             groupBox3 = new SDUI.Controls.GroupBox();
             comboResurrectionSkill = new SDUI.Controls.ComboBox();
             checkAcceptResurrection = new SDUI.Controls.CheckBox();
@@ -80,6 +70,24 @@ namespace RSBot.Skills.Views
             groupBox4 = new SDUI.Controls.GroupBox();
             checkCastBuffsDuringWalkBack = new SDUI.Controls.CheckBox();
             checkCastBuffsInTowns = new SDUI.Controls.CheckBox();
+            grpMasteryLearn = new SDUI.Controls.GroupBox();
+            checkLearnMasteryBotStopped = new SDUI.Controls.CheckBox();
+            label4 = new SDUI.Controls.Label();
+            numMasteryGap = new SDUI.Controls.NumUpDown();
+            comboLearnMastery = new SDUI.Controls.ComboBox();
+            checkLearnMastery = new SDUI.Controls.CheckBox();
+            groupWarlockMode = new SDUI.Controls.GroupBox();
+            panel8 = new Panel();
+            panel9 = new Panel();
+            useSkillResHP_lbPercent = new Label();
+            useSkillResHP_chkbox = new SDUI.Controls.CheckBox();
+            useSkillResHP_listSkills = new SDUI.Controls.ComboBox();
+            useSkillResHP_lbWhen = new Label();
+            useSkillResHP_txtHpThreshold = new TextBox();
+            comboTeleportSkill = new SDUI.Controls.ComboBox();
+            checkUseTeleportSkill = new SDUI.Controls.CheckBox();
+            checkUseDefaultAttack = new SDUI.Controls.CheckBox();
+            checkWarlockMode = new SDUI.Controls.CheckBox();
             tabPage5 = new TabPage();
             groupBox5_1 = new SDUI.Controls.GroupBox();
             lbMagBalanc = new Label();
@@ -119,10 +127,13 @@ namespace RSBot.Skills.Views
             tabPage1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tabPage2.SuspendLayout();
-            groupWarlockMode.SuspendLayout();
-            grpMasteryLearn.SuspendLayout();
+            flowLayoutPanel3.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
+            grpMasteryLearn.SuspendLayout();
+            groupWarlockMode.SuspendLayout();
+            panel8.SuspendLayout();
+            panel9.SuspendLayout();
             tabPage5.SuspendLayout();
             groupBox5_1.SuspendLayout();
             tabControl2.SuspendLayout();
@@ -527,205 +538,43 @@ namespace RSBot.Skills.Views
             // tabPage2
             // 
             tabPage2.BackColor = System.Drawing.Color.White;
-            tabPage2.Controls.Add(groupWarlockMode);
-            tabPage2.Controls.Add(grpMasteryLearn);
-            tabPage2.Controls.Add(groupBox3);
-            tabPage2.Controls.Add(groupBox4);
+            tabPage2.Controls.Add(flowLayoutPanel3);
             tabPage2.Location = new System.Drawing.Point(4, 28);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
+            tabPage2.Padding = new Padding(5);
             tabPage2.Size = new System.Drawing.Size(369, 435);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Advanced setup";
             // 
-            // groupWarlockMode
+            // flowLayoutPanel3
             // 
-            groupWarlockMode.BackColor = System.Drawing.Color.Transparent;
-            groupWarlockMode.Controls.Add(comboTeleportSkill);
-            groupWarlockMode.Controls.Add(checkUseTeleportSkill);
-            groupWarlockMode.Controls.Add(checkUseDefaultAttack);
-            groupWarlockMode.Controls.Add(checkWarlockMode);
-            groupWarlockMode.Location = new System.Drawing.Point(8, 313);
-            groupWarlockMode.Name = "groupWarlockMode";
-            groupWarlockMode.Padding = new Padding(3, 10, 3, 3);
-            groupWarlockMode.Radius = 10;
-            groupWarlockMode.ShadowDepth = 4;
-            groupWarlockMode.Size = new System.Drawing.Size(367, 123);
-            groupWarlockMode.TabIndex = 14;
-            groupWarlockMode.TabStop = false;
-            groupWarlockMode.Text = "Advanced setup";
-            // 
-            // comboTeleportSkill
-            // 
-            comboTeleportSkill.DrawMode = DrawMode.OwnerDrawFixed;
-            comboTeleportSkill.DropDownHeight = 100;
-            comboTeleportSkill.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboTeleportSkill.FormattingEnabled = true;
-            comboTeleportSkill.IntegralHeight = false;
-            comboTeleportSkill.ItemHeight = 16;
-            comboTeleportSkill.Location = new System.Drawing.Point(141, 88);
-            comboTeleportSkill.Name = "comboTeleportSkill";
-            comboTeleportSkill.Radius = 5;
-            comboTeleportSkill.ShadowDepth = 4F;
-            comboTeleportSkill.Size = new System.Drawing.Size(208, 22);
-            comboTeleportSkill.TabIndex = 9;
-            comboTeleportSkill.SelectedIndexChanged += comboTeleportSkill_SelectedIndexChanged;
-            // 
-            // checkUseTeleportSkill
-            // 
-            checkUseTeleportSkill.AutoSize = true;
-            checkUseTeleportSkill.BackColor = System.Drawing.Color.Transparent;
-            checkUseTeleportSkill.Depth = 0;
-            checkUseTeleportSkill.Location = new System.Drawing.Point(15, 84);
-            checkUseTeleportSkill.Margin = new Padding(0);
-            checkUseTeleportSkill.MouseLocation = new System.Drawing.Point(-1, -1);
-            checkUseTeleportSkill.Name = "checkUseTeleportSkill";
-            checkUseTeleportSkill.Ripple = true;
-            checkUseTeleportSkill.Size = new System.Drawing.Size(123, 30);
-            checkUseTeleportSkill.TabIndex = 2;
-            checkUseTeleportSkill.Text = "Use teleport skill:";
-            checkUseTeleportSkill.UseVisualStyleBackColor = false;
-            checkUseTeleportSkill.CheckedChanged += checkUseTeleportSkill_CheckedChanged;
-            // 
-            // checkUseDefaultAttack
-            // 
-            checkUseDefaultAttack.AutoSize = true;
-            checkUseDefaultAttack.BackColor = System.Drawing.Color.Transparent;
-            checkUseDefaultAttack.Depth = 0;
-            checkUseDefaultAttack.Location = new System.Drawing.Point(15, 58);
-            checkUseDefaultAttack.Margin = new Padding(0);
-            checkUseDefaultAttack.MouseLocation = new System.Drawing.Point(-1, -1);
-            checkUseDefaultAttack.Name = "checkUseDefaultAttack";
-            checkUseDefaultAttack.Ripple = true;
-            checkUseDefaultAttack.Size = new System.Drawing.Size(242, 30);
-            checkUseDefaultAttack.TabIndex = 1;
-            checkUseDefaultAttack.Text = "Use normal attack if no skill is available";
-            checkUseDefaultAttack.UseVisualStyleBackColor = false;
-            checkUseDefaultAttack.CheckedChanged += checkUseDefaultAttack_CheckedChanged;
-            // 
-            // checkWarlockMode
-            // 
-            checkWarlockMode.AutoSize = true;
-            checkWarlockMode.BackColor = System.Drawing.Color.Transparent;
-            checkWarlockMode.Depth = 0;
-            checkWarlockMode.Location = new System.Drawing.Point(15, 31);
-            checkWarlockMode.Margin = new Padding(0);
-            checkWarlockMode.MouseLocation = new System.Drawing.Point(-1, -1);
-            checkWarlockMode.Name = "checkWarlockMode";
-            checkWarlockMode.Ripple = true;
-            checkWarlockMode.Size = new System.Drawing.Size(177, 30);
-            checkWarlockMode.TabIndex = 0;
-            checkWarlockMode.Text = "Change target after 2 DoTs";
-            checkWarlockMode.UseVisualStyleBackColor = false;
-            checkWarlockMode.CheckedChanged += checkWarlockMode_CheckedChanged;
-            // 
-            // grpMasteryLearn
-            // 
-            grpMasteryLearn.BackColor = System.Drawing.Color.Transparent;
-            grpMasteryLearn.Controls.Add(checkLearnMasteryBotStopped);
-            grpMasteryLearn.Controls.Add(label4);
-            grpMasteryLearn.Controls.Add(numMasteryGap);
-            grpMasteryLearn.Controls.Add(comboLearnMastery);
-            grpMasteryLearn.Controls.Add(checkLearnMastery);
-            grpMasteryLearn.Location = new System.Drawing.Point(8, 218);
-            grpMasteryLearn.Name = "grpMasteryLearn";
-            grpMasteryLearn.Padding = new Padding(3, 10, 3, 3);
-            grpMasteryLearn.Radius = 10;
-            grpMasteryLearn.ShadowDepth = 4;
-            grpMasteryLearn.Size = new System.Drawing.Size(367, 89);
-            grpMasteryLearn.TabIndex = 13;
-            grpMasteryLearn.TabStop = false;
-            grpMasteryLearn.Text = "Mastery update";
-            // 
-            // checkLearnMasteryBotStopped
-            // 
-            checkLearnMasteryBotStopped.AutoSize = true;
-            checkLearnMasteryBotStopped.BackColor = System.Drawing.Color.Transparent;
-            checkLearnMasteryBotStopped.Depth = 0;
-            checkLearnMasteryBotStopped.Location = new System.Drawing.Point(15, 56);
-            checkLearnMasteryBotStopped.Margin = new Padding(0);
-            checkLearnMasteryBotStopped.MouseLocation = new System.Drawing.Point(-1, -1);
-            checkLearnMasteryBotStopped.Name = "checkLearnMasteryBotStopped";
-            checkLearnMasteryBotStopped.Ripple = true;
-            checkLearnMasteryBotStopped.Size = new System.Drawing.Size(165, 30);
-            checkLearnMasteryBotStopped.TabIndex = 25;
-            checkLearnMasteryBotStopped.Text = "Enabled if bot is stopped";
-            checkLearnMasteryBotStopped.UseVisualStyleBackColor = false;
-            checkLearnMasteryBotStopped.CheckedChanged += checkLearnMasteryBotStopped_CheckedChanged;
-            // 
-            // label4
-            // 
-            label4.ApplyGradient = false;
-            label4.AutoSize = true;
-            label4.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            label4.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
-            label4.GradientAnimation = false;
-            label4.Location = new System.Drawing.Point(243, 36);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(28, 15);
-            label4.TabIndex = 3;
-            label4.Text = "Gap";
-            // 
-            // numMasteryGap
-            // 
-            numMasteryGap.BackColor = System.Drawing.Color.Transparent;
-            numMasteryGap.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            numMasteryGap.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            numMasteryGap.Location = new System.Drawing.Point(277, 32);
-            numMasteryGap.Maximum = new decimal(new int[] { 9, 0, 0, 0 });
-            numMasteryGap.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
-            numMasteryGap.MinimumSize = new System.Drawing.Size(80, 25);
-            numMasteryGap.Name = "numMasteryGap";
-            numMasteryGap.Size = new System.Drawing.Size(80, 25);
-            numMasteryGap.TabIndex = 2;
-            numMasteryGap.Value = new decimal(new int[] { 0, 0, 0, 0 });
-            numMasteryGap.ValueChanged += numMasteryGap_ValueChanged;
-            // 
-            // comboLearnMastery
-            // 
-            comboLearnMastery.DrawMode = DrawMode.OwnerDrawFixed;
-            comboLearnMastery.DropDownHeight = 100;
-            comboLearnMastery.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboLearnMastery.FormattingEnabled = true;
-            comboLearnMastery.IntegralHeight = false;
-            comboLearnMastery.ItemHeight = 17;
-            comboLearnMastery.Location = new System.Drawing.Point(91, 33);
-            comboLearnMastery.Name = "comboLearnMastery";
-            comboLearnMastery.Radius = 5;
-            comboLearnMastery.ShadowDepth = 4F;
-            comboLearnMastery.Size = new System.Drawing.Size(141, 23);
-            comboLearnMastery.TabIndex = 1;
-            comboLearnMastery.SelectedIndexChanged += comboLearnMastery_SelectedIndexChanged;
-            // 
-            // checkLearnMastery
-            // 
-            checkLearnMastery.AutoSize = true;
-            checkLearnMastery.BackColor = System.Drawing.Color.Transparent;
-            checkLearnMastery.Depth = 0;
-            checkLearnMastery.Location = new System.Drawing.Point(15, 29);
-            checkLearnMastery.Margin = new Padding(0);
-            checkLearnMastery.MouseLocation = new System.Drawing.Point(-1, -1);
-            checkLearnMastery.Name = "checkLearnMastery";
-            checkLearnMastery.Ripple = true;
-            checkLearnMastery.Size = new System.Drawing.Size(73, 30);
-            checkLearnMastery.TabIndex = 0;
-            checkLearnMastery.Text = "Mastery";
-            checkLearnMastery.UseVisualStyleBackColor = false;
-            checkLearnMastery.CheckedChanged += checkLearnMastery_CheckedChanged;
+            flowLayoutPanel3.AutoScroll = true;
+            flowLayoutPanel3.Controls.Add(groupBox3);
+            flowLayoutPanel3.Controls.Add(groupBox4);
+            flowLayoutPanel3.Controls.Add(grpMasteryLearn);
+            flowLayoutPanel3.Controls.Add(groupWarlockMode);
+            flowLayoutPanel3.Dock = DockStyle.Fill;
+            flowLayoutPanel3.Location = new System.Drawing.Point(5, 5);
+            flowLayoutPanel3.Margin = new Padding(0);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Size = new System.Drawing.Size(359, 425);
+            flowLayoutPanel3.TabIndex = 15;
             // 
             // groupBox3
             // 
+            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox3.BackColor = System.Drawing.Color.Transparent;
             groupBox3.Controls.Add(comboResurrectionSkill);
             groupBox3.Controls.Add(checkAcceptResurrection);
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(checkResurrectParty);
-            groupBox3.Location = new System.Drawing.Point(8, 6);
+            groupBox3.Location = new System.Drawing.Point(0, 0);
+            groupBox3.Margin = new Padding(0);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(3, 10, 3, 3);
             groupBox3.Radius = 10;
             groupBox3.ShadowDepth = 4;
-            groupBox3.Size = new System.Drawing.Size(367, 119);
+            groupBox3.Size = new System.Drawing.Size(359, 112);
             groupBox3.TabIndex = 11;
             groupBox3.TabStop = false;
             groupBox3.Text = "General";
@@ -793,15 +642,17 @@ namespace RSBot.Skills.Views
             // 
             // groupBox4
             // 
+            groupBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox4.BackColor = System.Drawing.Color.Transparent;
             groupBox4.Controls.Add(checkCastBuffsDuringWalkBack);
             groupBox4.Controls.Add(checkCastBuffsInTowns);
-            groupBox4.Location = new System.Drawing.Point(8, 131);
+            groupBox4.Location = new System.Drawing.Point(0, 112);
+            groupBox4.Margin = new Padding(0);
             groupBox4.Name = "groupBox4";
             groupBox4.Padding = new Padding(3, 10, 3, 3);
             groupBox4.Radius = 10;
             groupBox4.ShadowDepth = 4;
-            groupBox4.Size = new System.Drawing.Size(367, 81);
+            groupBox4.Size = new System.Drawing.Size(359, 81);
             groupBox4.TabIndex = 12;
             groupBox4.TabStop = false;
             groupBox4.Text = "Advanced buff configuration";
@@ -838,6 +689,274 @@ namespace RSBot.Skills.Views
             checkCastBuffsInTowns.UseVisualStyleBackColor = false;
             checkCastBuffsInTowns.CheckedChanged += checkCastBuffsInTowns_CheckedChanged;
             // 
+            // grpMasteryLearn
+            // 
+            grpMasteryLearn.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            grpMasteryLearn.BackColor = System.Drawing.Color.Transparent;
+            grpMasteryLearn.Controls.Add(checkLearnMasteryBotStopped);
+            grpMasteryLearn.Controls.Add(label4);
+            grpMasteryLearn.Controls.Add(numMasteryGap);
+            grpMasteryLearn.Controls.Add(comboLearnMastery);
+            grpMasteryLearn.Controls.Add(checkLearnMastery);
+            grpMasteryLearn.Location = new System.Drawing.Point(0, 193);
+            grpMasteryLearn.Margin = new Padding(0);
+            grpMasteryLearn.Name = "grpMasteryLearn";
+            grpMasteryLearn.Padding = new Padding(3, 10, 3, 3);
+            grpMasteryLearn.Radius = 10;
+            grpMasteryLearn.ShadowDepth = 4;
+            grpMasteryLearn.Size = new System.Drawing.Size(359, 98);
+            grpMasteryLearn.TabIndex = 13;
+            grpMasteryLearn.TabStop = false;
+            grpMasteryLearn.Text = "Mastery update";
+            // 
+            // checkLearnMasteryBotStopped
+            // 
+            checkLearnMasteryBotStopped.AutoSize = true;
+            checkLearnMasteryBotStopped.BackColor = System.Drawing.Color.Transparent;
+            checkLearnMasteryBotStopped.Depth = 0;
+            checkLearnMasteryBotStopped.Location = new System.Drawing.Point(15, 56);
+            checkLearnMasteryBotStopped.Margin = new Padding(0);
+            checkLearnMasteryBotStopped.MouseLocation = new System.Drawing.Point(-1, -1);
+            checkLearnMasteryBotStopped.Name = "checkLearnMasteryBotStopped";
+            checkLearnMasteryBotStopped.Ripple = true;
+            checkLearnMasteryBotStopped.Size = new System.Drawing.Size(165, 30);
+            checkLearnMasteryBotStopped.TabIndex = 25;
+            checkLearnMasteryBotStopped.Text = "Enabled if bot is stopped";
+            checkLearnMasteryBotStopped.UseVisualStyleBackColor = false;
+            checkLearnMasteryBotStopped.CheckedChanged += checkLearnMasteryBotStopped_CheckedChanged;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label4.ApplyGradient = false;
+            label4.AutoSize = true;
+            label4.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            label4.Gradient = new System.Drawing.Color[] { System.Drawing.Color.Gray, System.Drawing.Color.Black };
+            label4.GradientAnimation = false;
+            label4.Location = new System.Drawing.Point(238, 36);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(28, 15);
+            label4.TabIndex = 3;
+            label4.Text = "Gap";
+            // 
+            // numMasteryGap
+            // 
+            numMasteryGap.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            numMasteryGap.BackColor = System.Drawing.Color.Transparent;
+            numMasteryGap.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            numMasteryGap.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            numMasteryGap.Location = new System.Drawing.Point(269, 31);
+            numMasteryGap.Maximum = new decimal(new int[] { 9, 0, 0, 0 });
+            numMasteryGap.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
+            numMasteryGap.MinimumSize = new System.Drawing.Size(80, 25);
+            numMasteryGap.Name = "numMasteryGap";
+            numMasteryGap.Size = new System.Drawing.Size(80, 25);
+            numMasteryGap.TabIndex = 2;
+            numMasteryGap.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            numMasteryGap.ValueChanged += numMasteryGap_ValueChanged;
+            // 
+            // comboLearnMastery
+            // 
+            comboLearnMastery.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboLearnMastery.DrawMode = DrawMode.OwnerDrawFixed;
+            comboLearnMastery.DropDownHeight = 100;
+            comboLearnMastery.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboLearnMastery.FormattingEnabled = true;
+            comboLearnMastery.IntegralHeight = false;
+            comboLearnMastery.ItemHeight = 17;
+            comboLearnMastery.Location = new System.Drawing.Point(91, 33);
+            comboLearnMastery.Name = "comboLearnMastery";
+            comboLearnMastery.Radius = 5;
+            comboLearnMastery.ShadowDepth = 4F;
+            comboLearnMastery.Size = new System.Drawing.Size(141, 23);
+            comboLearnMastery.TabIndex = 1;
+            comboLearnMastery.SelectedIndexChanged += comboLearnMastery_SelectedIndexChanged;
+            // 
+            // checkLearnMastery
+            // 
+            checkLearnMastery.AutoSize = true;
+            checkLearnMastery.BackColor = System.Drawing.Color.Transparent;
+            checkLearnMastery.Depth = 0;
+            checkLearnMastery.Location = new System.Drawing.Point(15, 29);
+            checkLearnMastery.Margin = new Padding(0);
+            checkLearnMastery.MouseLocation = new System.Drawing.Point(-1, -1);
+            checkLearnMastery.Name = "checkLearnMastery";
+            checkLearnMastery.Ripple = true;
+            checkLearnMastery.Size = new System.Drawing.Size(73, 30);
+            checkLearnMastery.TabIndex = 0;
+            checkLearnMastery.Text = "Mastery";
+            checkLearnMastery.UseVisualStyleBackColor = false;
+            checkLearnMastery.CheckedChanged += checkLearnMastery_CheckedChanged;
+            // 
+            // groupWarlockMode
+            // 
+            groupWarlockMode.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupWarlockMode.BackColor = System.Drawing.Color.Transparent;
+            groupWarlockMode.Controls.Add(panel8);
+            groupWarlockMode.Location = new System.Drawing.Point(0, 291);
+            groupWarlockMode.Margin = new Padding(0);
+            groupWarlockMode.Name = "groupWarlockMode";
+            groupWarlockMode.Padding = new Padding(3, 10, 3, 3);
+            groupWarlockMode.Radius = 10;
+            groupWarlockMode.ShadowDepth = 4;
+            groupWarlockMode.Size = new System.Drawing.Size(359, 129);
+            groupWarlockMode.TabIndex = 14;
+            groupWarlockMode.TabStop = false;
+            groupWarlockMode.Text = "Advanced setup";
+            // 
+            // panel8
+            // 
+            panel8.AutoScroll = true;
+            panel8.BackColor = System.Drawing.Color.Transparent;
+            panel8.Controls.Add(panel9);
+            panel8.Controls.Add(comboTeleportSkill);
+            panel8.Controls.Add(checkUseTeleportSkill);
+            panel8.Controls.Add(checkUseDefaultAttack);
+            panel8.Controls.Add(checkWarlockMode);
+            panel8.Dock = DockStyle.Fill;
+            panel8.Location = new System.Drawing.Point(3, 26);
+            panel8.Margin = new Padding(0);
+            panel8.Name = "panel8";
+            panel8.Size = new System.Drawing.Size(353, 100);
+            panel8.TabIndex = 10;
+            // 
+            // panel9
+            // 
+            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel9.Controls.Add(useSkillResHP_lbPercent);
+            panel9.Controls.Add(useSkillResHP_chkbox);
+            panel9.Controls.Add(useSkillResHP_listSkills);
+            panel9.Controls.Add(useSkillResHP_lbWhen);
+            panel9.Controls.Add(useSkillResHP_txtHpThreshold);
+            panel9.Location = new System.Drawing.Point(15, 90);
+            panel9.Margin = new Padding(0);
+            panel9.Name = "panel9";
+            panel9.Size = new System.Drawing.Size(301, 30);
+            panel9.TabIndex = 14;
+            // 
+            // useSkillResHP_lbPercent
+            // 
+            useSkillResHP_lbPercent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            useSkillResHP_lbPercent.AutoSize = true;
+            useSkillResHP_lbPercent.Location = new System.Drawing.Point(280, 7);
+            useSkillResHP_lbPercent.Name = "useSkillResHP_lbPercent";
+            useSkillResHP_lbPercent.Size = new System.Drawing.Size(17, 15);
+            useSkillResHP_lbPercent.TabIndex = 14;
+            useSkillResHP_lbPercent.Text = "%";
+            // 
+            // useSkillResHP_chkbox
+            // 
+            useSkillResHP_chkbox.AutoSize = true;
+            useSkillResHP_chkbox.Depth = 0;
+            useSkillResHP_chkbox.Location = new System.Drawing.Point(0, 0);
+            useSkillResHP_chkbox.Margin = new Padding(0);
+            useSkillResHP_chkbox.MouseLocation = new System.Drawing.Point(-1, -1);
+            useSkillResHP_chkbox.Name = "useSkillResHP_chkbox";
+            useSkillResHP_chkbox.Ripple = true;
+            useSkillResHP_chkbox.Size = new System.Drawing.Size(75, 30);
+            useSkillResHP_chkbox.TabIndex = 10;
+            useSkillResHP_chkbox.Text = "Use Skill";
+            useSkillResHP_chkbox.UseVisualStyleBackColor = true;
+            // 
+            // useSkillResHP_listSkills
+            // 
+            useSkillResHP_listSkills.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            useSkillResHP_listSkills.DrawMode = DrawMode.OwnerDrawFixed;
+            useSkillResHP_listSkills.DropDownStyle = ComboBoxStyle.DropDownList;
+            useSkillResHP_listSkills.FormattingEnabled = true;
+            useSkillResHP_listSkills.ItemHeight = 16;
+            useSkillResHP_listSkills.Location = new System.Drawing.Point(78, 4);
+            useSkillResHP_listSkills.Name = "useSkillResHP_listSkills";
+            useSkillResHP_listSkills.Radius = 5;
+            useSkillResHP_listSkills.ShadowDepth = 4F;
+            useSkillResHP_listSkills.Size = new System.Drawing.Size(96, 22);
+            useSkillResHP_listSkills.TabIndex = 11;
+            // 
+            // useSkillResHP_lbWhen
+            // 
+            useSkillResHP_lbWhen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            useSkillResHP_lbWhen.AutoSize = true;
+            useSkillResHP_lbWhen.Location = new System.Drawing.Point(176, 7);
+            useSkillResHP_lbWhen.Name = "useSkillResHP_lbWhen";
+            useSkillResHP_lbWhen.Size = new System.Drawing.Size(74, 15);
+            useSkillResHP_lbWhen.TabIndex = 12;
+            useSkillResHP_lbWhen.Text = "when HP <=";
+            // 
+            // useSkillResHP_txtHpThreshold
+            // 
+            useSkillResHP_txtHpThreshold.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            useSkillResHP_txtHpThreshold.Location = new System.Drawing.Point(250, 3);
+            useSkillResHP_txtHpThreshold.Margin = new Padding(0);
+            useSkillResHP_txtHpThreshold.Name = "useSkillResHP_txtHpThreshold";
+            useSkillResHP_txtHpThreshold.Size = new System.Drawing.Size(25, 23);
+            useSkillResHP_txtHpThreshold.TabIndex = 13;
+            useSkillResHP_txtHpThreshold.Text = "50";
+            // 
+            // comboTeleportSkill
+            // 
+            comboTeleportSkill.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboTeleportSkill.DrawMode = DrawMode.OwnerDrawFixed;
+            comboTeleportSkill.DropDownHeight = 100;
+            comboTeleportSkill.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboTeleportSkill.FormattingEnabled = true;
+            comboTeleportSkill.IntegralHeight = false;
+            comboTeleportSkill.ItemHeight = 16;
+            comboTeleportSkill.Location = new System.Drawing.Point(140, 64);
+            comboTeleportSkill.Name = "comboTeleportSkill";
+            comboTeleportSkill.Radius = 5;
+            comboTeleportSkill.ShadowDepth = 4F;
+            comboTeleportSkill.Size = new System.Drawing.Size(176, 22);
+            comboTeleportSkill.TabIndex = 9;
+            comboTeleportSkill.SelectedIndexChanged += comboTeleportSkill_SelectedIndexChanged;
+            // 
+            // checkUseTeleportSkill
+            // 
+            checkUseTeleportSkill.AutoSize = true;
+            checkUseTeleportSkill.BackColor = System.Drawing.Color.Transparent;
+            checkUseTeleportSkill.Depth = 0;
+            checkUseTeleportSkill.Location = new System.Drawing.Point(15, 60);
+            checkUseTeleportSkill.Margin = new Padding(0);
+            checkUseTeleportSkill.MouseLocation = new System.Drawing.Point(-1, -1);
+            checkUseTeleportSkill.Name = "checkUseTeleportSkill";
+            checkUseTeleportSkill.Ripple = true;
+            checkUseTeleportSkill.Size = new System.Drawing.Size(123, 30);
+            checkUseTeleportSkill.TabIndex = 2;
+            checkUseTeleportSkill.Text = "Use teleport skill:";
+            checkUseTeleportSkill.UseVisualStyleBackColor = false;
+            checkUseTeleportSkill.CheckedChanged += checkUseTeleportSkill_CheckedChanged;
+            // 
+            // checkUseDefaultAttack
+            // 
+            checkUseDefaultAttack.AutoSize = true;
+            checkUseDefaultAttack.BackColor = System.Drawing.Color.Transparent;
+            checkUseDefaultAttack.Depth = 0;
+            checkUseDefaultAttack.Location = new System.Drawing.Point(15, 30);
+            checkUseDefaultAttack.Margin = new Padding(0);
+            checkUseDefaultAttack.MouseLocation = new System.Drawing.Point(-1, -1);
+            checkUseDefaultAttack.Name = "checkUseDefaultAttack";
+            checkUseDefaultAttack.Ripple = true;
+            checkUseDefaultAttack.Size = new System.Drawing.Size(242, 30);
+            checkUseDefaultAttack.TabIndex = 1;
+            checkUseDefaultAttack.Text = "Use normal attack if no skill is available";
+            checkUseDefaultAttack.UseVisualStyleBackColor = false;
+            checkUseDefaultAttack.CheckedChanged += checkUseDefaultAttack_CheckedChanged;
+            // 
+            // checkWarlockMode
+            // 
+            checkWarlockMode.AutoSize = true;
+            checkWarlockMode.BackColor = System.Drawing.Color.Transparent;
+            checkWarlockMode.Depth = 0;
+            checkWarlockMode.Location = new System.Drawing.Point(15, 0);
+            checkWarlockMode.Margin = new Padding(0);
+            checkWarlockMode.MouseLocation = new System.Drawing.Point(-1, -1);
+            checkWarlockMode.Name = "checkWarlockMode";
+            checkWarlockMode.Ripple = true;
+            checkWarlockMode.Size = new System.Drawing.Size(177, 30);
+            checkWarlockMode.TabIndex = 0;
+            checkWarlockMode.Text = "Change target after 2 DoTs";
+            checkWarlockMode.UseVisualStyleBackColor = false;
+            checkWarlockMode.CheckedChanged += checkWarlockMode_CheckedChanged;
+            // 
             // tabPage5
             // 
             tabPage5.BackColor = System.Drawing.Color.White;
@@ -859,7 +978,7 @@ namespace RSBot.Skills.Views
             groupBox5_1.Padding = new Padding(3, 8, 3, 3);
             groupBox5_1.Radius = 10;
             groupBox5_1.ShadowDepth = 4;
-            groupBox5_1.Size = new System.Drawing.Size(372, 101);
+            groupBox5_1.Size = new System.Drawing.Size(360, 103);
             groupBox5_1.TabIndex = 0;
             groupBox5_1.TabStop = false;
             groupBox5_1.Text = "General Setting";
@@ -1141,14 +1260,18 @@ namespace RSBot.Skills.Views
             tabPage1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
-            groupWarlockMode.ResumeLayout(false);
-            groupWarlockMode.PerformLayout();
-            grpMasteryLearn.ResumeLayout(false);
-            grpMasteryLearn.PerformLayout();
+            flowLayoutPanel3.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            grpMasteryLearn.ResumeLayout(false);
+            grpMasteryLearn.PerformLayout();
+            groupWarlockMode.ResumeLayout(false);
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
             tabPage5.ResumeLayout(false);
             groupBox5_1.ResumeLayout(false);
             groupBox5_1.PerformLayout();
@@ -1227,7 +1350,6 @@ namespace RSBot.Skills.Views
         private SDUI.Controls.ComboBox comboTeleportSkill;
         private SDUI.Controls.CheckBox checkUseTeleportSkill;
         private TabPage tabPage5;
-        private TextBox textBox1;
         private Label lbMagBalanc;
         private TextBox tbMagBalanc;
         private TableLayoutPanel tableLayoutPanel1;
@@ -1243,5 +1365,13 @@ namespace RSBot.Skills.Views
         private Panel panel2;
         private FlowLayoutPanel flowLayoutPanel2;
         private Panel panel7;
+        private Panel flowLayoutPanel3;
+        private Panel panel8;
+        private SDUI.Controls.CheckBox useSkillResHP_chkbox;
+        private TextBox useSkillResHP_txtHpThreshold;
+        private Label useSkillResHP_lbWhen;
+        private SDUI.Controls.ComboBox useSkillResHP_listSkills;
+        private Panel panel9;
+        private Label useSkillResHP_lbPercent;
     }
 }
