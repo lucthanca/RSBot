@@ -93,7 +93,7 @@ namespace RSBot.Core.Components
 
                     var pattern = !isVtcGame ?
                             "6A 00 68 58 5C 29 01 68 64 5C 29 01" :
-                            "6A 00 68 D8 15 26 01 68 E4";
+                            "6A 00 68 D8 25 26 01 68 E4 25 26 01";
 
                     var patchNop = new byte[] { 0x90, 0x90 };
                     var patchNop2 = new byte[] { 0x90, 0x90, 0x90, 0x90, 0x90 };
@@ -107,18 +107,24 @@ namespace RSBot.Core.Components
                     }
 
                     WriteProcessMemory(pi.hProcess, address - 0x6A, patchJmp, 1, out _);
-                    Log.Notify("Address: 0x" + (address - 0x6A).ToString("X") + " will be written with 0xEB (JMP).");
                     WriteProcessMemory(pi.hProcess, address + 0xC, patchNop2, 5, out _);
+                    WriteProcessMemory(pi.hProcess, address + 0x13, patchJmp, 1, out _);
+                    WriteProcessMemory(pi.hProcess, address + 0x90, patchJmp, 1, out _);
+
+                    Log.Notify("Address: 0x" + (address - 0x6A).ToString("X") + " will be written with 0xEB (JMP).");
                     for (int i = 0; i < patchNop2.Length; i++)
                     {
                         IntPtr currentAddress = address + 0xC + i;
                         Log.Notify("Address: 0x" + currentAddress.ToString("X") + " will be written with 0x90 (NOP).");
                     }
-                    WriteProcessMemory(pi.hProcess, address + 0x13, patchJmp, 1, out _);
                     Log.Notify("Address: 0x" + (address - 0x13).ToString("X") + " will be written with 0xEB (JMP).");
-                    WriteProcessMemory(pi.hProcess, address + 0x90, patchJmp, 1, out _);
                     Log.Notify("Address: 0x" + (address - 0x90).ToString("X") + " will be written with 0xEB (JMP).");
 
+
+                    /*if (isVtcGame)
+                    {
+                        WriteProcessMemory(pi.hProcess, address + 0x21D, patchJmp, 1, out _);
+                    }*/
 
                     moduleMemory = null;
                     GC.Collect();
