@@ -4,6 +4,7 @@ using RSBot.Core.Event;
 using RSBot.Core.Extensions;
 using RSBot.Core.Objects.Spawn;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace RSBot.Views.Controls
@@ -52,6 +53,7 @@ namespace RSBot.Views.Controls
                 progressHP.Maximum = monster.MaxHealth;
 
                 lblType.Text = monster.Rarity.GetName();
+                lbHP.Text = $"{monster.Health}/{monster.MaxHealth}";
             }
             else
             {
@@ -75,6 +77,7 @@ namespace RSBot.Views.Controls
             {
                 progressHP.Value = 100;
                 progressHP.Maximum = 100;
+                lbHP.Text = $"N/A";
                 return;
             }
 
@@ -82,6 +85,7 @@ namespace RSBot.Views.Controls
             {
                 progressHP.Value = monster.Health;
                 progressHP.Maximum = monster.MaxHealth;
+                lbHP.Text = $"{monster.Health}/{monster.MaxHealth}";
             }
         }
 
@@ -118,6 +122,7 @@ namespace RSBot.Views.Controls
             progressHP.Value = 0;
             progressHP.Maximum = 100;
             lblType.Text = "";
+            lbHP.Text = $"N/A";
         }
     }
 }
