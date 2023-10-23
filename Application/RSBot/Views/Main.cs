@@ -719,14 +719,15 @@ namespace RSBot.Views
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void menuSelectProfile_Click(object sender, EventArgs e)
         {
-            var dialog = new ProfileSelectionDialog();
+            var dialog = new ProfileSelectionDialogV2();
             dialog.StartPosition = FormStartPosition.CenterParent;
             dialog.ShowInTaskbar = false;
-            if (dialog.ShowDialog() != DialogResult.OK)
-                return;
+            if (dialog.ShowDialog() != DialogResult.OK) return;
 
-            if (dialog.SelectedProfile == ProfileManager.SelectedProfile)
-                return;
+            // Do nothing when the selected profile is the same as the current one
+            // Check the dialog result selected profile is in the recent added profiles
+            bool shouldDoNothing = dialog.SelectedProfile == ProfileManager.SelectedProfile && !dialog.recentAddedProfiles.Contains(dialog.SelectedProfile);
+            if (shouldDoNothing) return;
 
             var oldSroPath = GlobalConfig.Get("RSBot.SilkroadDirectory", "");
 

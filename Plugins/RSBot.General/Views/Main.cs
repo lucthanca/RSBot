@@ -111,6 +111,8 @@ namespace RSBot.General.Views
             checkEnableQueueNotification.Checked = GlobalConfig.Get<bool>("RSBot.General.EnableQueueNotification");
             numQueueLeft.Value = GlobalConfig.Get("RSBot.General.QueueLeft", 30);
 
+            lblVersion.Text = "v" + ((1000f + Game.ReferenceManager.VersionInfo.Version) / 1000f).ToString("0.000", CultureInfo.InvariantCulture);
+
             if (GlobalConfig.Get<bool>("RSBot.General.CharacterAutoSelect"))
             {
                 radioAutoSelectFirst.Enabled = true;
@@ -280,7 +282,7 @@ namespace RSBot.General.Views
         /// <param name="info">The information.</param>
         private void OnLoadVersionInfo(VersionInfo info)
         {
-            lblVersion.Text = "v" + ((1000f + info.Version) / 1000f).ToString("0.000", CultureInfo.InvariantCulture);
+            lblVersion.Text = "v" + ((1000f + Game.ReferenceManager.VersionInfo.Version) / 1000f).ToString("0.000", CultureInfo.InvariantCulture);
         }
 
         /// <summary>

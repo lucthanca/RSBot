@@ -105,7 +105,7 @@ namespace RSBot.Core.Components
         /// <returns>Is created <c>true</c>; otherwise <c>false</c></returns>
         public static bool Add(string profile, bool useAsBase = false)
         {
-            if(profile == SelectedProfile)
+            if(profile == SelectedProfile && SelectedProfile != "Default")
                 return true;
 
             _profiles.Add(profile);

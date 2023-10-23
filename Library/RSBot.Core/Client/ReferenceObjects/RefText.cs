@@ -58,17 +58,10 @@ namespace RSBot.Core.Client.ReferenceObjects
 
             if (!parser.TryParse(nameStrIndex, out NameStrId))
                 return false;
-            try
-            {
-                parser.TryParse(LangOffset[Kernel.Language], out Data);
-            }
-            catch
-            {
-                // languageTab = 8;
-                //Try parse with the already set language tab
-                // parser.TryParse(languageTab, out Data);
-            }
+
             var languageTab = 8;
+            LangOffset.TryGetValue(Kernel.Language, out languageTab);
+            
             var maxTabs = parser.GetColumnCount();
 
             //Try parse with the already set language tab
