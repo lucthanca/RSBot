@@ -35,6 +35,23 @@ namespace RSBot.Core.Components
         }
 
         /// <summary>
+        /// Load the language file with specific assembly and language
+        /// </summary>
+        /// <param name="assembly">the directory name</param>
+        /// <param name="language">language key</param>
+        public static void LoadLanguage(string assembly, string language)
+        {
+            var path = Path.Combine(_path, assembly, language + ".rsl");
+            var dir = Path.GetDirectoryName(path);
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+            if (!File.Exists(path))
+                return;
+            var values = ParseLanguageFile(path);
+            _values[assembly] = values;
+        }
+
+        /// <summary>
         /// Parse the language file
         /// </summary>
         /// <param name="file">The language file</param>
@@ -182,6 +199,38 @@ namespace RSBot.Core.Components
                 return _values[parent][key];
             
             return string.Empty;
+        }
+
+        /// <summary>
+        /// Get language value with default message
+        /// </summary>
+        /// <param name="key">The key</param>
+        /// <param name="defaultMsg">The default message will return if not found translated message</param>
+        public static string GetText(string key, string defaultMsg)
+        {
+            string result = GetLang(key);
+            if (result == string.Empty)
+            {
+                return defaultMsg;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Get language value with default message
+        /// </summary>
+        /// <param name="key">The key</param>
+        /// <param name="defaultMsg">The default message will return if not found translated message</param>
+        public static string GetText(string key, string defaultMsg, params object[] args)
+        {
+            string result = GetLang(key);
+            if (result == string.Empty)
+            {
+                result = defaultMsg;
+            }
+
+            return string.Format(result, args);
         }
 
         /// <summary>

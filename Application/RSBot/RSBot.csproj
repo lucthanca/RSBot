@@ -22,11 +22,19 @@
 	<ItemGroup>
 	  <Content Include="app.ico" />
 	</ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\Dependencies\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DeploymentContent>true</DeploymentContent>
+      <Link>Data\%(RecursiveDir)\%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\Library\RSBot.Core\RSBot.Core.csproj">
 		  <Private>True</Private>
 		</ProjectReference>
 		<ProjectReference Include="..\..\SDUI\SDUI\SDUI.csproj" />
+		<ProjectReference Include="..\Vadu.AlphaForm\Vadu.AlphaForm.csproj" />
 	</ItemGroup>
 </Project>

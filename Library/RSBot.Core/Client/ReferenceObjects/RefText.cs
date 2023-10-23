@@ -1,10 +1,15 @@
-﻿namespace RSBot.Core.Client.ReferenceObjects
+﻿using System.Collections.Generic;
+
+namespace RSBot.Core.Client.ReferenceObjects
 {
     public class RefText : IReference<string>
     {
         private const int LANG_OFFSET = 2;
         private const int LANG_COUNT = 14;
-
+        private Dictionary<string, int> LangOffset = new()
+        {
+            { "vn_VN", 10 }
+        };
         //private readonly string[] _data = new string[LANG_COUNT];
 
         #region IRefrerence
@@ -53,12 +58,21 @@
 
             if (!parser.TryParse(nameStrIndex, out NameStrId))
                 return false;
-
+            try
+            {
+                parser.TryParse(LangOffset[Kernel.Language], out Data);
+            }
+            catch
+            {
+                // languageTab = 8;
+                //Try parse with the already set language tab
+                // parser.TryParse(languageTab, out Data);
+            }
             var languageTab = 8;
             var maxTabs = parser.GetColumnCount();
 
             //Try parse with the already set language tab
-            parser.TryParse(languageTab, out Data);
+            // parser.TryParse(languageTab, out Data);
 
             while (IsEmptyString(Data) && languageTab <= maxTabs)
             { 

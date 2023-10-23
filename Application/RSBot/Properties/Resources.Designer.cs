@@ -69,5 +69,14 @@ namespace RSBot.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        internal static System.Drawing.Bitmap SilkroadOnline_splash
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("SilkroadOnline_splash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
