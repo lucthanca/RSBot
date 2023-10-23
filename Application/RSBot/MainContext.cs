@@ -11,7 +11,7 @@ namespace RSBot
     {
         private int _openForms = 2;
 
-        public MainContext(SplashScreenV2 splashScreen, Main mainForm)
+        public MainContext(SplashScreenV2 splashScreen, MainLegacy mainForm)
         {
             var ci = CultureInfo.InstalledUICulture;
             Kernel.Language = ci.Name.Replace("-", "_");

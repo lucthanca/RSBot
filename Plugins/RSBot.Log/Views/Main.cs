@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace RSBot.Log.Views
 {
-    [System.ComponentModel.ToolboxItem(false)]
+    [System.ComponentModel.ToolboxItem(true)]
     public partial class Main : UserControl
     {
         /// <summary>

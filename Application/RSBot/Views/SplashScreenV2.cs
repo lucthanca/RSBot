@@ -14,11 +14,11 @@ namespace RSBot
     {
         private byte _completed = 0;
 
-        private Main _mainForm;
+        private MainLegacy _mainForm;
 
         public byte Completed { get => _completed; }
 
-        public Main MainForm { set => _mainForm = value; }
+        public MainLegacy MainForm { set => _mainForm = value; }
 
         public SplashScreenV2()
         {
